@@ -28,6 +28,7 @@
         transform: translateX(20px);
         transition: opacity 0.3s ease, transform 0.3s ease;
     ">
+
         <i class="bi {{ $toastType === 'success' ? 'bi-check-circle-fill' : ($toastType === 'error' ? 'bi-x-circle-fill' : 'bi-info-circle-fill') }}"
            style="color: {{ $toastColors[$toastType] }}; font-size: 1.3rem;"></i>
         <span style="flex: 1; color: #333; font-size: 0.95rem;">{{ $toastMessage }}</span>
