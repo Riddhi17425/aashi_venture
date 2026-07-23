@@ -36,11 +36,11 @@ class BranchController extends Controller
 
             Branch::create($data);
 
-            return redirect()->route('branches')->with('success', 'Branch created successfully.');
+            return redirect()->route('branches')->with('toast_success', 'Branch created successfully.');
         } catch (\Exception $e) {
             Log::error('Branch store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save branch: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save branch: ' . $e->getMessage());
         }
     }
 
@@ -68,11 +68,11 @@ class BranchController extends Controller
 
             $branch->update($data);
 
-            return redirect()->route('branches')->with('success', 'Branch updated successfully.');
+            return redirect()->route('branches')->with('toast_success', 'Branch updated successfully.');
         } catch (\Exception $e) {
             Log::error('Branch update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update branch: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update branch: ' . $e->getMessage());
         }
     }
 
@@ -86,29 +86,11 @@ class BranchController extends Controller
         try {
             $branch->delete();
 
-            return redirect()->route('branches')->with('success', 'Branch moved to trash.');
+            return redirect()->route('branches')->with('toast_success', 'Branch moved to trash.');
         } catch (\Exception $e) {
             Log::error('Branch soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('branches')->with('error', 'Failed to delete branch.');
-        }
-    }
-
-    /**
-     * Permanently delete — only meaningful for an already-trashed branch.
-     */
-    public function forceDestroy($id)
-    {
-        $branch = Branch::withTrashed()->findOrFail($id);
-
-        try {
-            $branch->forceDelete();
-
-            return redirect()->route('branches')->with('success', 'Branch permanently deleted.');
-        } catch (\Exception $e) {
-            Log::error('Branch permanent delete failed: ' . $e->getMessage());
-
-            return redirect()->route('branches')->with('error', 'Failed to permanently delete branch.');
+            return redirect()->route('branches')->with('toast_error', 'Failed to delete branch.');
         }
     }
 
@@ -117,7 +99,19 @@ class BranchController extends Controller
         $branch = Branch::withTrashed()->findOrFail($id);
         $branch->restore();
 
-        return redirect()->route('branches')->with('success', 'Branch restored.');
+        return redirect()->route('branches')->with('toast_success', 'Branch restored.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $branch            = Branch::findOrFail($id);
+        $branch->is_active = ! $branch->is_active;
+        $branch->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $branch->is_active,
+        ]);
     }
 
     private function rules(): array

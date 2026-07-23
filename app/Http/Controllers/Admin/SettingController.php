@@ -51,11 +51,11 @@ class SettingController extends Controller
 
             Setting::create($data);
 
-            return redirect()->route('settings')->with('success', 'Setting created successfully.');
+            return redirect()->route('settings')->with('toast_success', 'Setting created successfully.');
         } catch (\Exception $e) {
             Log::error('Setting store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save setting: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save setting: ' . $e->getMessage());
         }
     }
 
@@ -101,11 +101,11 @@ class SettingController extends Controller
 
             $setting->update($data);
 
-            return redirect()->route('settings')->with('success', 'Setting updated successfully.');
+            return redirect()->route('settings')->with('toast_success', 'Setting updated successfully.');
         } catch (\Exception $e) {
             Log::error('Setting update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update setting: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update setting: ' . $e->getMessage());
         }
     }
 
@@ -116,27 +116,11 @@ class SettingController extends Controller
         try {
             $setting->delete();
 
-            return redirect()->route('settings')->with('success', 'Setting moved to trash.');
+            return redirect()->route('settings')->with('toast_success', 'Setting moved to trash.');
         } catch (\Exception $e) {
             Log::error('Setting soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('settings')->with('error', 'Failed to delete setting.');
-        }
-    }
-
-    public function forceDestroy($id)
-    {
-        $setting = Setting::withTrashed()->findOrFail($id);
-
-        try {
-            deleteStoredFile($setting->image);
-            $setting->forceDelete();
-
-            return redirect()->route('settings')->with('success', 'Setting permanently deleted.');
-        } catch (\Exception $e) {
-            Log::error('Setting permanent delete failed: ' . $e->getMessage());
-
-            return redirect()->route('settings')->with('error', 'Failed to permanently delete setting.');
+            return redirect()->route('settings')->with('toast_error', 'Failed to delete setting.');
         }
     }
 
@@ -145,7 +129,19 @@ class SettingController extends Controller
         $setting = Setting::withTrashed()->findOrFail($id);
         $setting->restore();
 
-        return redirect()->route('settings')->with('success', 'Setting restored.');
+        return redirect()->route('settings')->with('toast_success', 'Setting restored.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $setting            = Setting::findOrFail($id);
+        $setting->is_active = ! $setting->is_active;
+        $setting->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $setting->is_active,
+        ]);
     }
 
     private function rules(Request $request, ?int $ignoreId = null): array

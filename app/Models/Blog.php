@@ -43,16 +43,16 @@ class Blog extends Model
 
     public function getFrontImageUrlAttribute(): ?string
     {
-        return $this->front_image ? asset('storage/' . $this->front_image) : null;
+        return $this->front_image ? asset('backend/' . $this->front_image) : null;
     }
 
     public function getDetailImageUrlAttribute(): ?string
     {
-        return $this->detail_image ? asset('storage/' . $this->detail_image) : null;
+        return $this->detail_image ? asset('backend/' . $this->detail_image) : null;
     }
 
     public function getCtaImageUrlAttribute(): ?string
     {
-        return $this->cta_image ? asset('storage/' . $this->cta_image) : null;
+        return $this->cta_image ? asset('backend/' . $this->cta_image) : null;
     }
 }

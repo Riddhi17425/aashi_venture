@@ -54,11 +54,11 @@ class BannerController extends Controller
 
             Banner::create($data);
 
-            return redirect()->route('banners')->with('success', 'Banner created successfully.');
+            return redirect()->route('banners')->with('toast_success', 'Banner created successfully.');
         } catch (\Exception $e) {
             Log::error('Banner store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save banner: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save banner: ' . $e->getMessage());
         }
     }
 
@@ -100,11 +100,11 @@ class BannerController extends Controller
 
             $banner->update($data);
 
-            return redirect()->route('banners')->with('success', 'Banner updated successfully.');
+            return redirect()->route('banners')->with('toast_success', 'Banner updated successfully.');
         } catch (\Exception $e) {
             Log::error('Banner update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update banner: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update banner: ' . $e->getMessage());
         }
     }
 
@@ -119,17 +119,17 @@ class BannerController extends Controller
         try {
             $banner->delete();
 
-            return redirect()->route('banners')->with('success', 'Banner moved to trash.');
+            return redirect()->route('banners')->with('toast_success', 'Banner moved to trash.');
         } catch (\Exception $e) {
             Log::error('Banner soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('banners')->with('error', 'Failed to delete banner.');
+            return redirect()->route('banners')->with('toast_error', 'Failed to delete banner.');
         }
     }
 
     /**
-     * Permanently delete — only meaningful for an already-trashed banner.
-     * Removes the DB row and its uploaded files for good.
+     * Permanently delete — kept for potential future/admin-only use,
+     * but no longer routed from the UI.
      */
     public function forceDestroy($id)
     {
@@ -141,11 +141,11 @@ class BannerController extends Controller
 
             $banner->forceDelete();
 
-            return redirect()->route('banners')->with('success', 'Banner permanently deleted.');
+            return redirect()->route('banners')->with('toast_success', 'Banner permanently deleted.');
         } catch (\Exception $e) {
             Log::error('Banner permanent delete failed: ' . $e->getMessage());
 
-            return redirect()->route('banners')->with('error', 'Failed to permanently delete banner.');
+            return redirect()->route('banners')->with('toast_error', 'Failed to permanently delete banner.');
         }
     }
 
@@ -154,7 +154,19 @@ class BannerController extends Controller
         $banner = Banner::withTrashed()->findOrFail($id);
         $banner->restore();
 
-        return redirect()->route('banners')->with('success', 'Banner restored.');
+        return redirect()->route('banners')->with('toast_success', 'Banner restored.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $banner            = Banner::findOrFail($id);
+        $banner->is_active = ! $banner->is_active;
+        $banner->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $banner->is_active,
+        ]);
     }
 
     private function rules(): array
@@ -175,11 +187,6 @@ class BannerController extends Controller
         ];
     }
 
-    /**
-     * Categories for the dropdown. On edit, the banner's current category
-     * is included even if it has since been made inactive, so the form
-     * doesn't silently drop the existing selection.
-     */
     private function activeCategories(?int $includeId = null)
     {
         return Category::where('is_active', true)

@@ -8,8 +8,6 @@
             <div class="col-md-6 text-end"><a href="{{ route('settings') }}" class="btn btn-secondary">Back</a></div>
         </div>
 
-        @if(session('error'))<div class="alert alert-danger">{{ session('error') }}</div>@endif
-
         <div class="card"><div class="card-body">
             <form id="settingForm" action="{{ route('settings.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf

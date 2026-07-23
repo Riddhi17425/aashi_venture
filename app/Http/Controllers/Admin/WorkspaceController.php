@@ -48,11 +48,11 @@ class WorkspaceController extends Controller
 
             Workspace::create($data);
 
-            return redirect()->route('workspaces')->with('success', 'Workspace image added successfully.');
+            return redirect()->route('workspaces')->with('toast_success', 'Workspace image added successfully.');
         } catch (\Exception $e) {
             Log::error('Workspace store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save workspace image: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save workspace image: ' . $e->getMessage());
         }
     }
 
@@ -87,11 +87,11 @@ class WorkspaceController extends Controller
 
             $workspace->update($data);
 
-            return redirect()->route('workspaces')->with('success', 'Workspace image updated successfully.');
+            return redirect()->route('workspaces')->with('toast_success', 'Workspace image updated successfully.');
         } catch (\Exception $e) {
             Log::error('Workspace update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update workspace image: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update workspace image: ' . $e->getMessage());
         }
     }
 
@@ -106,32 +106,11 @@ class WorkspaceController extends Controller
         try {
             $workspace->delete();
 
-            return redirect()->route('workspaces')->with('success', 'Workspace image moved to trash.');
+            return redirect()->route('workspaces')->with('toast_success', 'Workspace image moved to trash.');
         } catch (\Exception $e) {
             Log::error('Workspace soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('workspaces')->with('error', 'Failed to delete workspace image.');
-        }
-    }
-
-    /**
-     * Permanently delete — only meaningful for an already-trashed workspace
-     * image. Removes the DB row and its uploaded file for good.
-     */
-    public function forceDestroy($id)
-    {
-        $workspace = Workspace::withTrashed()->findOrFail($id);
-
-        try {
-            deleteStoredFile($workspace->image);
-
-            $workspace->forceDelete();
-
-            return redirect()->route('workspaces')->with('success', 'Workspace image permanently deleted.');
-        } catch (\Exception $e) {
-            Log::error('Workspace permanent delete failed: ' . $e->getMessage());
-
-            return redirect()->route('workspaces')->with('error', 'Failed to permanently delete workspace image.');
+            return redirect()->route('workspaces')->with('toast_error', 'Failed to delete workspace image.');
         }
     }
 
@@ -140,7 +119,19 @@ class WorkspaceController extends Controller
         $workspace = Workspace::withTrashed()->findOrFail($id);
         $workspace->restore();
 
-        return redirect()->route('workspaces')->with('success', 'Workspace image restored.');
+        return redirect()->route('workspaces')->with('toast_success', 'Workspace image restored.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $workspace            = Workspace::findOrFail($id);
+        $workspace->is_active = ! $workspace->is_active;
+        $workspace->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $workspace->is_active,
+        ]);
     }
 
     private function rules(bool $isCreate): array

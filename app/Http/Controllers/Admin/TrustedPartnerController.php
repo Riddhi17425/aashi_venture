@@ -44,11 +44,11 @@ class TrustedPartnerController extends Controller
 
             TrustedPartner::create($data);
 
-            return redirect()->route('partners')->with('success', 'Partner logo added successfully.');
+            return redirect()->route('partners')->with('toast_success', 'Partner logo added successfully.');
         } catch (\Exception $e) {
             Log::error('Trusted partner store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save partner logo: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save partner logo: ' . $e->getMessage());
         }
     }
 
@@ -82,11 +82,11 @@ class TrustedPartnerController extends Controller
 
             $partner->update($data);
 
-            return redirect()->route('partners')->with('success', 'Partner logo updated successfully.');
+            return redirect()->route('partners')->with('toast_success', 'Partner logo updated successfully.');
         } catch (\Exception $e) {
             Log::error('Trusted partner update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update partner logo: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update partner logo: ' . $e->getMessage());
         }
     }
 
@@ -101,32 +101,11 @@ class TrustedPartnerController extends Controller
         try {
             $partner->delete();
 
-            return redirect()->route('partners')->with('success', 'Partner logo moved to trash.');
+            return redirect()->route('partners')->with('toast_success', 'Partner logo moved to trash.');
         } catch (\Exception $e) {
             Log::error('Trusted partner soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('partners')->with('error', 'Failed to delete partner logo.');
-        }
-    }
-
-    /**
-     * Permanently delete — only meaningful for an already-trashed partner.
-     * Removes the DB row and its uploaded file for good.
-     */
-    public function forceDestroy($id)
-    {
-        $partner = TrustedPartner::withTrashed()->findOrFail($id);
-
-        try {
-            deleteStoredFile($partner->logo);
-
-            $partner->forceDelete();
-
-            return redirect()->route('partners')->with('success', 'Partner logo permanently deleted.');
-        } catch (\Exception $e) {
-            Log::error('Trusted partner permanent delete failed: ' . $e->getMessage());
-
-            return redirect()->route('partners')->with('error', 'Failed to permanently delete partner logo.');
+            return redirect()->route('partners')->with('toast_error', 'Failed to delete partner logo.');
         }
     }
 
@@ -135,7 +114,19 @@ class TrustedPartnerController extends Controller
         $partner = TrustedPartner::withTrashed()->findOrFail($id);
         $partner->restore();
 
-        return redirect()->route('partners')->with('success', 'Partner logo restored.');
+        return redirect()->route('partners')->with('toast_success', 'Partner logo restored.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $partner            = TrustedPartner::findOrFail($id);
+        $partner->is_active = ! $partner->is_active;
+        $partner->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $partner->is_active,
+        ]);
     }
 
     private function rules(bool $isCreate): array

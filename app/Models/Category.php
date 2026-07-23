@@ -55,21 +55,21 @@ class Category extends Model
 
     public function getIconUrlAttribute(): ?string
     {
-        return $this->icon ? asset('storage/' . $this->icon) : null;
+        return $this->icon ? asset('backend/' . $this->icon) : null;
     }
 
     public function getListingImageUrlAttribute(): ?string
     {
-        return $this->listing_image ? asset('storage/' . $this->listing_image) : null;
+        return $this->listing_image ? asset('backend/' . $this->listing_image) : null;
     }
 
     public function getDetailImageUrlAttribute(): ?string
     {
-        return $this->detail_image ? asset('storage/' . $this->detail_image) : null;
+        return $this->detail_image ? asset('backend/' . $this->detail_image) : null;
     }
 
     public function getBrochureUrlAttribute(): ?string
     {
-        return $this->brochure_pdf ? asset('storage/' . $this->brochure_pdf) : null;
+        return $this->brochure_pdf ? asset('backend/' . $this->brochure_pdf) : null;
     }
 }

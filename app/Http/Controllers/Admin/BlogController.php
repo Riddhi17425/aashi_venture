@@ -60,11 +60,11 @@ class BlogController extends Controller
 
             Blog::create($data);
 
-            return redirect()->route('blogs')->with('success', 'Blog post created successfully.');
+            return redirect()->route('blogs')->with('toast_success', 'Blog post created successfully.');
         } catch (\Exception $e) {
             Log::error('Blog store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save blog post: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save blog post: ' . $e->getMessage());
         }
     }
 
@@ -116,11 +116,11 @@ class BlogController extends Controller
 
             $blog->update($data);
 
-            return redirect()->route('blogs')->with('success', 'Blog post updated successfully.');
+            return redirect()->route('blogs')->with('toast_success', 'Blog post updated successfully.');
         } catch (\Exception $e) {
             Log::error('Blog update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update blog post: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update blog post: ' . $e->getMessage());
         }
     }
 
@@ -131,30 +131,11 @@ class BlogController extends Controller
         try {
             $blog->delete();
 
-            return redirect()->route('blogs')->with('success', 'Blog post moved to trash.');
+            return redirect()->route('blogs')->with('toast_success', 'Blog post moved to trash.');
         } catch (\Exception $e) {
             Log::error('Blog soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('blogs')->with('error', 'Failed to delete blog post.');
-        }
-    }
-
-    public function forceDestroy($id)
-    {
-        $blog = Blog::withTrashed()->findOrFail($id);
-
-        try {
-            deleteStoredFile($blog->front_image);
-            deleteStoredFile($blog->detail_image);
-            deleteStoredFile($blog->cta_image);
-
-            $blog->forceDelete();
-
-            return redirect()->route('blogs')->with('success', 'Blog post permanently deleted.');
-        } catch (\Exception $e) {
-            Log::error('Blog permanent delete failed: ' . $e->getMessage());
-
-            return redirect()->route('blogs')->with('error', 'Failed to permanently delete blog post.');
+            return redirect()->route('blogs')->with('toast_error', 'Failed to delete blog post.');
         }
     }
 
@@ -163,7 +144,23 @@ class BlogController extends Controller
         $blog = Blog::withTrashed()->findOrFail($id);
         $blog->restore();
 
-        return redirect()->route('blogs')->with('success', 'Blog post restored.');
+        return redirect()->route('blogs')->with('toast_success', 'Blog post restored.');
+    }
+
+    /**
+     * Toggle between draft and published (blogs use a status enum,
+     * not a plain is_active boolean like other modules).
+     */
+    public function toggleStatus($id)
+    {
+        $blog         = Blog::findOrFail($id);
+        $blog->status = $blog->status === 'published' ? 'draft' : 'published';
+        $blog->save();
+
+        return response()->json([
+            'success' => true,
+            'status'  => $blog->status,
+        ]);
     }
 
     private function rules(?int $ignoreId = null): array

@@ -64,11 +64,12 @@ class CategoryController extends Controller
 
             Category::create($data);
 
-            return redirect()->route('categories')->with('success', 'Category created successfully.');
+            return redirect()->route('categories')->with('toast_success', 'Category created successfully.');
+
         } catch (\Exception $e) {
             Log::error('Category store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save category: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save category: ' . $e->getMessage());
         }
     }
 
@@ -125,11 +126,12 @@ class CategoryController extends Controller
 
             $category->update($data);
 
-            return redirect()->route('categories')->with('success', 'Category updated successfully.');
+            return redirect()->route('categories')->with('toast_success', 'Category updated successfully.');
+
         } catch (\Exception $e) {
             Log::error('Category update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update category: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update category: ' . $e->getMessage());
         }
     }
 
@@ -142,45 +144,19 @@ class CategoryController extends Controller
         $category = Category::findOrFail($id);
 
         if ($category->hasAssociations()) {
-            return redirect()->route('categories')->with('error', self::ASSOCIATION_MESSAGE);
+            return redirect()->route('categories')->with('toast_error', self::ASSOCIATION_MESSAGE);
         }
 
         try {
             $category->delete();
 
-            return redirect()->route('categories')->with('success', 'Category moved to trash.');
+            return redirect()->route('categories')->with('toast_success', 'Category moved to trash.');
+
         } catch (\Exception $e) {
             Log::error('Category soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('categories')->with('error', 'Failed to delete category.');
-        }
-    }
+            return redirect()->route('categories')->with('toast_error', 'Failed to delete category.');
 
-    /**
-     * Permanently delete — only meaningful for an already-trashed category.
-     * Removes the DB row and its uploaded files for good.
-     */
-    public function forceDestroy($id)
-    {
-        $category = Category::withTrashed()->findOrFail($id);
-
-        if ($category->hasAssociations()) {
-            return redirect()->route('categories')->with('error', self::ASSOCIATION_MESSAGE);
-        }
-
-        try {
-            deleteStoredFile($category->icon);
-            deleteStoredFile($category->listing_image);
-            deleteStoredFile($category->detail_image);
-            deleteStoredFile($category->brochure_pdf);
-
-            $category->forceDelete();
-
-            return redirect()->route('categories')->with('success', 'Category permanently deleted.');
-        } catch (\Exception $e) {
-            Log::error('Category permanent delete failed: ' . $e->getMessage());
-
-            return redirect()->route('categories')->with('error', 'Failed to permanently delete category.');
         }
     }
 
@@ -189,7 +165,7 @@ class CategoryController extends Controller
         $category = Category::withTrashed()->findOrFail($id);
         $category->restore();
 
-        return redirect()->route('categories')->with('success', 'Category restored.');
+        return redirect()->route('categories')->with('toast_success', 'Category restored.');
     }
 
     private function rules(?int $ignoreId = null): array
@@ -239,4 +215,18 @@ class CategoryController extends Controller
             return ['number' => $number, 'title' => $title];
         }, $request->input('stats_number', []), $request->input('stats_title', []))));
     }
+
+    public function toggleStatus($id)
+    {
+        $category            = Category::findOrFail($id);
+        $category->is_active = ! $category->is_active;
+        $category->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $category->is_active,
+
+        ]);
+    }
+
 }

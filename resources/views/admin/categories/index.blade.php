@@ -12,15 +12,12 @@
             </div>
         </div>
 
-        @if(session('success'))<div class="alert alert-success">{{ session('success') }}</div>@endif
-        @if(session('error'))<div class="alert alert-danger">{{ session('error') }}</div>@endif
-
         <div class="card">
             <div class="card-body">
                 <table class="table table-bordered align-middle" id="myDataTable">
                     <thead>
                     <tr>
-                        <th data-priority="1">#</th>
+                        <th data-priority="1">ID</th>
                         <th data-priority="6">Icon</th>
                         <th data-priority="1">Title</th>
                         <th data-priority="1">URL</th>
@@ -33,7 +30,7 @@
                 </thead>
                     <tbody>
                         @forelse($categories as $category)
-                            <tr class="{{ $category->trashed() ? 'table-warning' : '' }}">
+                            <tr>
                                 <td>{{ $loop->iteration }}</td>
                                 <td>
                                     @if($category->icon)
@@ -50,40 +47,45 @@
                                         <img src="{{ $category->listing_image_url }}" alt="{{ $category->listing_image_alt ?: $category->title }}" style="max-width:100px;">
                                     @endif
                                 </td>
-                                <td>
-                                    @if($category->trashed())
-                                        <span class="badge bg-warning text-dark">Trashed</span>
-                                    @elseif($category->is_active)
-                                        <span class="badge bg-success">Active</span>
-                                    @else
-                                        <span class="badge bg-secondary">Inactive</span>
-                                    @endif
-                                </td>
+                              <td>
+                                @if($category->trashed())
+                                    <span class="badge bg-warning text-dark">Trashed</span>
+                                @else
+                                    <div class="d-flex align-items-center gap-2">
+                                        <div class="form-check form-switch mb-0">
+                                            <input class="form-check-input toggle-status" type="checkbox" role="switch"
+                                                style="width: 2.5em; height: 1.3em;"
+                                                data-url="{{ route('categories.toggle_status', $category->id) }}"
+                                                {{ $category->is_active ? 'checked' : '' }}>
+                                        </div>
+                                        <span class="status-label small fw-semibold {{ $category->is_active ? 'text-success' : 'text-secondary' }}">
+                                            {{ $category->is_active ? 'Active' : 'Inactive' }}
+                                        </span>
+                                    </div>
+                                @endif
+                            </td>
                                 <td>{{ $category->created_at->format('Y-m-d') }}</td>
                                 <td class="text-nowrap">
-                                    @if($category->trashed())
-                                        <form action="{{ route('categories.restore', $category->id) }}" method="POST" style="display:inline-block;">
-                                            @csrf
-                                            @method('PATCH')
-                                            <button class="btn btn-sm btn-outline-success" type="submit">Restore</button>
-                                        </form>
-                                        <button type="button" class="btn btn-sm btn-outline-danger js-delete-btn"
-                                                data-name="{{ $category->title }}"
-                                                data-force-url="{{ route('categories.force_delete', $category->id) }}"
-                                                data-force-only="1">
-                                            Delete Permanently
+                                @if($category->trashed())
+                                    <form action="{{ route('categories.restore', $category->id) }}" method="POST" class="d-inline-block">
+                                        @csrf
+                                        @method('PATCH')
+                                        <button class="btn btn-sm btn-outline-success" type="submit" title="Restore">
+                                            <i class="bi bi-arrow-counterclockwise"></i>
                                         </button>
-                                    @else
-                                        <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-outline-primary">Edit</a>
-                                        <button type="button" class="btn btn-sm btn-outline-danger js-delete-btn"
-                                                data-name="{{ $category->title }}"
-                                                data-soft-url="{{ route('categories.delete', $category->id) }}"
-                                                data-force-url="{{ route('categories.force_delete', $category->id) }}"
-                                                data-force-only="0">
-                                            Delete
-                                        </button>
-                                    @endif
-                                </td>
+                                    </form>
+                                @else
+                                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-sm btn-outline-primary" title="Edit">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </a>
+                                    <button type="button" class="btn btn-sm btn-outline-danger js-delete-btn"
+                                            data-name="{{ $category->title }}"
+                                            data-url="{{ route('categories.delete', $category->id) }}"
+                                            title="Delete">
+                                        <i class="bi bi-trash"></i>
+                                    </button>
+                                @endif
+                            </td>
                             </tr>
                         @empty
                             <tr><td colspan="9" class="text-center text-muted py-4">No categories yet. Click "Add Category" to create one.</td></tr>
@@ -96,20 +98,19 @@
 </div>
 
 {{-- Shared delete-choice modal --}}
-<div class="modal fade" id="deleteChoiceModal" tabindex="-1" aria-hidden="true">
+<div class="modal fade" id="deleteConfirmModal" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Delete "<span id="deleteChoiceName"></span>"</h5>
+                <h5 class="modal-title">Delete "<span id="deleteConfirmName"></span>"</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <p id="deleteChoiceText" class="mb-0">How would you like to delete this category?</p>
+                <p class="mb-0">Are you sure you want to delete this category? It will be moved to trash and can be restored later.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                <button type="button" class="btn btn-outline-warning" id="deleteChoiceSoft">Move to Trash</button>
-                <button type="button" class="btn btn-danger" id="deleteChoiceForce">Delete Permanently</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                <button type="button" class="btn btn-danger" id="deleteConfirmYes">Yes, Delete</button>
             </div>
         </div>
     </div>
@@ -123,34 +124,47 @@
 @push('scripts')
 <script>
     $(function() {
-        const modalEl = document.getElementById('deleteChoiceModal');
+        const modalEl = document.getElementById('deleteConfirmModal');
         const modal = new bootstrap.Modal(modalEl);
         const $actionForm = $('#deleteActionForm');
+        let $pendingToggle = null;
 
+        // Delete confirm
         $(document).on('click', '.js-delete-btn', function() {
-            const btn = $(this);
-            const forceOnly = btn.data('force-only') == '1';
-
-            $('#deleteChoiceName').text(btn.data('name'));
-            $('#deleteChoiceSoft').toggle(!forceOnly);
-            $('#deleteChoiceText').text(
-                forceOnly
-                    ? 'This category is already in trash. This will permanently delete it and its files — this cannot be undone.'
-                    : 'Move it to trash (can be restored later) or delete it permanently right away.'
-            );
-
-            $('#deleteChoiceSoft').off('click').on('click', function() {
-                $actionForm.attr('action', btn.data('soft-url')).trigger('submit');
-            });
-            $('#deleteChoiceForce').off('click').on('click', function() {
-                if (!confirm('This permanently deletes the category and its files. This cannot be undone. Continue?')) {
-                    return;
-                }
-                $actionForm.attr('action', btn.data('force-url')).trigger('submit');
-            });
-
+            $('#deleteConfirmName').text($(this).data('name'));
+            $actionForm.attr('action', $(this).data('url'));
             modal.show();
         });
+
+        $('#deleteConfirmYes').on('click', function() {
+            $actionForm.trigger('submit');
+        });
+
+        // Active/Inactive toggle
+       $(document).on('change', '.toggle-status', function() {
+        const $chk = $(this);
+        const $label = $chk.closest('.d-flex').find('.status-label');
+        const categoryName = $chk.closest('tr').find('td').eq(2).text().trim();
+
+        $.ajax({
+            url: $chk.data('url'),
+            type: 'PATCH',
+            data: { _token: '{{ csrf_token() }}' },
+            success: function(res) {
+                if (res.is_active) {
+                    $label.text('Active').removeClass('text-secondary').addClass('text-success');
+                    showAppToast('success', `"${categoryName}" marked as Active.`);
+                } else {
+                    $label.text('Inactive').removeClass('text-success').addClass('text-secondary');
+                    showAppToast('info', `"${categoryName}" marked as Inactive.`);
+                }
+            },
+            error: function() {
+                $chk.prop('checked', !$chk.prop('checked'));
+                showAppToast('error', 'Failed to update status. Please try again.');
+            }
+        });
+    });
     });
 </script>
 @endpush

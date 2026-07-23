@@ -4,7 +4,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
 
 class Banner extends Model
 {
@@ -35,12 +34,12 @@ class Banner extends Model
 
     public function getMobileImageUrlAttribute(): ?string
     {
-        return $this->mobile_image ? Storage::url($this->mobile_image) : null;
+        return $this->mobile_image ? asset('backend/' . $this->mobile_image) : null;
     }
 
     public function getDesktopImageUrlAttribute(): ?string
     {
-        return $this->desktop_image ? Storage::url($this->desktop_image) : null;
+        return $this->desktop_image ? asset('backend/' . $this->desktop_image) : null;
     }
 
     /**

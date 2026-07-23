@@ -45,11 +45,11 @@ class SubCategoryController extends Controller
 
             SubCategory::create($data);
 
-            return redirect()->route('sub_categories')->with('success', 'Sub-category created successfully.');
+            return redirect()->route('sub_categories')->with('toast_success', 'Sub-category created successfully.');
         } catch (\Exception $e) {
             Log::error('SubCategory store failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to save sub-category: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to save sub-category: ' . $e->getMessage());
         }
     }
 
@@ -83,16 +83,16 @@ class SubCategoryController extends Controller
 
             $subCategory->update($data);
 
-            return redirect()->route('sub_categories')->with('success', 'Sub-category updated successfully.');
+            return redirect()->route('sub_categories')->with('toast_success', 'Sub-category updated successfully.');
         } catch (\Exception $e) {
             Log::error('SubCategory update failed: ' . $e->getMessage());
 
-            return redirect()->back()->withInput()->with('error', 'Failed to update sub-category: ' . $e->getMessage());
+            return redirect()->back()->withInput()->with('toast_error', 'Failed to update sub-category: ' . $e->getMessage());
         }
     }
 
     /**
-     * Soft delete — moves the sub-category to trash. Files are kept on disk
+     * Soft delete — moves the sub-category to trash. File is kept on disk
      * so a later Restore still has its image intact.
      */
     public function destroy($id)
@@ -100,30 +100,30 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::findOrFail($id);
 
         if ($subCategory->hasAssociations()) {
-            return redirect()->route('sub_categories')->with('error', self::ASSOCIATION_MESSAGE);
+            return redirect()->route('sub_categories')->with('toast_error', self::ASSOCIATION_MESSAGE);
         }
 
         try {
             $subCategory->delete();
 
-            return redirect()->route('sub_categories')->with('success', 'Sub-category moved to trash.');
+            return redirect()->route('sub_categories')->with('toast_success', 'Sub-category moved to trash.');
         } catch (\Exception $e) {
             Log::error('SubCategory soft delete failed: ' . $e->getMessage());
 
-            return redirect()->route('sub_categories')->with('error', 'Failed to delete sub-category.');
+            return redirect()->route('sub_categories')->with('toast_error', 'Failed to delete sub-category.');
         }
     }
 
     /**
-     * Permanently delete — only meaningful for an already-trashed sub-category.
-     * Removes the DB row and its uploaded file for good.
+     * Permanently delete — kept for potential future/admin-only use,
+     * but no longer routed from the UI.
      */
     public function forceDestroy($id)
     {
         $subCategory = SubCategory::withTrashed()->findOrFail($id);
 
         if ($subCategory->hasAssociations()) {
-            return redirect()->route('sub_categories')->with('error', self::ASSOCIATION_MESSAGE);
+            return redirect()->route('sub_categories')->with('toast_error', self::ASSOCIATION_MESSAGE);
         }
 
         try {
@@ -131,11 +131,11 @@ class SubCategoryController extends Controller
 
             $subCategory->forceDelete();
 
-            return redirect()->route('sub_categories')->with('success', 'Sub-category permanently deleted.');
+            return redirect()->route('sub_categories')->with('toast_success', 'Sub-category permanently deleted.');
         } catch (\Exception $e) {
             Log::error('SubCategory permanent delete failed: ' . $e->getMessage());
 
-            return redirect()->route('sub_categories')->with('error', 'Failed to permanently delete sub-category.');
+            return redirect()->route('sub_categories')->with('toast_error', 'Failed to permanently delete sub-category.');
         }
     }
 
@@ -144,7 +144,19 @@ class SubCategoryController extends Controller
         $subCategory = SubCategory::withTrashed()->findOrFail($id);
         $subCategory->restore();
 
-        return redirect()->route('sub_categories')->with('success', 'Sub-category restored.');
+        return redirect()->route('sub_categories')->with('toast_success', 'Sub-category restored.');
+    }
+
+    public function toggleStatus($id)
+    {
+        $subCategory            = SubCategory::findOrFail($id);
+        $subCategory->is_active = ! $subCategory->is_active;
+        $subCategory->save();
+
+        return response()->json([
+            'success'   => true,
+            'is_active' => $subCategory->is_active,
+        ]);
     }
 
     private function rules(): array

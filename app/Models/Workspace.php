@@ -4,7 +4,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
 
 class Workspace extends Model
 {
@@ -30,6 +29,6 @@ class Workspace extends Model
 
     public function getImageUrlAttribute(): ?string
     {
-        return $this->image ? Storage::url($this->image) : null;
+        return $this->image ? asset('backend/' . $this->image) : null;
     }
 }

@@ -3,7 +3,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Storage;
 
 class TrustedPartner extends Model
 {
@@ -23,6 +22,6 @@ class TrustedPartner extends Model
 
     public function getLogoUrlAttribute(): ?string
     {
-        return $this->logo ? Storage::url($this->logo) : null;
+        return $this->logo ? asset('backend/' . $this->logo) : null;
     }
 }
