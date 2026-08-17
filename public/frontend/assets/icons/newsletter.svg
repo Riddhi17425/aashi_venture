@@ -1,0 +1,6 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="96" height="96" viewBox="0 0 96 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Background">
+<rect width="96" height="96" rx="48" fill="#004B97"/>
+<path id="Icon" d="M69 35.25C69 32.9125 67.11 31 64.8 31H31.2C28.89 31 27 32.9125 27 35.25M69 35.25V60.75C69 63.0875 67.11 65 64.8 65H31.2C28.89 65 27 63.0875 27 60.75V35.25M69 35.25L48 50.125L27 35.25" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+</svg>

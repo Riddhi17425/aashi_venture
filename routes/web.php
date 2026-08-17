@@ -13,8 +13,50 @@ use App\Http\Controllers\Admin\WorkspaceCategoryController;
 use App\Http\Controllers\Admin\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 
+/*
+|--------------------------------------------------------------------------
+| Frontend Routes
+|--------------------------------------------------------------------------
+*/
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.index');
+})->name('home');
+
+Route::get('/about', function () {
+    return view('front.about');
+})->name('about');
+
+Route::get('/factory', function () {
+    return view('front.factory');
+})->name('factory');
+
+Route::get('/contact', function () {
+    return view('front.contact');
+})->name('contact');
+
+/*
+|--------------------------------------------------------------------------
+| Product Routes
+|--------------------------------------------------------------------------
+*/
+
+Route::prefix('products')->name('products.')->group(function () {
+    Route::get('/rainwear', function () {
+        return view('front.product-rainwear');
+    })->name('rainwear');
+
+    Route::get('/winter-wear', function () {
+        return view('front.product-winter-wear');
+    })->name('winter');
+
+    Route::get('/windcheaters', function () {
+        return view('front.product-windcheaters');
+    })->name('windcheaters');
+
+    Route::get('/bags', function () {
+        return view('front.product-bags');
+    })->name('bags');
 });
 
 Route::middleware('guest')->group(function () {
@@ -103,5 +145,4 @@ Route::middleware(['auth', 'role:admin,super_admin'])->prefix('admin')->group(fu
 // AJAX-only: called from the "+ Add Category" panel inside the workspace form.
     Route::post('/workspace-categories', [WorkspaceCategoryController::class, 'store'])->name('workspace_categories.store');
     Route::delete('/workspace-categories/{id}', [WorkspaceCategoryController::class, 'destroy'])->name('workspace_categories.destroy');
-
 });
