@@ -1,11 +1,12 @@
 <div class="top-bar d-none d-md-block">
-    <div class="container-aashi d-flex flex-wrap justify-content-between align-items-center gap-2">
+   <div class="container-aashi">
+     <div class=" d-flex flex-wrap justify-content-between align-items-center gap-2">
 
         <p class="mb-0">
             Trusted Rainwear Supplier Across India
         </p>
 
-        <div class="d-flex flex-wrap top-bar__contacts">
+        <div class="d-flex flex-wrap align-items-center top-bar__contacts">
 
             <a href="tel:+919909032106">
                 <img
@@ -36,6 +37,7 @@
         </div>
 
     </div>
+   </div>
 </div>
 
 

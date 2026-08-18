@@ -23,8 +23,8 @@
         <div class="container-aashi">
             <div class="row g-4 g-lg-5 contact-main__row">
 
-                <div class="col-lg-6">
-                    <div class="contact-main__left">
+                <div class="col-lg-6 d-flex flex-column">
+                    <div class="contact-main__left d-flex flex-column flex-grow-1">
 
                         <h2 class="aashi-title aashi-title--card contact-block-title"
                             id="contact-sales-heading">
@@ -81,7 +81,7 @@
 
                         </article>
 
-                        <div class="contact-map">
+                        <div class="contact-map flex-grow-1">
                             <iframe
                                 class="contact-map__embed"
                                 title="Map showing Aashi Venture at E/49/B, RIICO Industrial Area, Sagwara, Dist Dungarpur, Rajasthan - 314025"
@@ -95,15 +95,15 @@
                     </div>
                 </div>
 
-                <div class="col-lg-6">
+                <div class="col-lg-6 d-flex flex-column">
 
-                    <div class="contact-main__right">
+                    <div class="contact-main__right d-flex flex-column flex-grow-1">
 
                         <h2 class="aashi-title aashi-title--card contact-block-title">
                             Talk to the Aashi Venture Team
                         </h2>
 
-                        <form class="contact-form" action="#" method="post">
+                        <form class="contact-form d-flex flex-column flex-grow-1" action="#" method="post">
 
                             <div class="contact-form__fields">
 
@@ -158,14 +158,14 @@
                                         class="contact-form__textarea"
                                         id="contact-message"
                                         name="message"
-                                        rows="3"
+                                        rows="1"
                                         required></textarea>
 
                                 </div>
 
                             </div>
 
-                            <button class="aashi-btn aashi-btn--primary contact-form__submit" type="submit">
+                            <button class="aashi-btn aashi-btn--primary contact-form__submit mt-auto" type="submit">
                                 Send Message
                                 <img
                                     class="aashi-btn__icon"

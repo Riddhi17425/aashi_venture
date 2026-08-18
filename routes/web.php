@@ -35,6 +35,14 @@ Route::get('/contact', function () {
     return view('front.contact');
 })->name('contact');
 
+Route::get('/terms-conditions', function () {
+    return view('front.terms');
+})->name('terms');
+
+Route::get('/privacy-policy', function () {
+    return view('front.privacy');
+})->name('privacy');
+
 /*
 |--------------------------------------------------------------------------
 | Product Routes

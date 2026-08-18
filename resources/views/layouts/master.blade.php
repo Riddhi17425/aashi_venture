@@ -29,10 +29,10 @@
           href="{{ asset('frontend/assets/css/components.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('frontend/assets/css/responsive.css') }}">
+          href="{{ asset('frontend/assets/css/style.css') }}">
 
     <link rel="stylesheet"
-          href="{{ asset('frontend/assets/css/style.css') }}">
+          href="{{ asset('frontend/assets/css/responsive.css') }}">
 
     @stack('styles')
 

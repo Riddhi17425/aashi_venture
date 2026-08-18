@@ -13,37 +13,37 @@
   --aashi-shadow-nav: 0 10px 15px rgba(0, 47, 110, 0.18);
   --aashi-shadow-card: 0 10px 30px -12px rgba(0, 47, 110, 0.18);
 
-  --aashi-gap-xs: 0.625rem;   
-  --aashi-gap-sm: 1.25rem;    
-  --aashi-gap-md: 1.875rem;   
-  --aashi-gap-lg: 2.5rem;     
-  --aashi-gap-nav: 1.75rem;   
-  --aashi-gap-xl: 3.125rem;   
-  --aashi-gap-section: 6.25rem; 
+  --aashi-gap-xs: 0.625rem;
+  --aashi-gap-sm: 1.25rem;
+  --aashi-gap-md: 1.875rem;
+  --aashi-gap-lg: 2.5rem;
+  --aashi-gap-nav: 1.75rem;
+  --aashi-gap-xl: 3.125rem;
+  --aashi-gap-section: 6.25rem;
   --aashi-transition: 0.2s ease;
   --aashi-transition-hover: 0.25s ease;
   --product-card-ratio: 780 / 560;
   --product-card-footer-ratio: 133 / 560;
-  --product-card-badge-size: 4.125rem; 
-  --product-card-badge-left: 1.5rem; 
-  --product-card-footer-h: 8.3125rem; 
-  --product-card-footer-pad-x: 1.875rem; 
-  --product-card-footer-pad-bottom: 1.25rem; 
+  --product-card-badge-size: 4.125rem;
+  --product-card-badge-left: 1.5rem;
+  --product-card-footer-h: 8.3125rem;
+  --product-card-footer-pad-x: 1.875rem;
+  --product-card-footer-pad-bottom: 1.25rem;
 
   --product-card-footer-pad-top: calc(var(--product-card-badge-size) * 0.5 + var(--aashi-gap-xs));
-  --collection-card-w: 19.375rem; 
-  --collection-card-h: 21.25rem; 
-  --collection-card-radius: 0.625rem; 
-  --partners-slide-w: 12.5rem; 
-  --partners-slide-h: 7.5rem; 
-  --partners-slide-gap: 1.875rem; 
-  --partners-slide-radius: 0.625rem; 
+  --collection-card-w: 19.375rem;
+  --collection-card-h: 21.25rem;
+  --collection-card-radius: 0.625rem;
+  --partners-slide-w: 12.5rem;
+  --partners-slide-h: 7.5rem;
+  --partners-slide-gap: 1.875rem;
+  --partners-slide-radius: 0.625rem;
   --partners-logo-h: var(--partners-slide-h);
-  --partners-logo-pad-y: 0.75rem; 
+  --partners-logo-pad-y: 0.75rem;
 
-  --fs-desc-min: 0.9375rem; 
-  --fs-title-min: 1.125rem; 
-  --fs-section-title-min: 1.25rem; 
+  --fs-desc-min: 0.9375rem;
+  --fs-title-min: 1.125rem;
+  --fs-section-title-min: 1.25rem;
   --fs-label: 0.875rem;
   --fs-hero-title: clamp(1.75rem, 2.8vw + 0.75rem, 5.125rem);
   --fs-hero-text: clamp(var(--fs-desc-min), 1vw + 0.75rem, 1.5rem);
@@ -53,29 +53,29 @@
   --fs-sm: 0.9375rem;
   --fs-feature: clamp(var(--fs-desc-min), 0.9vw, 1.125rem);
   --fs-btn: 1.125rem;
-  --fs-stat-value: clamp(1.25rem, 9cqi, 2.25rem);
+  --fs-stat-value: clamp(1.125rem, 6cqi, 1.875rem);
   --fs-stat-label: clamp(0.875rem, 1vw, 1.125rem);
   --fs-newsletter-title: clamp(1.5rem, 3vw, 2.5rem);
   --fs-newsletter-text: 1rem;
-  --fs-footer-title: 1.875rem; 
-  --fs-footer-text: 1.125rem; 
-  --fs-footer-tagline: 1.5rem; 
+  --fs-footer-title: 1.875rem;
+  --fs-footer-text: 1.125rem;
+  --fs-footer-tagline: 1.5rem;
   --footer-nav-gap: clamp(2rem, 5vw, 9rem);
   --footer-brand-nav-gap: clamp(3rem, 6vw, 9rem);
-  --fs-leadership-quote: 1.375rem; 
-  --leadership-quote-width: 48.875rem; 
+  --fs-leadership-quote: 1.375rem;
+  --leadership-quote-width: 48.875rem;
   --leadership-quote-lh: 1.45;
-  --newsletter-icon-size: 6rem; 
-  --newsletter-pad-block: 2.1875rem; 
-  --stat-card-min-h: 11.25rem; 
+  --newsletter-icon-size: 6rem;
+  --newsletter-pad-block: 2.1875rem;
+  --stat-card-min-h: 11.25rem;
   --stat-card-pad-y: 2.5rem;
   --stat-card-pad-x: 1.25rem;
 
-  --hero-height: 57.5rem; 
-  --hero-figma-frame: 57.5rem; 
-  --hero-figma-label-y: 20.4375rem; 
-  --hero-figma-nav-gap: 9.1875rem; 
-  --top-bar-height: 3.75rem; 
+  --hero-height: calc(100vh - var(--site-chrome-total));
+  --hero-figma-frame: calc(100vh - var(--site-chrome-total));
+  --hero-figma-label-y: 20.4375rem;
+  --hero-figma-nav-gap: 9.1875rem;
+  --top-bar-height: 3.75rem;
   --site-chrome-total: var(--site-header-height);
   --hero-copy-min-h: 0;
   --hero-title-min-h: 0;
@@ -101,6 +101,14 @@ body {
   color: var(--aashi-text);
 }
 
+a {
+  text-decoration: none !important;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
 .container-aashi {
   width: 100%;
   box-sizing: border-box;
@@ -113,10 +121,10 @@ body {
     --site-chrome-total: calc(var(--top-bar-height) + var(--site-header-height));
   }
 
-  .container-aashi {
+  /* .container-aashi {
     max-width: none;
     padding-inline: max(1rem, calc((100% - var(--aashi-container)) / 2));
-  }
+  } */
 }
 
 .aashi-label,
@@ -161,7 +169,7 @@ body {
 
 .aashi-title {
   font-family: var(--aashi-font-heading);
-  font-weight: 700;
+  font-weight: 600;
   margin-bottom: 0;
 }
 
@@ -181,12 +189,12 @@ body {
 
 .aashi-title--card {
   font-size: var(--fs-card-title);
-  line-height: 1;
 }
 
 .aashi-title--footer {
   font-size: var(--fs-footer-title);
   line-height: 1;
+  margin-bottom: 24px;
 }
 
 .aashi-title--newsletter {
@@ -240,12 +248,11 @@ body {
 
 .aashi-stat-value,
 .stat-card__value {
-  font-family: var(--aashi-font-heading);
   font-size: var(--fs-stat-value);
   font-weight: 700;
   line-height: 1.1;
   color: var(--aashi-primary-dark);
-  margin-bottom: 0.3125rem; 
+  margin-bottom: 0.3125rem;
   max-width: 100%;
   text-wrap: balance;
 }
@@ -310,7 +317,7 @@ body {
 .aashi-btn--primary {
   background: var(--aashi-primary);
   color: #fff;
-  padding: 0.90625rem 1.75rem; 
+  padding: 0.90625rem 1.75rem;
   gap: 0.5rem;
 }
 
@@ -388,4 +395,44 @@ body {
 
 .aashi-btn--primary:hover .aashi-btn__icon {
   transform: translateX(5px);
+}
+
+/* Custom Override for Hero Layout */
+.page-home .hero {
+  height: calc(100vh - var(--site-chrome-total)) !important;
+  min-height: calc(100vh - var(--site-chrome-total)) !important;
+  max-height: calc(100vh - var(--site-chrome-total)) !important;
+}
+
+.page-home .hero__body {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
+  padding-bottom: 10rem !important; /* Pushes content just above the footer features */
+  padding-top: 0 !important;  
+}
+
+/* Unify all buttons size to match the header button */
+.aashi-btn,
+.aashi-btn--primary,
+.aashi-btn--outline,
+.aashi-btn--outline-muted {
+  min-height: 3rem !important;
+  padding: 0.5rem 1.25rem !important;
+  font-size: 1rem !important;
+  border-radius: 2.5rem !important;
+}
+
+.aashi-btn .aashi-btn__icon,
+.aashi-btn--primary .aashi-btn__icon,
+.aashi-btn--outline .aashi-btn__icon {
+  width: 1.5rem !important;
+  height: 1.5rem !important;
+}
+
+/* Responsive fix for stat cards to prevent text overflow */
+.about__stats .stat-card__value {
+  font-size: clamp(2rem, 18cqi, var(--fs-stat-value, 3.25rem)) !important;
+  word-break: break-word !important;
 }

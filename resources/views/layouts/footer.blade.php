@@ -245,7 +245,7 @@
 
             <p class="site-footer__legal mb-0">
 
-                <a href="#">
+                <a href="{{ route('privacy') }}">
                     Privacy Policy
                 </a>
 
@@ -256,7 +256,7 @@
                     |
                 </span>
 
-                <a href="#">
+                <a href="{{ route('terms') }}">
                     Terms &amp; Conditions
                 </a>
 
