@@ -12,8 +12,12 @@
         <div class="container-aashi">
             <header class="factory-intro__header">
                 <p class="aashi-label">Let&rsquo;s Start a Conversation</p>
-                <h1 class="aashi-title aashi-title--page" id="contact-page-heading">Contact Us</h1>
+                <h1 class="aashi-title aashi-title--page" id="contact-page-heading">GET IN TOUCH</h1>
+                 <div class="aashi-text aashi-text--section mt-3">
+                <p>For product enquiries, bulk requirements, customisation or business partnerships, connect with the team behind dependable protection solutions. </p>
+            </div>
             </header>
+           
         </div>
     </section>
     <!-- END - PAGE INTRO -->

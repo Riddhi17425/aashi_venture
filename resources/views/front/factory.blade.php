@@ -12,7 +12,7 @@
         <div class="container-aashi">
 
             <header class="factory-intro__header">
-                <p class="aashi-label">Premium Production Facility</p>
+                <p class="aashi-label">factory & infrastructure</p>
 
                 <h1 class="aashi-title aashi-title--page" id="factory-page-heading">
                     Factory Infrastructure

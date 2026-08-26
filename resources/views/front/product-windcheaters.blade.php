@@ -12,7 +12,7 @@
         <div class="container-aashi">
 
             <header class="product-page__header">
-                <p class="aashi-label">Offer Lightweight Comfort</p>
+                <p class="aashi-label">MADE FOR CHANGING WEATHER</p>
 
                 <h1 class="aashi-title aashi-title--page" id="product-page-heading">
                     Windcheaters Collection
@@ -111,18 +111,18 @@
                     <div class="product-detail__stats" data-stats-counter aria-label="Company highlights">
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="28+">0</p>
-                            <p class="product-detail__stat-label">Years of Experience</p>
+                            <p class="product-detail__stat-value" data-target="27+">0</p>
+                            <p class="product-detail__stat-label">Years of Industry Experience</p>
                         </div>
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="1.5 Cr+">0</p>
-                            <p class="product-detail__stat-label">Units Produced Annually</p>
+                            <p class="product-detail__stat-value" data-target="4">0</p>
+                            <p class="product-detail__stat-label">Manufacturing Locations</p>
                         </div>
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="200+">0</p>
-                            <p class="product-detail__stat-label">Distribution Partners</p>
+                            <p class="product-detail__stat-value" data-target="1,000+">0</p>
+                            <p class="product-detail__stat-label">Skilled Workforce</p>
                         </div>
 
                     </div>

@@ -8,6 +8,7 @@
     <!-- START - HERO SECTION -->
     <section class="hero" aria-label="Hero">
         <div class="hero__bg" aria-hidden="true">
+<<<<<<< HEAD
             @if($banners->isNotEmpty())
                 <img class="hero__bg-fallback"
                     src="{{ $banners->first()->desktop_image_url }}"
@@ -15,6 +16,30 @@
             @else
                 <img class="hero__bg-fallback" src="{{ asset('frontend/assets/images/hero-bg.webp') }}" alt="">
             @endif
+=======
+            <img
+                class="hero__bg-fallback"
+                src="{{ asset('frontend/assets/images/hero-bg.webp') }}"
+                alt="">
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper" data-hero-bg-wrapper></div>
+            </div>
+            <div class="hero__overlay"></div>
+        </div>
+        <div class="hero__body">
+            <div class="container-aashi">
+                <div class="hero__content">
+                    <p class="aashi-label aashi-label--light" data-hero-label>DESIGNED FOR THE RAIN</p>
+                    <div class="hero__copy">
+                        <div class="hero__text hero__text--animated" data-hero-content-animated>
+                            <h1 class="aashi-title aashi-title--hero" data-hero-title>
+                                Protection Designed for Every Season.
+                            </h1>
+                            <p class="aashi-text aashi-text--hero" data-hero-description>
+                                Built on decades of expertise, Aashi Venture creates dependable products for protection, packaging, and everyday use.
+                            </p>
+                        </div>
+>>>>>>> 50fe569d30f0e83fede1e21bc70d2d7a00a5914c
 
             <div class="swiper hero-swiper">
                 <div class="swiper-wrapper">
@@ -223,9 +248,9 @@
                                 </div>
                                 <div class="product-card__footer">
                                     <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">Rain Wear</h3>
+                                        <h3 class="aashi-title aashi-title--card">RAINWEAR</h3>
                                         <p class="aashi-text aashi-text--sm">
-                                            Built for daily commutes, outdoor work, and weather that never waits.
+                                            <b>अब बारिश का मज़ा..भीगे बिना</b> <br>Made for daily commutes, outdoor work and weather that does not wait. 
                                         </p>
                                     </div>
                                     <span class="product-card__arrow" aria-hidden="true">
@@ -256,9 +281,10 @@
                                 </div>
                                 <div class="product-card__footer">
                                     <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">Windcheaters</h3>
+                                        <h3 class="aashi-title aashi-title--card">WINDCHEATERS</h3>
                                         <p class="aashi-text aashi-text--sm">
-                                            Designed for lasting warmth, our winterwear delivers comfort during colder days.
+                                           <b>Adventure in Every Layer</b><br>
+                                           Made to move with you, Aashi windcheaters offer lightweight comfort and reliable protection through changing weather. 
                                         </p>
                                     </div>
                                     <span class="product-card__arrow" aria-hidden="true">
@@ -289,9 +315,10 @@
                                 </div>
                                 <div class="product-card__footer">
                                     <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">Winter Wear</h3>
+                                        <h3 class="aashi-title aashi-title--card">WINTERWEAR</h3>
                                         <p class="aashi-text aashi-text--sm">
-                                            Thoughtfully made for lasting warmth and everyday comfort during colder days.
+                                            <b>Warmth You Can Count On</b>  <br>
+                                            Thoughtfully made for lasting warmth and everyday comfort, our winterwear keeps you prepared for colder days without compromising practicality. 
                                         </p>
                                     </div>
                                     <span class="product-card__arrow" aria-hidden="true">
@@ -323,10 +350,11 @@
                                 <div class="product-card__footer">
                                     <div class="product-card__body">
                                         <h3 class="aashi-title aashi-title--card">
-                                            Bags &amp; Packaging Solutions
+                                            BAGS & PACKAGING SOLUTIONS
                                         </h3>
                                         <p class="aashi-text aashi-text--sm">
-                                            From luggage bags to premium packaging, we protect, present, and preserve.
+                                            <b>The Perfect Cover for Every Product</b> <br>
+                                            From luggage bags to premium packaging, our solutions are made to protect, present and preserve products across industries. 
                                         </p>
                                     </div>
                                     <span class="product-card__arrow" aria-hidden="true">
@@ -368,23 +396,23 @@
                 </article>
                 <article class="excellence__item">
                     <div class="excellence__icon-wrap">
-                        <img src="{{ asset('frontend/assets/icons/quality-check.svg') }}" alt="">
-                    </div>
-                    <div class="excellence__item-copy">
-                        <h3 class="aashi-title aashi-title--card">Quality Checked</h3>
-                        <p class="aashi-text aashi-text--section mb-0">
-                            Dedicated checking at every stage before final dispatch.
-                        </p>
-                    </div>
-                </article>
-                <article class="excellence__item">
-                    <div class="excellence__icon-wrap">
                         <img src="{{ asset('frontend/assets/icons/scale.svg') }}" alt="">
                     </div>
                     <div class="excellence__item-copy">
                         <h3 class="aashi-title aashi-title--card">Built for Scale</h3>
                         <p class="aashi-text aashi-text--section mb-0">
                             Advanced machinery and a strong multi-location manufacturing setup.
+                        </p>
+                    </div>
+                </article>
+                <article class="excellence__item">
+                    <div class="excellence__icon-wrap">
+                        <img src="{{ asset('frontend/assets/icons/quality-check.svg') }}" alt="">
+                    </div>
+                    <div class="excellence__item-copy">
+                        <h3 class="aashi-title aashi-title--card">Quality Checked</h3>
+                        <p class="aashi-text aashi-text--section mb-0">
+                            Dedicated checking at every stage before final dispatch.
                         </p>
                     </div>
                 </article>

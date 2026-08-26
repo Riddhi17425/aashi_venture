@@ -157,18 +157,18 @@
                     <div class="product-detail__stats" data-stats-counter aria-label="Manufacturing highlights">
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="600">0</p>
-                            <p class="product-detail__stat-label">Stitching Machines</p>
+                            <p class="product-detail__stat-value" data-target="27+">0</p>
+                            <p class="product-detail__stat-label">Years of Industry Experience</p>
                         </div>
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="100">0</p>
-                            <p class="product-detail__stat-label">Heat Seal Machines</p>
+                            <p class="product-detail__stat-value" data-target="4">0</p>
+                            <p class="product-detail__stat-label">Manufacturing Locations</p>
                         </div>
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="200+">0</p>
-                            <p class="product-detail__stat-label">Women Employees</p>
+                            <p class="product-detail__stat-value" data-target="1,000+">0</p>
+                            <p class="product-detail__stat-label">Skilled Workforce</p>
                         </div>
 
                     </div>
