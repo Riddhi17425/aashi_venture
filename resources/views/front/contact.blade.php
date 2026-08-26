@@ -200,222 +200,37 @@
             </header>
 
             <div class="row contact-branches__grid">
+                @foreach($branches as $branch)
+                    <div class="col-md-6 col-lg-4">
+                        <article class="contact-office-card">
+                            <div class="contact-office-card__title">
+                                <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
+                                <span>{{ $branch->label }}</span>
+                            </div>
 
-                <!-- Factory I -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Factory-I</span>
-                        </div>
+                            <p class="contact-office-card__address">
+                                {{ $branch->address }}
+                            </p>
 
-                        <p class="contact-office-card__address">
-                            843/2, Nidhi Industrial Estate, Village Rakanpur,
-                            Santej. Gandhinagar - 382721
-                        </p>
+                            <div class="contact-office-card__divider" aria-hidden="true"></div>
 
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
+                            @if($branch->phone)
+                                <div class="footer-col__contact">
+                                    <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
+                                    <a href="tel:{{ preg_replace('/[^0-9+]/', '', $branch->phone) }}">{{ $branch->phone }}</a>
+                                </div>
+                            @endif
 
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+919879562106">+91 98795 62106</a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Factory II -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Factory-II</span>
-                        </div>
-
-                        <p class="contact-office-card__address">
-                            Aashi Estate, Survey No. 906, Borisana-Karsanpur Road,
-                            Borisana, Kadi, Mehsana - 384441
-                        </p>
-
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+917227012801">+91 72270 12801</a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Factory III -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Factory-III</span>
-                        </div>
-
-                        <p class="contact-office-card__address">
-                            Plot No. 160/8, Opp. Tata Motors, Near Creative Mill,
-                            2nd Phase, GIDC, Vapi - 396195
-                        </p>
-
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+919879583106">+91 98795 83106</a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Factory IV -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Factory-IV</span>
-                        </div>
-
-                        <p class="contact-office-card__address">
-                            E/49/B, RIICO Industrial Estate,
-                            Sagwara, Rajasthan - 314025
-                        </p>
-
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+919909032106">+91 99090 32106</a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Ahmedabad Office 1 -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Ahmedabad Office - 1</span>
-                        </div>
-
-                        <p class="contact-office-card__address">
-                            674, Jagrut Pole, Swaminarayan Mandir Road,
-                            Near Kalupur 8 No. School,
-                            Kalupur-Gheekanta, Ahmedabad - 380001
-                        </p>
-
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+919879791806">+91 98797 91806</a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Ahmedabad Office 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Ahmedabad Office - 2</span>
-                        </div>
-
-                        <p class="contact-office-card__address">
-                            F-8, Samet Business Park,
-                            Near Parishkar Society,
-                            Khokhra Circle, Ahmedabad - 380008
-                        </p>
-
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+919879583906">+91 98795 83906</a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <!-- Delhi Sales Office -->
-                <div class="col-md-6 col-lg-4">
-                    <article class="contact-office-card">
-                        <div class="contact-office-card__title">
-                            <img src="{{ asset('frontend/assets/icons/location-primary.svg') }}" alt="">
-                            <span>Delhi Sales Office</span>
-                        </div>
-
-                        <p class="contact-office-card__address">
-                            Plot No-31, Gr. Floor, Hathi Khana,
-                            Bahadur Garh Road, Near BSES Office,
-                            DELHI - 110006.
-                        </p>
-
-                        <div class="contact-office-card__divider" aria-hidden="true"></div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
-                            <a href="tel:+919717028030">+91 9717028030</a>
-                        </div>
-
-                        <div class="footer-col__contact">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:sales@aashirainwear.com">
-                                sales@aashirainwear.com
-                            </a>
-                        </div>
-
-                        <div class="footer-col__contact mb-0">
-                            <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                            <a href="mailto:pradip@aashiplastic.com">
-                                pradip@aashiplastic.com
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
+                            @if($branch->email)
+                                <div class="footer-col__contact mb-0">
+                                    <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
+                                    <a href="mailto:{{ $branch->email }}">{{ $branch->email }}</a>
+                                </div>
+                            @endif
+                        </article>
+                    </div>
+                @endforeach
             </div>
-
         </div>
     </section>
     <!-- END - BRANCH OFFICES -->
@@ -424,10 +239,8 @@
     <section class="newsletter" aria-labelledby="newsletter-heading">
         <div class="container-aashi newsletter__inner">
             <div class="row align-items-center">
-
                 <div class="col-lg-6">
                     <div class="d-flex align-items-center newsletter__lead">
-
                         <img
                             class="newsletter__icon"
                             src="{{ asset('frontend/assets/icons/newsletter.svg') }}"
@@ -437,19 +250,15 @@
                             <h2 class="aashi-title aashi-title--newsletter" id="newsletter-heading">
                                 Be the first to know
                             </h2>
-
                             <p class="aashi-text aashi-text--newsletter">
                                 Exclusive offers, new arrivals and latest updates straight to your inbox.
                             </p>
                         </div>
-
                     </div>
                 </div>
 
                 <div class="col-lg-6">
-
                     <form class="newsletter__form w-100" action="#" method="post">
-
                         <input
                             class="newsletter__input"
                             type="email"
@@ -465,11 +274,8 @@
                                 src="{{ asset('frontend/assets/icons/arrow-right-blue.svg') }}"
                                 alt="">
                         </button>
-
                     </form>
-
                 </div>
-
             </div>
         </div>
     </section>

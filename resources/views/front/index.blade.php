@@ -213,8 +213,8 @@
 
                                     <div class="product-card__image-wrap">
                                         <img class="product-card__image"
-                                            src="{{ $category->listing_image }}"
-                                            alt="{{ $category->listing_image_alt }}">
+                                            src="{{ $category->listing_image_url }}"
+                                            alt="{{ $category->listing_image_alt ?: $category->title }}">
                                     </div>
 
                                     <div class="product-card__footer">
@@ -234,7 +234,7 @@
 
                                 @if($category->icon)
                                     <div class="product-card__badge">
-                                        <img src="{{ $category->icon }}" alt="{{ $category->title }} icon">
+                                        <img src="{{ $category->icon_url }}" alt="{{ $category->title }} icon">
                                     </div>
                                 @endif
                             </a>
@@ -242,7 +242,6 @@
                     </div>
                 @endforeach
             </div>
-
         </div>
     </section>
     <!-- END - PRODUCTS SECTION -->

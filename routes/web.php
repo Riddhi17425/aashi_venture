@@ -14,7 +14,6 @@ use App\Http\Controllers\Admin\WorkspaceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 
-
 /*
 |--------------------------------------------------------------------------
 | Frontend Routes
@@ -37,9 +36,11 @@ Route::get('/factory', function () {
     return view('front.factory');
 })->name('factory');
 
-Route::get('/contact', function () {
-    return view('front.contact');
-})->name('contact');
+// Route::get('/contact', function () {
+//     return view('front.contact');
+// })->name('contact');
+
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
 Route::get('/terms-conditions', function () {
     return view('front.terms');

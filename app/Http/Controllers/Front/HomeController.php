@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\Branch;
 use App\Models\Banner;
 use App\Models\TrustedPartner;
 use App\Models\Category;
@@ -35,5 +36,14 @@ class HomeController extends Controller
             ->get();
 
         return view('front.about', compact('partners'));
+    }
+
+    public function contact()
+    {
+        $branches = Branch::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        return view('front.contact', compact('branches'));
     }
 }
