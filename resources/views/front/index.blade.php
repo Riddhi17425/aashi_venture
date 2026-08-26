@@ -8,42 +8,86 @@
     <!-- START - HERO SECTION -->
     <section class="hero" aria-label="Hero">
         <div class="hero__bg" aria-hidden="true">
-            <img
-                class="hero__bg-fallback"
-                src="{{ asset('frontend/assets/images/hero-bg.webp') }}"
-                alt="">
-            <div class="swiper hero-swiper">
-                <div class="swiper-wrapper" data-hero-bg-wrapper></div>
-            </div>
-            <div class="hero__overlay"></div>
-        </div>
-        <div class="hero__body">
-            <div class="container-aashi">
-                <div class="hero__content">
-                    <p class="aashi-label aashi-label--light" data-hero-label>Designed for the Rain</p>
-                    <div class="hero__copy">
-                        <div class="hero__text hero__text--animated" data-hero-content-animated>
-                            <h1 class="aashi-title aashi-title--hero" data-hero-title>
-                                Protection Designed for Every Season.
-                            </h1>
-                            <p class="aashi-text aashi-text--hero" data-hero-description>
-                                Built on decades of expertise, Aashi Venture creates dependable products for protection,
-                                packaging and everyday use.
-                            </p>
-                        </div>
+            @if($banners->isNotEmpty())
+                <img class="hero__bg-fallback"
+                    src="{{ $banners->first()->desktop_image_url }}"
+                    alt="{{ $banners->first()->desktop_image_alt }}">
+            @else
+                <img class="hero__bg-fallback" src="{{ asset('frontend/assets/images/hero-bg.webp') }}" alt="">
+            @endif
 
-                        <a href="#" class="aashi-btn aashi-btn--primary" data-hero-cta>
-                            <span data-hero-cta-text>Explore Products</span>
-                            <img
-                                class="aashi-btn__icon"
-                                data-hero-cta-icon
-                                src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}"
-                                alt="">
-                        </a>
-                    </div>
+            <div class="swiper hero-swiper">
+                <div class="swiper-wrapper">
+                    @forelse($banners as $banner)
+                        <div class="swiper-slide">
+                            <picture class="hero__bg-picture">
+                                <source media="(max-width: 767px)" srcset="{{ $banner->mobile_image_url }}">
+                                <img src="{{ $banner->desktop_image_url }}"
+                                    alt="{{ $banner->desktop_image_alt ?? $banner->title }}"
+                                    class="hero__bg-img">
+                            </picture>
+
+                            <div class="hero__overlay"></div>
+
+                            <div class="hero__body">
+                                <div class="container-aashi">
+                                    <div class="hero__content">
+                                        <p class="aashi-label aashi-label--light">
+                                            {{ $banner->short_note }}
+                                        </p>
+
+                                        <div class="hero__copy">
+                                            <div class="hero__text hero__text--animated">
+                                                <h1 class="aashi-title aashi-title--hero">
+                                                    {{ $banner->title }}
+                                                </h1>
+                                                <p class="aashi-text aashi-text--hero">
+                                                    {!! Str::limit(strip_tags($banner->description), 160) !!}
+                                                </p>
+                                            </div>
+
+                                            @if($banner->category)
+                                                <a href="#" class="aashi-btn aashi-btn--primary">
+                                                    <span>Explore Products</span>
+                                                    <img class="aashi-btn__icon" src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
+                                                </a>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        {{-- fallback static slide if no banners exist yet --}}
+                        <div class="swiper-slide">
+                            <img src="{{ asset('frontend/assets/images/hero-bg.webp') }}" class="hero__bg-img" alt="">
+                            <div class="hero__overlay"></div>
+                            <div class="hero__body">
+                                <div class="container-aashi">
+                                    <div class="hero__content">
+                                        <p class="aashi-label aashi-label--light">Designed for the Rain</p>
+                                        <div class="hero__copy">
+                                            <div class="hero__text hero__text--animated">
+                                                <h1 class="aashi-title aashi-title--hero">Protection Designed for Every Season.</h1>
+                                                <p class="aashi-text aashi-text--hero">Built on decades of expertise, Aashi Venture creates dependable products for protection, packaging and everyday use.</p>
+                                            </div>
+                                            <a href="#" class="aashi-btn aashi-btn--primary">
+                                                <span>Explore Products</span>
+                                                <img class="aashi-btn__icon" src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
+
+                {{-- add nav/pagination if not already present elsewhere --}}
+                <div class="swiper-pagination"></div>
             </div>
         </div>
+
         <div class="hero__footer-wrap">
             <div class="container-aashi">
                 <div class="hero__footer d-flex flex-column flex-lg-row justify-content-between align-items-start align-items-lg-center">
@@ -371,41 +415,21 @@
             </header>
             <div class="swiper partners-swiper" aria-label="Trusted brand logos">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide partners-slide partners-slide--swiggy">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-swiggy.png') }}" alt="Swiggy">
+                    @forelse($partners as $partner)
+                        <div class="swiper-slide partners-slide">
+                            <div class="partners__logo">
+                                <img src="{{ $partner->logo_url }}"
+                                    alt="{{ $partner->logo_alt ?: 'Partner logo' }}">
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide partners-slide partners-slide--bigbasket">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-bigbasket.png') }}" alt="BigBasket">
+                    @empty
+                        {{-- fallback static logos if none added yet --}}
+                        <div class="swiper-slide partners-slide partners-slide--swiggy">
+                            <div class="partners__logo">
+                                <img src="{{ asset('frontend/assets/images/partner-swiggy.png') }}" alt="Swiggy">
+                            </div>
                         </div>
-                    </div>
-                    <div class="swiper-slide partners-slide partners-slide--blinkit">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-blinkit.png') }}" alt="Blinkit">
-                        </div>
-                    </div>
-                    <div class="swiper-slide partners-slide partners-slide--zepto">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-zepto.png') }}" alt="Zepto">
-                        </div>
-                    </div>
-                    <div class="swiper-slide partners-slide partners-slide--zomato">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-zomato.jpg') }}" alt="Zomato">
-                        </div>
-                    </div>
-                    <div class="swiper-slide partners-slide partners-slide--welspun">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-welspun.png') }}" alt="Welspun">
-                        </div>
-                    </div>
-                    <div class="swiper-slide partners-slide partners-slide--arvind">
-                        <div class="partners__logo">
-                            <img src="{{ asset('frontend/assets/images/partner-arvind.png') }}" alt="Arvind">
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
             </div>
         </div>

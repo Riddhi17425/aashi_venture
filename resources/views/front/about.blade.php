@@ -896,40 +896,31 @@
     <!-- START - PARTNERS -->
     <section class="section-block partners" aria-labelledby="partners-heading">
         <div class="container-aashi partners__inner">
-
             <header class="section-header section-header--center section-header--spaced">
                 <p class="aashi-label">Trusted Partnerships</p>
                 <h2 class="aashi-title aashi-title--section" id="partners-heading">
                     Trusted By Leading Brands
                 </h2>
             </header>
-
-            @php
-                $partners = [
-                    ['image' => 'frontend/assets/images/partner-swiggy.png', 'alt' => 'Swiggy', 'class' => 'partners-slide--swiggy'],
-                    ['image' => 'frontend/assets/images/partner-bigbasket.png', 'alt' => 'BigBasket', 'class' => 'partners-slide--bigbasket'],
-                    ['image' => 'frontend/assets/images/partner-blinkit.png', 'alt' => 'Blinkit', 'class' => 'partners-slide--blinkit'],
-                    ['image' => 'frontend/assets/images/partner-zepto.png', 'alt' => 'Zepto', 'class' => 'partners-slide--zepto'],
-                    ['image' => 'frontend/assets/images/partner-zomato.jpg', 'alt' => 'Zomato', 'class' => 'partners-slide--zomato'],
-                    ['image' => 'frontend/assets/images/partner-welspun.png', 'alt' => 'Welspun', 'class' => 'partners-slide--welspun'],
-                    ['image' => 'frontend/assets/images/partner-arvind.png', 'alt' => 'Arvind', 'class' => 'partners-slide--arvind'],
-                ];
-            @endphp
-
             <div class="swiper partners-swiper" aria-label="Trusted brand logos">
                 <div class="swiper-wrapper">
-
-                    @foreach($partners as $partner)
-                        <div class="swiper-slide partners-slide {{ $partner['class'] }}">
+                    @forelse($partners as $partner)
+                        <div class="swiper-slide partners-slide">
                             <div class="partners__logo">
-                                <img src="{{ asset($partner['image']) }}" alt="{{ $partner['alt'] }}">
+                                <img src="{{ $partner->logo_url }}"
+                                    alt="{{ $partner->logo_alt ?: 'Partner logo' }}">
                             </div>
                         </div>
-                    @endforeach
-
+                    @empty
+                        {{-- fallback static logos if none added yet --}}
+                        <div class="swiper-slide partners-slide partners-slide--swiggy">
+                            <div class="partners__logo">
+                                <img src="{{ asset('frontend/assets/images/partner-swiggy.png') }}" alt="Swiggy">
+                            </div>
+                        </div>
+                    @endforelse
                 </div>
             </div>
-
         </div>
     </section>
     <!-- END - PARTNERS -->
