@@ -15,7 +15,7 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->with('category')
             ->get();
-
+       
         $partners = TrustedPartner::where('is_active', true)
             ->orderBy('sort_order')
             ->get();

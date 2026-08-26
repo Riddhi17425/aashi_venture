@@ -652,7 +652,7 @@
 
   .page-home .hero__body {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     flex: 0 0 auto;
     margin: 0;
     padding-top: var(--hero-body-pad-top);
@@ -965,7 +965,7 @@
 
   .page-home .hero__body {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     flex: 0 0 auto;
     padding-top: var(--hero-body-pad-top);
     padding-bottom: 0;
@@ -3023,7 +3023,7 @@
 
   .page-home .hero__body {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
     flex: 0 0 auto;
     padding-top: var(--hero-body-pad-top);
     padding-bottom: 0;
