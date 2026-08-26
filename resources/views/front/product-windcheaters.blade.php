@@ -12,7 +12,7 @@
         <div class="container-aashi">
 
             <header class="product-page__header">
-                <p class="aashi-label">Offer Lightweight Comfort</p>
+                <p class="aashi-label">MADE FOR CHANGING WEATHER</p>
 
                 <h1 class="aashi-title aashi-title--page" id="product-page-heading">
                     Windcheaters Collection

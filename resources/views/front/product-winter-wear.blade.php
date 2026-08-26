@@ -129,8 +129,8 @@
                     <div class="product-detail__stats" data-stats-counter aria-label="Company highlights">
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="28+">0</p>
-                            <p class="product-detail__stat-label">Years of Experience</p>
+                            <p class="product-detail__stat-value" data-target="27+">0</p>
+                            <p class="product-detail__stat-label">Years Industry Experience</p>
                         </div>
 
                         <div class="product-detail__stat">

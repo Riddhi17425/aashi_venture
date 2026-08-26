@@ -12,7 +12,7 @@
         <div class="container-aashi">
 
             <header class="factory-intro__header">
-                <p class="aashi-label">Manufacturing Excellence Since 1998</p>
+                <p class="aashi-label">AASHI GROUP LEGACY, SINCE 1998</p>
                 <h1 class="aashi-title aashi-title--page" id="about-page-heading">About Us</h1>
             </header>
 
@@ -32,30 +32,13 @@
                         </h2>
 
                         <div class="aashi-text aashi-text--section about-legacy__text">
-                            <p>
-                                Aashi Venture represents the next chapter in a manufacturing journey that began over
-                                two decades ago. Established on the strong foundation of the Aashi Group, the
-                                company carries forward a legacy of quality, reliability and customer-focused
-                                manufacturing across rainwear, windcheaters, winterwear, bags and packaging
-                                solutions.
-                            </p>
+                            <p>Aashi Venture represents the next chapter in a manufacturing journey that began over two decades ago. Established on the strong foundation of the Aashi Group, the company carries forward a legacy of quality, reliability and customer-focused manufacturing across rainwear, windcheaters, winterwear, bags and packaging solutions.</p>
 
-                            <p>
-                                Rooted in a group that has built expertise across protective apparel, travel and
-                                luggage bags, PVC packaging bags and customised product solutions, Aashi Venture is
-                                positioned to serve both everyday and business requirements with purpose. Our
-                                approach combines practical product development, disciplined manufacturing processes
-                                and an understanding of evolving customer needs. From standard collections to
-                                customised corporate requirements, every solution is developed with a focus on
-                                functionality, consistency and long-term value.
-                            </p>
+                            <p>Rooted in a group that has built expertise across protective apparel, travel and luggage bags, PVC packaging bags and customised product solutions, Aashi Venture is positioned to serve both everyday and business requirements with purpose.</p>
 
-                            <p>
-                                With a commitment to innovation, operational excellence and customer satisfaction,
-                                Aashi Venture continues to strengthen the group's manufacturing capabilities while
-                                supporting customers across India and international markets with products they can
-                                depend on.
-                            </p>
+                            <p>Our approach combines practical product development, disciplined manufacturing processes and an understanding of evolving customer needs. From standard collections to customised corporate requirements, every solution is developed with a focus on functionality, consistency and long-term value.</p>
+
+                            <p>With a commitment to innovation, operational excellence and customer satisfaction, Aashi Venture continues to strengthen the group’s manufacturing capabilities while supporting customers across India and international markets with products they can depend on.</p>
                         </div>
                     </div>
                 </div>
@@ -93,9 +76,11 @@
                                     Supported by our manufacturing facility in Sagwara and backed by the collective
                                     strength of the Aashi Group, we maintain complete control across the production
                                     cycle from sourcing and product development to quality assurance and final
-                                    delivery. Our focus remains simple: create products that perform, build
-                                    partnerships that last, and deliver value that customers can trust.
+                                    delivery. 
                                 </p>
+
+                                <p>Our focus remains simple: create products that perform, build
+                                    partnerships that last, and deliver value that customers can trust.</p>
 
                             </div>
 
@@ -112,7 +97,7 @@
                     </div>
 
                     <div class="stat-card stat-card--about">
-                        <p class="aashi-stat-value stat-card__value">Rajasthan</p>
+                        <p class="aashi-stat-value stat-card__value">Sagwara, Rajasthan</p>
                         <p class="aashi-stat-label stat-card__label mb-0">Manufacturing Facility</p>
                     </div>
 
@@ -122,8 +107,8 @@
                     </div>
 
                     <div class="stat-card stat-card--about">
-                        <p class="aashi-stat-value stat-card__value">04</p>
-                        <p class="aashi-stat-label stat-card__label mb-0">Export in Global Markets</p>
+                        <p class="aashi-stat-value stat-card__value">4 Export Markets</p>
+                        <p class="aashi-stat-label stat-card__label mb-0">Presence</p>
                     </div>
                 </div>
             </div>
@@ -251,7 +236,7 @@
                         aria-controls="about-timeline-panel-3"
                         data-timeline-index="3">
                         <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">2022</span>
+                        <span class="about-timeline__year-label">2016</span>
                     </button>
 
                     <button class="about-timeline__year"
@@ -261,6 +246,17 @@
                         aria-selected="false"
                         aria-controls="about-timeline-panel-4"
                         data-timeline-index="4">
+                        <span class="about-timeline__dot" aria-hidden="true"></span>
+                        <span class="about-timeline__year-label">2022</span>
+                    </button>
+
+                    <button class="about-timeline__year"
+                        id="about-timeline-tab-5"
+                        type="button"
+                        role="tab"
+                        aria-selected="false"
+                        aria-controls="about-timeline-panel-5"
+                        data-timeline-index="5">
                         <span class="about-timeline__dot" aria-hidden="true"></span>
                         <span class="about-timeline__year-label">2025</span>
                     </button>
@@ -278,7 +274,7 @@
                             data-timeline-year="1998"
                             aria-hidden="false">
 
-                            <p class="aashi-label">Origin — Foundation Year</p>
+                            <p class="aashi-label">ORIGIN — FOUNDATION YEAR</p>
 
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
@@ -286,9 +282,7 @@
                                 </h3>
 
                                 <p class="aashi-text aashi-text--light mb-0">
-                                    The Aashi journey began with Aashi Plastic Industries,
-                                    laying the foundation for a manufacturing group built on
-                                    quality, consistency and long-term partnerships
+                                    The Aashi journey began with Aashi Plastic Industries, laying the foundation for a manufacturing group built on quality, consistency and long-term partnerships.
                                 </p>
                             </div>
                         </article>
@@ -301,18 +295,15 @@
                             data-timeline-year="2010"
                             aria-hidden="true">
 
-                            <p class="aashi-label">Expansion — Protective Apparel</p>
+                            <p class="aashi-label">CORPORATE MILESTONE</p>
 
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
-                                    Rainwear Manufacturing Growth
+                                    Aashi Plastic Pvt. Ltd.
                                 </h3>
 
                                 <p class="aashi-text aashi-text--light mb-0">
-                                    The Aashi Group expanded strategically,
-                                    strengthening its expertise in weather-protection apparel
-                                    and building production capacity to serve retail and
-                                    corporate customers across India
+                                    Aashi Plastic Pvt. Ltd. marked the next stage of growth, strengthening the group’s presence in PVC and packaging-focused manufacturing.
                                 </p>
                             </div>
                         </article>
@@ -325,44 +316,35 @@
                             data-timeline-year="2012"
                             aria-hidden="true">
 
-                            <p class="aashi-label">Network — Multi-Location Production</p>
+                            <p class="aashi-label">EXPANSION</p>
 
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
-                                    Gujarat &amp; Rajasthan Units
+                                    Om Polyplast
                                 </h3>
 
                                 <p class="aashi-text aashi-text--light mb-0">
-                                    With manufacturing units across Gujarat and Rajasthan,
-                                    the group steadily built a stronger production network
-                                    to support evolving market requirements. Skilled teams
-                                    and specialised production facilities shaped the way
-                                    Aashi serves retail, corporate and export markets.
+                                    With Om Polyplast, the group expanded its polymer manufacturing capabilities and added greater depth to its growing product ecosystem.
                                 </p>
                             </div>
                         </article>
-
                         <article class="about-timeline__panel"
                             id="about-timeline-panel-3"
                             role="tabpanel"
-                            aria-labelledby="about-timeline-tab-3"
+                            aria-labelledby="about-timeline-tab-2"
                             data-timeline-index="3"
-                            data-timeline-year="2022"
+                            data-timeline-year="2016"
                             aria-hidden="true">
 
-                            <p class="aashi-label">Diversification — Integrated Solutions</p>
+                            <p class="aashi-label">ECOSYSTEM GROWTH</p>
 
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
-                                    Bags, Packaging &amp; Custom Products
+                                    Aarna Polyplast
                                 </h3>
 
                                 <p class="aashi-text aashi-text--light mb-0">
-                                    From rainwear and winterwear to bags,
-                                    packaging and customised solutions,
-                                    each addition expanded both capability
-                                    and reach — broadening the group's strength
-                                    across industrial, retail and export markets.
+                                    Aarna Polyplast became another step in building a broader manufacturing network, focused on capability, scale and dependable production.
                                 </p>
                             </div>
                         </article>
@@ -370,23 +352,41 @@
                         <article class="about-timeline__panel"
                             id="about-timeline-panel-4"
                             role="tabpanel"
-                            aria-labelledby="about-timeline-tab-4"
+                            aria-labelledby="about-timeline-tab-3"
                             data-timeline-index="4"
-                            data-timeline-year="2025"
+                            data-timeline-year="2022"
                             aria-hidden="true">
 
-                            <p class="aashi-label">Future — Aashi Venture</p>
+                            <p class="aashi-label">A NEW CHAPTER</p>
 
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
-                                    Next Chapter of Manufacturing Excellence
+                                    New Aashi Rainwear
                                 </h3>
 
                                 <p class="aashi-text aashi-text--light mb-0">
-                                    Aashi Venture carries this legacy forward,
-                                    combining decades of experience with modern
-                                    manufacturing capabilities to support the next
-                                    phase of growth and excellence.
+                                    New Aashi Rainwear brought a dedicated focus to protective apparel, expanding the group’s presence across rainwear, windcheaters and winterwear.
+                                </p>
+                            </div>
+                        </article>
+
+                        <article class="about-timeline__panel"
+                            id="about-timeline-panel-5"
+                            role="tabpanel"
+                            aria-labelledby="about-timeline-tab-4"
+                            data-timeline-index="5"
+                            data-timeline-year="2025"
+                            aria-hidden="true">
+
+                            <p class="aashi-label">LOOKING FORWARD</p>
+
+                            <div class="about-timeline__panel-body">
+                                <h3 class="aashi-title aashi-title--section">
+                                    Aashi Venture Pvt. Ltd.
+                                </h3>
+
+                                <p class="aashi-text aashi-text--light mb-0">
+                                    Aashi Venture Pvt. Ltd. opened a new chapter in Sagwara, Rajasthan, extending the group’s manufacturing footprint and carrying the Aashi legacy forward.
                                 </p>
                             </div>
                         </article>
@@ -470,14 +470,14 @@
 
                         <div class="about-mv__card-copy">
                             <h2 class="aashi-title aashi-title--card" id="about-mission-heading">
-                                Our Mission
+                                VISION
                             </h2>
 
                             <p class="aashi-text aashi-text--section mb-0">
-                                To manufacture products that combine performance, durability, and value while fostering
-                                long-term customer relationships through consistency, integrity, and innovation. We are
-                                committed to continuously strengthening our capabilities, empowering our workforce, and
-                                contributing positively to the industries and communities we serve.
+                                <b>Building a Stronger Future</b> 
+                            </p>
+                            <p class="aashi-text aashi-text--section mb-0">
+                                 To be recognised among the most trusted and respected manufacturers of weather-protection apparel, bags, and packaging solutions, delivering products that set benchmarks for quality, reliability, innovation, and customer satisfaction across India and global markets.
                             </p>
                         </div>
                     </article>
@@ -489,14 +489,14 @@
 
                         <div class="about-mv__card-copy">
                             <h2 class="aashi-title aashi-title--card">
-                                Our Vision
+                                MISSION
                             </h2>
 
                             <p class="aashi-text aashi-text--section mb-0">
-                                To be recognised among the most trusted and respected manufacturers of
-                                weather-protection apparel, bags, and packaging solutions, delivering products
-                                that set benchmarks for quality, reliability, innovation, and customer satisfaction
-                                across India and global markets.
+                                <b>Creating Value Through Manufacturing Excellence</b>
+                            </p>
+                            <p class="aashi-text aashi-text--section mb-0">
+                                To manufacture products that combine performance, durability, and value while fostering long-term customer relationships through consistency, integrity, and innovation. We are committed to continuously strengthening our capabilities, empowering our workforce, and contributing positively to the industries and communities we serve.
                             </p>
                         </div>
                     </article>
@@ -588,7 +588,7 @@
                     <div class="excellence__item-copy">
                         <h3 class="aashi-title aashi-title--card">People &amp; Partnership</h3>
                         <p class="aashi-text aashi-text--section mb-0">
-                            We value the people behind every process and build lasting partnerships through collaboration &amp; shared growth.
+                            We value the people behind every process and build lasting partnerships through mutual respect, collaboration and shared growth.
                         </p>
                     </div>
                 </article>
@@ -652,64 +652,66 @@
     <section class="section-block about-ecosystem" aria-labelledby="about-ecosystem-heading">
         <div class="container-aashi">
             <header class="section-header section-header--center section-header--spaced">
-                <p class="aashi-label">Group Legacy</p>
+                <p class="aashi-label">OUR GROUP COMPANIES</p>
                 <h2 class="aashi-title aashi-title--section" id="about-ecosystem-heading">
                     The Strength of an Integrated Manufacturing Ecosystem
                 </h2>
+                <div class="aashi-text aashi-text--section">
+                    <p>Aashi Venture is proud to be part of the Aashi Group, a diversified manufacturing network built under the leadership of Mr. Pradip Trivedi.</p>
+                </div>
             </header>
 
             @php
                 $companies = [
-                    [
-                        'logo' => 'frontend/assets/images/about-eco-aashi.png',
-                        'logo_alt' => 'Aashi Venture Pvt. Ltd.',
-                        'title' => 'Aashi Venture Pvt. Ltd.',
-                        'active' => false,
+
+                [
+                        'logo' => 'frontend/assets/images/about-eco-aarna.png',
+                        'logo_alt' => 'Aashi Plastic Pvt. Ltd.',
+                        'title' => 'Aashi Plastic Pvt. Ltd.',
+                        'active' => true,
                         'content' => [
-                            'Aashi Venture represents the next chapter in a manufacturing journey that began over two decades ago. Established on the strong foundation of the Aashi Group, the company carries forward a legacy of quality, reliability and customer-focused manufacturing across rainwear, windcheaters, winterwear, bags and packaging solutions.',
-                            'With a commitment to innovation, operational excellence and customer satisfaction, Aashi Venture continues to strengthen the group’s manufacturing capabilities while supporting customers across India and international markets with products they can depend on.'
+                            "Established in 1998, Aashi Plastic Pvt. Ltd. is one of the group's flagship companies and a trusted manufacturer of customised PVC, PEVA, EVA, and PE packaging solutions serving the home-furnishing, textile, and garment industries.",
+                            "Beyond material selection, the focus is on developing packaging formats that support how products are stored, displayed and delivered. This allows the company to create solutions aligned with the practical needs of home-furnishing, textile and garment businesses.",
+                            "Within the Aashi Group, Aashi Plastic Pvt. Ltd. adds specialised packaging capability to the wider manufacturing network, strengthening the group’s ability to serve varied product and market requirements."
                         ]
                     ],
+
                     [
                         'logo' => 'frontend/assets/images/about-eco-sm.png',
                         'logo_alt' => 'New Aashi Rainwear',
                         'title' => 'New Aashi Rainwear',
                         'active' => false,
                         'content' => [
-                            'New Aashi Rainwear specialises in weather-protection apparel designed for everyday movement and dependable performance. From standard collections to customised corporate requirements, products are developed with a focus on functionality, consistency and long-term value.',
-                            'As part of the Aashi Group’s integrated manufacturing ecosystem, New Aashi Rainwear supports retail, corporate and export markets with rainwear solutions built on disciplined production processes and evolving customer needs.'
+                            "New Aashi Rainwear is Aashi Group’s dedicated weather-protection apparel company, manufacturing raincoats, rain suits, reversible rainwear, windcheaters, winterwear and reflective safety wear.",
+                            "Focused on practical protection and dependable finishing, the company develops products suited to changing weather, daily use and workwear requirements. Its range brings together comfort, functionality and durability across seasonal apparel needs.",
+                            "Within the Aashi Group, New Aashi Rainwear adds specialised expertise in protective apparel, strengthening the group’s ability to serve retail, corporate and business requirements with reliable products."
                         ]
                     ],
+
                     [
                         'logo' => 'frontend/assets/images/about-eco-plastic.png',
-                        'logo_alt' => 'Aashi Plastic Pvt. Ltd.',
-                        'title' => 'Aashi Plastic Pvt. Ltd.',
-                        'active' => true,
-                        'content' => [
-                            'Aashi Plastic Pvt. Ltd. manufactures all sorts of PVC bags which are used in packaging of Home Furnishing products and Garments viz: Apparels, Bed Sheets, Pillow Covers, Comforters, Table Tops, Curtains and Towels etc. These customized bags are made as per the requirement/specification of the clients in different types of materials like PVC, PEVA, EVA, PE. These bags are broadly of three different types – Stitching, Welding and Wired Bags.',
-                            'Together with Aashi Venture and allied group companies, this integrated ecosystem supports diverse manufacturing requirements across protective apparel, packaging and customised product solutions.'
-                        ]
-                    ],
-                    [
-                        'logo' => 'frontend/assets/images/about-eco-6m.png',
-                        'logo_alt' => '6M Polyplast',
-                        'title' => '6M Polyplast',
-                        'active' => false,
-                        'content' => [
-                            '6M Polyplast contributes to the group’s strength in polymer-based manufacturing, producing PVC film and polyplast solutions that support packaging, industrial and customised product applications across diverse sectors.',
-                            'With structured processes and quality-focused production, 6M Polyplast works alongside sister companies within the Aashi Group to deliver dependable materials and packaging components for retail, corporate and export requirements.'
-                        ]
-                    ],
-                    [
-                        'logo' => 'frontend/assets/images/about-eco-aarna.png',
                         'logo_alt' => 'Aarna Polyplast',
                         'title' => 'Aarna Polyplast',
                         'active' => false,
                         'content' => [
-                            'Aarna Polyplast extends the group’s capabilities in polyplast manufacturing, supporting customised packaging and polymer-based product solutions developed to meet specific client requirements and industry standards.',
-                            'Operating within the Aashi Group’s multi-location manufacturing network, Aarna Polyplast helps strengthen the ecosystem’s reach across protective apparel, packaging and tailored product development for customers across India and beyond.'
+                            "Aarna Polyplast is part of the Aashi Group’s wider manufacturing network, contributing to the group’s growing capabilities across packaging and polymer-based product solutions.",
+                            "Based in Mehsana, the company supports the group’s focus on consistent manufacturing, product development and evolving market requirements. Its presence adds further depth to Aashi’s multi-location production network.",
+                            "Within the Aashi Group, Aarna Polyplast strengthens the group’s ability to serve varied product categories through coordinated manufacturing capabilities and a shared commitment to quality."
                         ]
                     ],
+                    
+                    [
+                        'logo' => 'frontend/assets/images/about-eco-6m.png',
+                        'logo_alt' => 'Om Polyplast',
+                        'title' => 'Om Polyplast',
+                        'active' => false,
+                        'content' => [
+                            "Om Polyplast is a packaging-focused manufacturing unit within the Aashi Group, supporting customised packaging solutions for diverse product and business requirements.",
+                            "The company’s portfolio includes comforter bags, wire bags, round PVC bags and other tailored packaging formats designed around product protection, storage and presentation. Backed by skilled professionals and specialised machinery, Om Polyplast supports consistent production and practical packaging development.",
+                            "Within the Aashi Group, Om Polyplast adds focused packaging capability to the wider manufacturing network, strengthening the group’s ability to serve varied customer needs with reliable and customised solutions."
+                        ]
+                    ],
+                    
                 ];
             @endphp
 
@@ -825,20 +827,18 @@
                         'designation' => 'Managing Director',
                         'active' => true,
                         'message' => [
-                            'Aashi Venture is built on the belief that quality and trust create lasting growth. Through strong manufacturing capabilities, reliable relationships and a commitment to continuous improvement, we continue to deliver products customers can depend on.',
-                            'As we move forward, our focus remains on innovation, responsible growth and creating long-term value for our customers, partners and communities. We sincerely thank everyone who has been part of this journey and look forward to building the future together.'
+                            'Aashi Venture is built on the belief that quality and trust create lasting growth. Through strong manufacturing capabilities, reliable relationships and a commitment to continuous improvement, we continue to deliver products customers can depend on. As we move forward, our focus remains on innovation, responsible growth and creating long-term value for our customers, partners and communities. We sincerely thank everyone who has been part of this journey and look forward to building the future together.'
                         ]
                     ],
                     [
                         'image' => 'frontend/assets/images/about-mission.webp',
                         'alt' => 'Dinesh Joshi, Director of Operations',
                         'style' => '--leadership-photo-height:115%; --leadership-photo-top:-7%; --leadership-photo-position:center 20%;',
-                        'name' => 'Dinesh Joshi',
-                        'designation' => 'Director of Operations',
+                        'name' => 'Mrs. Chhaya Trivedi',
+                        'designation' => 'Director',
                         'active' => false,
                         'message' => [
-                            'Operational excellence is the backbone of everything we deliver. From production planning and quality control to timely fulfilment, our teams work with discipline and accountability to ensure every product meets the standards our customers expect.',
-                            'By investing in skilled people, structured processes and continuous improvement across our manufacturing network, we strengthen the group’s ability to serve retail, corporate and export partners with consistency and reliability.'
+                            'At Aashi Venture, we believe every dependable product begins with the people behind it. From design and production to quality checks and delivery, each contribution plays a meaningful role in what we create. We remain committed to a culture of care, accountability and mutual respect one that values people as much as performance. As we move ahead, our purpose is to build stronger teams, lasting partnerships and products that truly serve those who rely on them.'
                         ]
                     ]
                 ];
@@ -898,7 +898,7 @@
         <div class="container-aashi partners__inner">
 
             <header class="section-header section-header--center section-header--spaced">
-                <p class="aashi-label">Trusted Partnerships</p>
+                <p class="aashi-label">OUR CLIENTELE</p>
                 <h2 class="aashi-title aashi-title--section" id="partners-heading">
                     Trusted By Leading Brands
                 </h2>

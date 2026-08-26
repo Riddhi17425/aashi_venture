@@ -137,7 +137,7 @@
                         </div>
 
                         <div class="product-detail__stat">
-                            <p class="product-detail__stat-value" data-target="1.5 Cr+">0</p>
+                            <p class="product-detail__stat-value" data-target="1.5 cr+">0</p>
                             <p class="product-detail__stat-label">Units Produced Annually</p>
                         </div>
 
