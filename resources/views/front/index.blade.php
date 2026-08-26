@@ -8,48 +8,16 @@
     <!-- START - HERO SECTION -->
     <section class="hero" aria-label="Hero">
         <div class="hero__bg" aria-hidden="true">
-<<<<<<< HEAD
-            @if($banners->isNotEmpty())
-                <img class="hero__bg-fallback"
-                    src="{{ $banners->first()->desktop_image_url }}"
-                    alt="{{ $banners->first()->desktop_image_alt }}">
-            @else
-                <img class="hero__bg-fallback" src="{{ asset('frontend/assets/images/hero-bg.webp') }}" alt="">
-            @endif
-=======
-            <img
-                class="hero__bg-fallback"
-                src="{{ asset('frontend/assets/images/hero-bg.webp') }}"
-                alt="">
-            <div class="swiper hero-swiper">
-                <div class="swiper-wrapper" data-hero-bg-wrapper></div>
-            </div>
-            <div class="hero__overlay"></div>
-        </div>
-        <div class="hero__body">
-            <div class="container-aashi">
-                <div class="hero__content">
-                    <p class="aashi-label aashi-label--light" data-hero-label>DESIGNED FOR THE RAIN</p>
-                    <div class="hero__copy">
-                        <div class="hero__text hero__text--animated" data-hero-content-animated>
-                            <h1 class="aashi-title aashi-title--hero" data-hero-title>
-                                Protection Designed for Every Season.
-                            </h1>
-                            <p class="aashi-text aashi-text--hero" data-hero-description>
-                                Built on decades of expertise, Aashi Venture creates dependable products for protection, packaging, and everyday use.
-                            </p>
-                        </div>
->>>>>>> 50fe569d30f0e83fede1e21bc70d2d7a00a5914c
-
-            <div class="swiper hero-swiper">
+            <div class="hero-swiper">
                 <div class="swiper-wrapper">
                     @forelse($banners as $banner)
-                        <div class="swiper-slide">
+                        <div class="swiper-slide hero-slide"
+                            style="--hero-slide-index: {{ $loop->index }}; --hero-slide-count: {{ $banners->count() }};">
                             <picture class="hero__bg-picture">
                                 <source media="(max-width: 767px)" srcset="{{ $banner->mobile_image_url }}">
                                 <img src="{{ $banner->desktop_image_url }}"
                                     alt="{{ $banner->desktop_image_alt ?? $banner->title }}"
-                                    class="hero__bg-img">
+                                    class="hero__bg-image">
                             </picture>
 
                             <div class="hero__overlay"></div>
@@ -72,7 +40,7 @@
                                             </div>
 
                                             @if($banner->category)
-                                                <a href="#" class="aashi-btn aashi-btn--primary">
+                                                <a href="{{ $banner->cta_url ?? '#' }}" class="aashi-btn aashi-btn--primary">
                                                     <span>Explore Products</span>
                                                     <img class="aashi-btn__icon" src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
                                                 </a>
@@ -84,8 +52,9 @@
                         </div>
                     @empty
                         {{-- fallback static slide if no banners exist yet --}}
-                        <div class="swiper-slide">
-                            <img src="{{ asset('frontend/assets/images/hero-bg.webp') }}" class="hero__bg-img" alt="">
+                        <div class="swiper-slide hero-slide"
+                            style="--hero-slide-index: 0; --hero-slide-count: 1;">
+                            <img src="{{ asset('frontend/assets/images/hero-bg.webp') }}" class="hero__bg-image" alt="">
                             <div class="hero__overlay"></div>
                             <div class="hero__body">
                                 <div class="container-aashi">
@@ -108,8 +77,6 @@
                     @endforelse
                 </div>
 
-                {{-- add nav/pagination if not already present elsewhere --}}
-                <div class="swiper-pagination"></div>
             </div>
         </div>
 
@@ -139,23 +106,24 @@
                             <span>Lightweight &amp; Comfortable</span>
                         </div>
                     </div>
-                    <div class="d-flex align-items-center hero__slider-controls" aria-label="Hero slider controls">
-                        <button
-                            class="hero__slider-btn hero__slider-btn--prev"
-                            type="button"
-                            aria-label="Previous slide">
-                            <img
-                                src="{{ asset('frontend/assets/icons/slider-prev.svg') }}"
-                                alt="">
-                        </button>
+                    <div class="d-flex align-items-center hero__slider-controls" aria-label="Hero slider progress">
+                        <span class="hero__slider-btn hero__slider-btn--prev" aria-hidden="true">
+                            <img src="{{ asset('frontend/assets/icons/slider-prev.svg') }}" alt="">
+                        </span>
                         <div class="hero__slider-progress d-flex align-items-center">
-                            <span class="hero__slider-current">01</span>
+                            <span class="hero__slider-current" aria-live="polite">
+                                @forelse($banners as $banner)
+                                    <span style="--hero-slide-index: {{ $loop->index }}; --hero-slide-count: {{ $banners->count() }};">{{ str_pad((string) ($loop->index + 1), 2, '0', STR_PAD_LEFT) }}</span>
+                                @empty
+                                    <span>01</span>
+                                @endforelse
+                            </span>
                             <span class="hero__slider-line" aria-hidden="true"></span>
-                            <span class="hero__slider-total">03</span>
+                            <span class="hero__slider-total">{{ str_pad((string) max($banners->count(), 1), 2, '0', STR_PAD_LEFT) }}</span>
                         </div>
-                        <button class="hero__slider-btn hero__slider-btn--next" type="button" aria-label="Next slide">
+                        <span class="hero__slider-btn hero__slider-btn--next" aria-hidden="true">
                             <img src="{{ asset('frontend/assets/icons/slider-next.svg') }}" alt="">
-                        </button>
+                        </span>
                     </div>
                 </div>
             </div>
