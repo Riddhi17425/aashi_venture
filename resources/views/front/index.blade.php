@@ -231,144 +231,50 @@
                     Products Designed for Everyday Performance
                 </h2>
             </header>
+
             <div class="row products__grid">
-                <!-- Rain Wear -->
-                <div class="col-6 col-lg-6" id="product-rainwear">
-                    <article class="product-card">
-                        <a class="product-card__link" href="#">
-                            <div class="product-card__frame">
-                                <img class="product-card__bg-pattern"
-                                    src="{{ asset('frontend/assets/images/card-bg.webp') }}"
-                                    alt=""
-                                    aria-hidden="true">
-                                <div class="product-card__image-wrap">
-                                    <img class="product-card__image"
-                                        src="{{ asset('frontend/assets/images/product-rainwear.webp') }}"
-                                        alt="Rain wear collection">
-                                </div>
-                                <div class="product-card__footer">
-                                    <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">RAINWEAR</h3>
-                                        <p class="aashi-text aashi-text--sm">
-                                            <b>अब बारिश का मज़ा..भीगे बिना</b> <br>Made for daily commutes, outdoor work and weather that does not wait. 
-                                        </p>
-                                    </div>
-                                    <span class="product-card__arrow" aria-hidden="true">
-                                        <img src="{{ asset('frontend/assets/icons/card-arrow.svg') }}" alt="">
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="product-card__badge">
-                                <img src="{{ asset('frontend/assets/icons/rainwear-badge.svg') }}" alt="">
-                            </div>
-                        </a>
-                    </article>
-                </div>
+                @foreach($categories as $category)
+                    <div class="col-6 col-lg-6" id="product-{{ $category->id }}">
+                        <article class="product-card">
+                            <a class="product-card__link" href="#">
+                                <div class="product-card__frame">
+                                    <img class="product-card__bg-pattern"
+                                        src="{{ asset('frontend/assets/images/card-bg.webp') }}"
+                                        alt=""
+                                        aria-hidden="true">
 
-                <!-- Windcheaters -->
-                <div class="col-6 col-lg-6" id="product-windcheaters">
-                    <article class="product-card">
-                        <a class="product-card__link" href="#">
-                            <div class="product-card__frame">
-                                <img class="product-card__bg-pattern"
-                                    src="{{ asset('frontend/assets/images/card-bg.webp') }}"
-                                    alt=""
-                                    aria-hidden="true">
-                                <div class="product-card__image-wrap">
-                                    <img class="product-card__image"
-                                        src="{{ asset('frontend/assets/images/product-windcheater.webp') }}"
-                                        alt="Windcheaters collection">
-                                </div>
-                                <div class="product-card__footer">
-                                    <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">WINDCHEATERS</h3>
-                                        <p class="aashi-text aashi-text--sm">
-                                           <b>Adventure in Every Layer</b><br>
-                                           Made to move with you, Aashi windcheaters offer lightweight comfort and reliable protection through changing weather. 
-                                        </p>
+                                    <div class="product-card__image-wrap">
+                                        <img class="product-card__image"
+                                            src="{{ $category->listing_image }}"
+                                            alt="{{ $category->listing_image_alt }}">
                                     </div>
-                                    <span class="product-card__arrow" aria-hidden="true">
-                                        <img src="{{ asset('frontend/assets/icons/card-arrow.svg') }}" alt="">
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="product-card__badge">
-                                <img src="{{ asset('frontend/assets/icons/windcheater-badge.svg') }}" alt="">
-                            </div>
-                        </a>
-                    </article>
-                </div>
 
-                <!-- Winter Wear -->
-                <div class="col-6 col-lg-6" id="product-winterwear">
-                    <article class="product-card">
-                        <a class="product-card__link" href="#">
-                            <div class="product-card__frame">
-                                <img class="product-card__bg-pattern"
-                                    src="{{ asset('frontend/assets/images/card-bg.webp') }}"
-                                    alt=""
-                                    aria-hidden="true">
-                                <div class="product-card__image-wrap">
-                                    <img class="product-card__image"
-                                        src="{{ asset('frontend/assets/images/product-winterwear.webp') }}"
-                                        alt="Winter wear collection">
-                                </div>
-                                <div class="product-card__footer">
-                                    <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">WINTERWEAR</h3>
-                                        <p class="aashi-text aashi-text--sm">
-                                            <b>Warmth You Can Count On</b>  <br>
-                                            Thoughtfully made for lasting warmth and everyday comfort, our winterwear keeps you prepared for colder days without compromising practicality. 
-                                        </p>
+                                    <div class="product-card__footer">
+                                        <div class="product-card__body">
+                                            <h3 class="aashi-title aashi-title--card">
+                                                {{ strtoupper($category->title) }}
+                                            </h3>
+                                            <p class="aashi-text aashi-text--sm">
+                                                {!! nl2br(e($category->short_note)) !!}
+                                            </p>
+                                        </div>
+                                        <span class="product-card__arrow" aria-hidden="true">
+                                            <img src="{{ asset('frontend/assets/icons/card-arrow.svg') }}" alt="">
+                                        </span>
                                     </div>
-                                    <span class="product-card__arrow" aria-hidden="true">
-                                        <img src="{{ asset('frontend/assets/icons/card-arrow.svg') }}" alt="">
-                                    </span>
                                 </div>
-                            </div>
-                            <div class="product-card__badge">
-                                <img src="{{ asset('frontend/assets/icons/winterwear-badge.svg') }}" alt="">
-                            </div>
-                        </a>
-                    </article>
-                </div>
 
-                <!-- Bags -->
-                <div class="col-6 col-lg-6" id="product-bags">
-                    <article class="product-card">
-                        <a class="product-card__link" href="#">
-                            <div class="product-card__frame">
-                                <img class="product-card__bg-pattern"
-                                    src="{{ asset('frontend/assets/images/card-bg.webp') }}"
-                                    alt=""
-                                    aria-hidden="true">
-                                <div class="product-card__image-wrap">
-                                    <img class="product-card__image"
-                                        src="{{ asset('frontend/assets/images/product-bags.webp') }}"
-                                        alt="Bags and packaging solutions">
-                                </div>
-                                <div class="product-card__footer">
-                                    <div class="product-card__body">
-                                        <h3 class="aashi-title aashi-title--card">
-                                            BAGS & PACKAGING SOLUTIONS
-                                        </h3>
-                                        <p class="aashi-text aashi-text--sm">
-                                            <b>The Perfect Cover for Every Product</b> <br>
-                                            From luggage bags to premium packaging, our solutions are made to protect, present and preserve products across industries. 
-                                        </p>
+                                @if($category->icon)
+                                    <div class="product-card__badge">
+                                        <img src="{{ $category->icon }}" alt="{{ $category->title }} icon">
                                     </div>
-                                    <span class="product-card__arrow" aria-hidden="true">
-                                        <img src="{{ asset('frontend/assets/icons/card-arrow.svg') }}" alt="">
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="product-card__badge">
-                                <img src="{{ asset('frontend/assets/icons/bags-badge.svg') }}" alt="">
-                            </div>
-                        </a>
-                    </article>
-                </div>
+                                @endif
+                            </a>
+                        </article>
+                    </div>
+                @endforeach
             </div>
+
         </div>
     </section>
     <!-- END - PRODUCTS SECTION -->
