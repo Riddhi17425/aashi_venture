@@ -22,7 +22,7 @@
             </div>
 
             <div class="col-lg-6">
-                <form class="newsletter__form w-100" id="newsletterForm" action="{{ route('newsletter.subscribe') }}" method="post">
+                <form class="newsletter__form w-100" id="newsletterForm" action="{{ route('newsletter.subscribe') }}" method="post" novalidate>
                     @csrf
                     <input
                         class="newsletter__input"

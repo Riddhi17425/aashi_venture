@@ -65,24 +65,35 @@
                     <li><a class="ms-link {{ request()->routeIs('branches.create') ? 'active' : '' }}" href="{{ route('branches.create') }}">Add</a></li>
                 </ul>
             </li>
+
             <li class="collapsed">
-            <a class="m-link {{ request()->routeIs('blogs') ? 'active' : '' }} {{ request()->routeIs('blogs.create') ? 'active' : '' }} {{ request()->routeIs('blogs.edit') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#menu-blogs" href="javascript:void(0);">
-                <i class="icofont-news fs-5"></i> <span>Blog Posts</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
-            </a>
-            <ul class="sub-menu collapse" id="menu-blogs">
-                <li><a class="ms-link {{ request()->routeIs('blogs') ? 'active' : '' }}" href="{{ route('blogs') }}">List</a></li>
-                <li><a class="ms-link {{ request()->routeIs('blogs.create') ? 'active' : '' }}" href="{{ route('blogs.create') }}">Add</a></li>
-            </ul>
-        </li>
+                <a class="m-link {{ request()->routeIs('leaders') ? 'active' : '' }} {{ request()->routeIs('leaders.create') ? 'active' : '' }} {{ request()->routeIs('leaders.edit') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#menu-leaders" href="javascript:void(0);">
+                    <i class="icofont-user-suited fs-5"></i> <span>Leaders</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
+                </a>
+                <ul class="sub-menu collapse" id="menu-leaders">
+                    <li><a class="ms-link {{ request()->routeIs('leaders') ? 'active' : '' }}" href="{{ route('leaders') }}">List</a></li>
+                    <li><a class="ms-link {{ request()->routeIs('leaders.create') ? 'active' : '' }}" href="{{ route('leaders.create') }}">Add</a></li>
+                </ul>
+            </li>
+
             <li class="collapsed">
-            <a class="m-link {{ request()->routeIs('settings') ? 'active' : '' }} {{ request()->routeIs('settings.create') ? 'active' : '' }} {{ request()->routeIs('settings.edit') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#menu-settings" href="javascript:void(0);">
-                <i class="icofont-gear fs-5"></i> <span>Settings</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
-            </a>
-            <ul class="sub-menu collapse" id="menu-settings">
-                <li><a class="ms-link {{ request()->routeIs('settings') ? 'active' : '' }}" href="{{ route('settings') }}">List</a></li>
-                <li><a class="ms-link {{ request()->routeIs('settings.create') ? 'active' : '' }}" href="{{ route('settings.create') }}">Add</a></li>
-            </ul>
-        </li>
+                <a class="m-link {{ request()->routeIs('blogs') ? 'active' : '' }} {{ request()->routeIs('blogs.create') ? 'active' : '' }} {{ request()->routeIs('blogs.edit') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#menu-blogs" href="javascript:void(0);">
+                    <i class="icofont-news fs-5"></i> <span>Blog Posts</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
+                </a>
+                <ul class="sub-menu collapse" id="menu-blogs">
+                    <li><a class="ms-link {{ request()->routeIs('blogs') ? 'active' : '' }}" href="{{ route('blogs') }}">List</a></li>
+                    <li><a class="ms-link {{ request()->routeIs('blogs.create') ? 'active' : '' }}" href="{{ route('blogs.create') }}">Add</a></li>
+                </ul>
+            </li>
+            <li class="collapsed">
+                <a class="m-link {{ request()->routeIs('settings') ? 'active' : '' }} {{ request()->routeIs('settings.create') ? 'active' : '' }} {{ request()->routeIs('settings.edit') ? 'active' : '' }}" data-bs-toggle="collapse" data-bs-target="#menu-settings" href="javascript:void(0);">
+                    <i class="icofont-gear fs-5"></i> <span>Settings</span> <span class="arrow icofont-rounded-down ms-auto text-end fs-5"></span>
+                </a>
+                <ul class="sub-menu collapse" id="menu-settings">
+                    <li><a class="ms-link {{ request()->routeIs('settings') ? 'active' : '' }}" href="{{ route('settings') }}">List</a></li>
+                    <li><a class="ms-link {{ request()->routeIs('settings.create') ? 'active' : '' }}" href="{{ route('settings.create') }}">Add</a></li>
+                </ul>
+            </li>
             {{-- more modules get added here as we build them out --}}
         </ul>
         <button type="button" class="btn btn-link sidebar-mini-btn text-light">

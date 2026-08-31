@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Front;
 
+use Illuminate\Support\Facades\Http;
 use App\Http\Controllers\Controller;
 use App\Models\Branch;
 use App\Models\Banner;
@@ -9,6 +10,7 @@ use App\Models\TrustedPartner;
 use App\Models\Category;
 use App\Models\WorkspaceCategory;
 use App\Models\Newsletter;
+use App\Models\Leader;
 use Illuminate\Http\Request;
 use App\Models\ContactFormInquiry;
 use Illuminate\Support\Facades\Validator;
@@ -41,7 +43,11 @@ class HomeController extends Controller
             ->orderBy('sort_order')
             ->get();
 
-        return view('front.about', compact('partners'));
+        $leaders = Leader::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        return view('front.about', compact('partners', 'leaders'));
     }
 
     public function contact()
@@ -82,6 +88,20 @@ class HomeController extends Controller
                 'subject' => $request->subject,
                 'message' => $request->message,
             ]);
+
+            // Send to Google Sheet — happens BEFORE the return now
+            try {
+                Http::post(env('GOOGLE_SHEET_WEBHOOK_URL'), [
+                    'date'    => now()->format('Y-m-d H:i:s'),
+                    'name'    => $request->name,
+                    'email'   => $request->email,
+                    'subject' => $request->subject,
+                    'message' => $request->message,
+                ]);
+            } catch (\Exception $e) {
+                Log::error('Google Sheet webhook failed: ' . $e->getMessage());
+                // intentionally not re-thrown — a Sheet failure shouldn't break the user's form submission
+            }
 
             return response()->json([
                 'success' => true,
@@ -144,5 +164,15 @@ class HomeController extends Controller
                 'message' => 'Something went wrong. Please try again later.',
             ], 500);
         }
+    }
+
+    public function productDetail($categoryUrl)
+    {
+        $category = Category::where('category_url', $categoryUrl)
+            ->where('is_active', true)
+            ->firstOrFail();
+
+        return view('front.product-rainwear', compact('category'));
+        // each route points to its own existing blade file, just now passing $category
     }
 }

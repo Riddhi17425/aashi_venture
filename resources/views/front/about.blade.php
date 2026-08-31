@@ -33,11 +33,8 @@
 
                         <div class="aashi-text aashi-text--section about-legacy__text">
                             <p>Aashi Venture represents the next chapter in a manufacturing journey that began over two decades ago. Established on the strong foundation of the Aashi Group, the company carries forward a legacy of quality, reliability and customer-focused manufacturing across rainwear, windcheaters, winterwear, bags and packaging solutions.</p>
-
                             <p>Rooted in a group that has built expertise across protective apparel, travel and luggage bags, PVC packaging bags and customised product solutions, Aashi Venture is positioned to serve both everyday and business requirements with purpose.</p>
-
                             <p>Our approach combines practical product development, disciplined manufacturing processes and an understanding of evolving customer needs. From standard collections to customised corporate requirements, every solution is developed with a focus on functionality, consistency and long-term value.</p>
-
                             <p>With a commitment to innovation, operational excellence and customer satisfaction, Aashi Venture continues to strengthen the group’s manufacturing capabilities while supporting customers across India and international markets with products they can depend on.</p>
                         </div>
                     </div>
@@ -45,52 +42,40 @@
             </div>
 
             <div class="about-company about-company__layout" aria-labelledby="about-company-heading">
-
                 <div class="about-company__copy">
-
                     <div class="about__content">
                         <p class="aashi-label">Company Introduction</p>
-
                         <div class="about__intro">
-
                             <h2 class="aashi-title aashi-title--section" id="about-company-heading">
                                 Manufacturing Protection. Delivering Trust.
                             </h2>
 
                             <div class="about__text aashi-text aashi-text--section">
-
                                 <p>
                                     At Aashi Venture, manufacturing is at the heart of everything we do. We
                                     specialise in producing high-quality rainwear, windcheaters, winterwear, bags,
                                     and packaging solutions designed to meet the evolving needs of consumers,
                                     businesses, distributors, and industrial buyers.
                                 </p>
-
                                 <p>
                                     Built on decades of industry expertise, our operations combine skilled
                                     craftsmanship, advanced manufacturing processes, and stringent quality standards
                                     to ensure consistency across every product we create.
                                 </p>
-
                                 <p>
                                     Supported by our manufacturing facility in Sagwara and backed by the collective
                                     strength of the Aashi Group, we maintain complete control across the production
                                     cycle from sourcing and product development to quality assurance and final
                                     delivery. 
                                 </p>
-
                                 <p>Our focus remains simple: create products that perform, build
                                     partnerships that last, and deliver value that customers can trust.</p>
-
                             </div>
-
                         </div>
                     </div>
-
                 </div>
 
                 <div class="about-company__stats" aria-label="Company highlights">
-
                     <div class="stat-card stat-card--about">
                         <p class="aashi-stat-value stat-card__value">Since 1998</p>
                         <p class="aashi-stat-label stat-card__label mb-0">Aashi Group Legacy</p>
@@ -120,24 +105,17 @@
     <section class="section-block" aria-labelledby="about-journey-heading">
         <div class="container-aashi">
             <div class="factory-capability factory-capability--text-first">
-
                 <div class="factory-capability__content">
-
                     <p class="aashi-label aashi-label--lg">Our Journey</p>
-
                     <div class="factory-capability__copy">
-
                         <h2 class="aashi-title aashi-title--section" id="about-journey-heading">
                             A Legacy of Growth and Manufacturing Excellence
                         </h2>
-
                         <div class="factory-capability__text aashi-text aashi-text--section">
-
                             <p>
                                 What began as a vision to build dependable manufacturing solutions has evolved into a
                                 diversified manufacturing ecosystem serving multiple industries and markets.
                             </p>
-
                             <p>
                                 Over the years, the Aashi Group has expanded strategically, strengthening its
                                 expertise in weather-protection apparel, packaging solutions, PVC film
@@ -145,7 +123,6 @@
                                 the same principles that define us today: quality, consistency, innovation, and
                                 customer commitment.
                             </p>
-
                             <p>
                                 With manufacturing units across Gujarat and Rajasthan, the group has steadily built a
                                 stronger production network to support evolving market requirements. From rainwear
@@ -154,26 +131,21 @@
                                 specialised production facilities continue to shape the way Aashi serves retail,
                                 corporate and export markets.
                             </p>
-
                             <p>
                                 Today, Aashi Venture carries this legacy forward, combining decades of experience
                                 with modern manufacturing capabilities to support the next phase of growth and
                                 excellence.
                             </p>
-
                         </div>
-
                     </div>
-
                 </div>
-
+                
                 <div class="factory-capability__media">
                     <img
                         class="factory-capability__image about-journey__image"
                         src="{{ asset('frontend/assets/images/about-journey.webp') }}"
                         alt="Team at the Aashi Plastic factory entrance">
                 </div>
-
             </div>
         </div>
     </section>
@@ -191,10 +163,8 @@
             </header>
 
             <div class="about-timeline__body">
-
                 <div class="about-timeline__track" role="tablist" aria-label="Company milestones">
                     <div class="about-timeline__line" aria-hidden="true"></div>
-
                     <button class="about-timeline__year is-active"
                         id="about-timeline-tab-0"
                         type="button"
@@ -263,9 +233,7 @@
                 </div>
 
                 <div class="about-timeline__detail">
-
                     <div class="about-timeline__panels">
-
                         <article class="about-timeline__panel is-active"
                             id="about-timeline-panel-0"
                             role="tabpanel"
@@ -275,12 +243,10 @@
                             aria-hidden="false">
 
                             <p class="aashi-label">ORIGIN — FOUNDATION YEAR</p>
-
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
                                     Aashi Plastic Industries
                                 </h3>
-
                                 <p class="aashi-text aashi-text--light mb-0">
                                     The Aashi journey began with Aashi Plastic Industries, laying the foundation for a manufacturing group built on quality, consistency and long-term partnerships.
                                 </p>
@@ -296,12 +262,10 @@
                             aria-hidden="true">
 
                             <p class="aashi-label">CORPORATE MILESTONE</p>
-
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
                                     Aashi Plastic Pvt. Ltd.
                                 </h3>
-
                                 <p class="aashi-text aashi-text--light mb-0">
                                     Aashi Plastic Pvt. Ltd. marked the next stage of growth, strengthening the group’s presence in PVC and packaging-focused manufacturing.
                                 </p>
@@ -317,17 +281,16 @@
                             aria-hidden="true">
 
                             <p class="aashi-label">EXPANSION</p>
-
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
                                     Om Polyplast
                                 </h3>
-
                                 <p class="aashi-text aashi-text--light mb-0">
                                     With Om Polyplast, the group expanded its polymer manufacturing capabilities and added greater depth to its growing product ecosystem.
                                 </p>
                             </div>
                         </article>
+
                         <article class="about-timeline__panel"
                             id="about-timeline-panel-3"
                             role="tabpanel"
@@ -337,12 +300,10 @@
                             aria-hidden="true">
 
                             <p class="aashi-label">ECOSYSTEM GROWTH</p>
-
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
                                     Aarna Polyplast
                                 </h3>
-
                                 <p class="aashi-text aashi-text--light mb-0">
                                     Aarna Polyplast became another step in building a broader manufacturing network, focused on capability, scale and dependable production.
                                 </p>
@@ -358,12 +319,10 @@
                             aria-hidden="true">
 
                             <p class="aashi-label">A NEW CHAPTER</p>
-
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
                                     New Aashi Rainwear
                                 </h3>
-
                                 <p class="aashi-text aashi-text--light mb-0">
                                     New Aashi Rainwear brought a dedicated focus to protective apparel, expanding the group’s presence across rainwear, windcheaters and winterwear.
                                 </p>
@@ -379,7 +338,6 @@
                             aria-hidden="true">
 
                             <p class="aashi-label">LOOKING FORWARD</p>
-
                             <div class="about-timeline__panel-body">
                                 <h3 class="aashi-title aashi-title--section">
                                     Aashi Venture Pvt. Ltd.
@@ -390,7 +348,6 @@
                                 </p>
                             </div>
                         </article>
-
                     </div>
 
                     <p class="about-timeline__year-display"
@@ -400,7 +357,6 @@
                     </p>
 
                     <div class="about-timeline__nav">
-
                         <button class="about-timeline__nav-btn about-timeline__nav-btn--prev"
                             type="button"
                             data-timeline-prev
@@ -418,7 +374,6 @@
                                     d="M16.1717 10.6578L10.8076 5.14083L12.2218 3.68629L20 11.6863L12.2218 19.6863L10.8076 18.2318L16.1717 12.7148L4 12.7148L4 10.6578H16.1717Z"
                                     fill="currentColor" />
                             </svg>
-
                         </button>
 
                         <button class="about-timeline__nav-btn about-timeline__nav-btn--next"
@@ -438,13 +393,9 @@
                                     d="M16.1717 10.6578L10.8076 5.14083L12.2218 3.68629L20 11.6863L12.2218 19.6863L10.8076 18.2318L16.1717 12.7148L4 12.7148L4 10.6578H16.1717Z"
                                     fill="currentColor" />
                             </svg>
-
                         </button>
-
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>
@@ -454,25 +405,20 @@
     <section class="section-block" aria-labelledby="about-mission-heading">
         <div class="container-aashi">
             <div class="factory-capability about-mv">
-
                 <div class="factory-capability__media">
                     <img class="factory-capability__image about-mv__image"
                         src="{{ asset('frontend/assets/images/about-mission.webp') }}"
                         alt="Workers on the Aashi factory production floor">
                 </div>
-
                 <div class="about-mv__cards">
-
                     <article class="about-mv__card">
                         <div class="excellence__icon-wrap excellence__icon-wrap--outline">
                             <img src="{{ asset('frontend/assets/icons/mission.svg') }}" alt="">
                         </div>
-
                         <div class="about-mv__card-copy">
                             <h2 class="aashi-title aashi-title--card" id="about-mission-heading">
                                 VISION
                             </h2>
-
                             <p class="aashi-text aashi-text--section mb-0">
                                 <b>Building a Stronger Future</b> 
                             </p>
@@ -486,12 +432,10 @@
                         <div class="excellence__icon-wrap excellence__icon-wrap--outline">
                             <img src="{{ asset('frontend/assets/icons/vision.svg') }}" alt="">
                         </div>
-
                         <div class="about-mv__card-copy">
                             <h2 class="aashi-title aashi-title--card">
                                 MISSION
                             </h2>
-
                             <p class="aashi-text aashi-text--section mb-0">
                                 <b>Creating Value Through Manufacturing Excellence</b>
                             </p>
@@ -500,9 +444,7 @@
                             </p>
                         </div>
                     </article>
-
                 </div>
-
             </div>
         </div>
     </section>
@@ -520,7 +462,6 @@
             </header>
 
             <div class="excellence__grid excellence__grid--3col">
-
                 <article class="excellence__item">
                     <div class="excellence__icon-wrap">
                         <img src="{{ asset('frontend/assets/icons/about-value-quality.svg') }}" alt="">
@@ -592,9 +533,7 @@
                         </p>
                     </div>
                 </article>
-
             </div>
-
         </div>
     </section>
     <!-- END - CORE VALUES -->
@@ -603,31 +542,25 @@
     <section class="aashi-band about-philosophy section-block" aria-labelledby="about-philosophy-heading">
         <div class="container-aashi">
             <div class="about-philosophy__layout">
-
                 <div class="about-philosophy__copy">
                     <p class="aashi-label">Manufacturing Philosophy</p>
-
                     <div class="about-philosophy__body">
                         <h2 class="aashi-title aashi-title--section" id="about-philosophy-heading">
                             Excellence Built Into Every Product
                         </h2>
-
                         <div class="aashi-text aashi-text--light">
                             <p>Manufacturing is not simply what we do; it is who we are.</p>
-
                             <p>
                                 Our philosophy is built on precision, consistency, and continuous improvement.
                                 From selecting the right materials to implementing rigorous quality controls,
                                 every stage of production is designed to deliver products that perform reliably
                                 in real-world conditions.
                             </p>
-
                             <p>
                                 We believe that long-term success comes from maintaining uncompromising standards,
                                 investing in skilled people, embracing innovation, and delivering products that
                                 customers can depend on with confidence.
                             </p>
-
                             <p>
                                 That commitment shapes every production stage from material selection and pattern
                                 development to stitching, finishing and final inspection. Skilled workmanship,
@@ -637,12 +570,10 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="about-philosophy__media">
                     <img src="{{ asset('frontend/assets/images/about-philosophy.webp') }}"
                         alt="Factory workers handling materials in the warehouse">
                 </div>
-
             </div>
         </div>
     </section>
@@ -663,7 +594,6 @@
 
             @php
                 $companies = [
-
                 [
                         'logo' => 'frontend/assets/images/about-eco-aarna.png',
                         'logo_alt' => 'Aashi Plastic Pvt. Ltd.',
@@ -716,9 +646,7 @@
             @endphp
 
             <div class="about-ecosystem__body">
-
                 <div class="about-ecosystem__tabs">
-
                     <div class="about-ecosystem__logos" role="tablist" aria-label="Group companies">
                         @foreach($companies as $index => $company)
                             <button
@@ -750,13 +678,9 @@
                             </svg>
                         </button>
                     </div>
-
                 </div>
-
                 <div class="about-ecosystem__panels">
-
                     @foreach($companies as $index => $company)
-
                         <article
                             class="about-ecosystem__panel {{ $company['active'] ? 'is-active' : '' }}"
                             id="about-eco-panel-{{ $index }}"
@@ -774,13 +698,9 @@
                                     <p>{{ $paragraph }}</p>
                                 @endforeach
                             </div>
-
                         </article>
-
                     @endforeach
-
                 </div>
-
             </div>
         </div>
     </section>
@@ -789,15 +709,13 @@
     <!-- START - LEADERSHIP -->
     <section class="section-block about-leadership" aria-labelledby="about-leadership-heading">
         <div class="container-aashi">
-
             <header class="about-leadership__header">
                 <div>
                     <p class="aashi-label">Leadership Message</p>
-                    <h2 class="aashi-title aashi-title--section" id="about-leadership-heading">
-                        Leading with Vision. Growing with Trust.
+                    <h2 class="aashi-title aashi-title--section" id="about-leadership-heading" data-leadership-title>
+                        {{ $leaders->first()->leader_title ?? '' }}
                     </h2>
                 </div>
-
                 <div class="about-leadership__nav">
                     <button class="about-leadership__nav-btn" type="button" data-leadership-prev
                         aria-label="Previous message">
@@ -806,7 +724,6 @@
                                 fill="currentColor"/>
                         </svg>
                     </button>
-
                     <button class="about-leadership__nav-btn" type="button" data-leadership-next
                         aria-label="Next message">
                         <svg class="about-leadership__nav-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -817,78 +734,36 @@
                 </div>
             </header>
 
-            @php
-                $leaders = [
-                    [
-                        'image' => 'frontend/assets/images/about-leadership.jpg',
-                        'alt' => 'Mr. Pradip Trivedi, Managing Director',
-                        'style' => '--leadership-photo-height: 154.41%; --leadership-photo-top: -5.21%;',
-                        'name' => 'Mr. Pradip Trivedi',
-                        'designation' => 'Managing Director',
-                        'active' => true,
-                        'message' => [
-                            'Aashi Venture is built on the belief that quality and trust create lasting growth. Through strong manufacturing capabilities, reliable relationships and a commitment to continuous improvement, we continue to deliver products customers can depend on. As we move forward, our focus remains on innovation, responsible growth and creating long-term value for our customers, partners and communities. We sincerely thank everyone who has been part of this journey and look forward to building the future together.'
-                        ]
-                    ],
-                    [
-                        'image' => 'frontend/assets/images/about-mission.webp',
-                        'alt' => 'Dinesh Joshi, Director of Operations',
-                        'style' => '--leadership-photo-height:115%; --leadership-photo-top:-7%; --leadership-photo-position:center 20%;',
-                        'name' => 'Mrs. Chhaya Trivedi',
-                        'designation' => 'Director',
-                        'active' => false,
-                        'message' => [
-                            'At Aashi Venture, we believe every dependable product begins with the people behind it. From design and production to quality checks and delivery, each contribution plays a meaningful role in what we create. We remain committed to a culture of care, accountability and mutual respect one that values people as much as performance. As we move ahead, our purpose is to build stronger teams, lasting partnerships and products that truly serve those who rely on them.'
-                        ]
-                    ]
-                ];
-            @endphp
-
             <div class="about-leadership__body">
-
                 @foreach($leaders as $index => $leader)
-
-                    <article class="about-leadership__slide {{ $leader['active'] ? 'is-active' : '' }}"
+                    <article class="about-leadership__slide {{ $index === 0 ? 'is-active' : '' }}"
                         data-leadership-index="{{ $index }}"
-                        aria-hidden="{{ $leader['active'] ? 'false' : 'true' }}">
-
+                        data-leadership-title="{{ $leader->leader_title }}"
+                        aria-hidden="{{ $index === 0 ? 'false' : 'true' }}">
                         <div class="about-leadership__media">
                             <img class="about-leadership__photo"
-                                src="{{ asset($leader['image']) }}"
-                                alt="{{ $leader['alt'] }}"
-                                style="{{ $leader['style'] }}">
+                                src="{{ $leader->leader_image_url }}"
+                                alt="{{ $leader->leader_name }}">
                         </div>
-
                         <blockquote class="about-leadership__quote">
-
                             <div class="about-leadership__quote-row">
-
                                 <img class="about-leadership__quote-icon"
                                     src="{{ asset('frontend/assets/icons/quote.svg') }}"
                                     alt=""
                                     aria-hidden="true">
 
                                 <div class="about-leadership__quote-copy">
-                                    @foreach($leader['message'] as $paragraph)
-                                        <p>{{ $paragraph }}</p>
-                                    @endforeach
+                                    {!! $leader->leader_description !!}
                                 </div>
-
                             </div>
-
                             <footer class="about-leadership__attribution">
-                                <p class="about-leadership__name">{{ $leader['name'] }}</p>
-                                <p class="about-leadership__role mb-0">{{ $leader['designation'] }}</p>
+                                <p class="about-leadership__name">{{ $leader->leader_name }}</p>
+                                <p class="about-leadership__role mb-0">{{ $leader->leader_designation }}</p>
                             </footer>
-
                         </blockquote>
-
                     </article>
-
                 @endforeach
-
             </div>
-
         </div>
     </section>
     <!-- END - LEADERSHIP -->

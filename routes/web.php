@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\TrustedPartnerController;
 use App\Http\Controllers\Admin\WorkspaceCategoryController;
 use App\Http\Controllers\Admin\WorkspaceController;
+use App\Http\Controllers\Admin\LeaderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 
@@ -56,29 +57,14 @@ Route::get('/privacy-policy', function () {
     return view('front.privacy');
 })->name('privacy');
 
-/*
-|--------------------------------------------------------------------------
-| Product Routes
-|--------------------------------------------------------------------------
-*/
-
+// START - PRODUCT ROUTES
 Route::prefix('products')->name('products.')->group(function () {
-    Route::get('/rainwear', function () {
-        return view('front.product-rainwear');
-    })->name('rainwear');
-
-    Route::get('/winter-wear', function () {
-        return view('front.product-winter-wear');
-    })->name('winter');
-
-    Route::get('/windcheaters', function () {
-        return view('front.product-windcheaters');
-    })->name('windcheaters');
-
-    Route::get('/bags', function () {
-        return view('front.product-bags');
-    })->name('bags');
+    Route::get('/rainwear', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'rainwear')->name('rainwear');
+    Route::get('/winter-wear', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'winterwear')->name('winter');
+    Route::get('/windcheaters', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'windcheaters')->name('windcheaters');
+    Route::get('/bags', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'bags-packaging-solutions')->name('bags');
 });
+// END - PRODUCT ROUTES
 
 Route::middleware('guest')->group(function () {
     Route::get('/register', [LoginController::class, 'register_page'])->name('register');
@@ -164,7 +150,18 @@ Route::middleware(['auth', 'role:admin,super_admin'])->prefix('admin')->group(fu
     Route::patch('/sub-categories/{id}/restore', [SubCategoryController::class, 'restore'])->name('sub_categories.restore');
     Route::patch('/sub-categories/{id}/toggle-status', [SubCategoryController::class, 'toggleStatus'])->name('sub_categories.toggle_status');
 
-// AJAX-only: called from the "+ Add Category" panel inside the workspace form.
+    // AJAX-only: called from the "+ Add Category" panel inside the workspace form.
     Route::post('/workspace-categories', [WorkspaceCategoryController::class, 'store'])->name('workspace_categories.store');
     Route::delete('/workspace-categories/{id}', [WorkspaceCategoryController::class, 'destroy'])->name('workspace_categories.destroy');
+
+    // START - LEADERS ROUTE
+    Route::get('/leaders', [LeaderController::class, 'index'])->name('leaders');
+    Route::get('/leaders/create', [LeaderController::class, 'create'])->name('leaders.create');
+    Route::post('/leaders', [LeaderController::class, 'store'])->name('leaders.store');
+    Route::get('/leaders/{id}/edit', [LeaderController::class, 'edit'])->name('leaders.edit');
+    Route::put('/leaders/{id}', [LeaderController::class, 'update'])->name('leaders.update');
+    Route::delete('/leaders/{id}', [LeaderController::class, 'destroy'])->name('leaders.delete');
+    Route::patch('/leaders/{id}/restore', [LeaderController::class, 'restore'])->name('leaders.restore');
+    Route::patch('/leaders/{id}/toggle-status', [LeaderController::class, 'toggleStatus'])->name('leaders.toggle_status');
+    // END - LEADERS ROUTE
 });
