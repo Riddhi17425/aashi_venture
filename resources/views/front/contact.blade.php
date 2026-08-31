@@ -99,75 +99,83 @@
                     </div>
                 </div>
 
+                <!-- START - CONTACT FORM -->
                 <div class="col-lg-6 d-flex flex-column">
-
                     <div class="contact-main__right d-flex flex-column flex-grow-1">
-
                         <h2 class="aashi-title aashi-title--card contact-block-title">
                             Talk to the Aashi Venture Team
                         </h2>
-
-                        <form class="contact-form d-flex flex-column flex-grow-1" action="#" method="post">
-
+                        <form class="contact-form d-flex flex-column flex-grow-1" id="contactForm"
+                            action="{{ route('contact.submit') }}" method="post">
+                            @csrf
                             <div class="contact-form__fields">
-
                                 <div class="contact-form__field">
                                     <label class="contact-form__label" for="contact-name">
                                         Your Name *
                                     </label>
-
                                     <input
-                                        class="contact-form__input"
+                                        class="contact-form__input @error('name') is-invalid @enderror"
                                         type="text"
                                         id="contact-name"
                                         name="name"
-                                        required
+                                        value="{{ old('name') }}"
+                                        
                                         autocomplete="name">
+                                    @error('name')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="contact-form__field">
                                     <label class="contact-form__label" for="contact-email">
                                         Email Address *
                                     </label>
-
                                     <input
-                                        class="contact-form__input"
+                                        class="contact-form__input @error('email') is-invalid @enderror"
                                         type="email"
                                         id="contact-email"
                                         name="email"
-                                        required
+                                        value="{{ old('email') }}"
+                                        
                                         autocomplete="email">
+                                    @error('email')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="contact-form__field">
                                     <label class="contact-form__label" for="contact-subject">
                                         Subject *
                                     </label>
-
                                     <input
-                                        class="contact-form__input"
+                                        class="contact-form__input @error('subject') is-invalid @enderror"
                                         type="text"
                                         id="contact-subject"
                                         name="subject"
-                                        required>
+                                        value="{{ old('subject') }}"
+                                        >
+                                    @error('subject')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
 
                                 <div class="contact-form__field contact-form__field--message">
-
                                     <label class="contact-form__label" for="contact-message">
                                         Message *
                                     </label>
-
                                     <textarea
-                                        class="contact-form__textarea"
+                                        class="contact-form__textarea @error('message') is-invalid @enderror"
                                         id="contact-message"
                                         name="message"
                                         rows="1"
-                                        required></textarea>
-
+                                        >{{ old('message') }}</textarea>
+                                    @error('message')
+                                        <div class="invalid-feedback d-block">{{ $message }}</div>
+                                    @enderror
                                 </div>
-
                             </div>
+
+                            <div id="contactFormMessage" class="contact-form__message" style="display:none;"></div>
 
                             <button class="aashi-btn aashi-btn--primary contact-form__submit mt-auto" type="submit">
                                 Send Message
@@ -176,13 +184,10 @@
                                     src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}"
                                     alt="">
                             </button>
-
                         </form>
-
                     </div>
-
                 </div>
-
+                <!-- END - CONTACT FORM -->
             </div>
         </div>
     </section>
@@ -236,49 +241,60 @@
     <!-- END - BRANCH OFFICES -->
 
     <!-- START - NEWSLETTER -->
-    <section class="newsletter" aria-labelledby="newsletter-heading">
-        <div class="container-aashi newsletter__inner">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="d-flex align-items-center newsletter__lead">
-                        <img
-                            class="newsletter__icon"
-                            src="{{ asset('frontend/assets/icons/newsletter.svg') }}"
-                            alt="">
-
-                        <div class="newsletter__copy">
-                            <h2 class="aashi-title aashi-title--newsletter" id="newsletter-heading">
-                                Be the first to know
-                            </h2>
-                            <p class="aashi-text aashi-text--newsletter">
-                                Exclusive offers, new arrivals and latest updates straight to your inbox.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <form class="newsletter__form w-100" action="#" method="post">
-                        <input
-                            class="newsletter__input"
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            required
-                            aria-label="Email address">
-
-                        <button class="newsletter__submit" type="submit">
-                            Subscribe
-
-                            <img
-                                src="{{ asset('frontend/assets/icons/arrow-right-blue.svg') }}"
-                                alt="">
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('front.partials.newsletter')
     <!-- END - NEWSLETTER -->
 </main>
 @endsection
+
+@push('scripts')
+<script>
+    $(function() {
+        $('#contactForm').on('submit', function(e) {
+            e.preventDefault();
+
+            const $form = $(this);
+            const $btn = $form.find('button[type="submit"]');
+            const $msg = $('#contactFormMessage');
+
+            // clear previous errors
+            $form.find('.is-invalid').removeClass('is-invalid');
+            $form.find('.invalid-feedback').remove();
+            $msg.hide().removeClass('contact-form__message--success contact-form__message--error').text('');
+
+            $btn.prop('disabled', true).css('opacity', 0.7);
+
+            $.ajax({
+                url: $form.attr('action'),
+                method: 'POST',
+                data: $form.serialize(),
+                dataType: 'json',
+                success: function(response) {
+                    if (response.success) {
+                        $msg.addClass('contact-form__message--success')
+                            .text(response.message)
+                            .show();
+                        $form[0].reset();
+                    }
+                },
+                error: function(xhr) {
+                    if (xhr.status === 422) {
+                        const errors = xhr.responseJSON.errors;
+                        $.each(errors, function(field, messages) {
+                            const $input = $form.find('[name="' + field + '"]');
+                            $input.addClass('is-invalid');
+                            $input.after('<div class="invalid-feedback d-block">' + messages[0] + '</div>');
+                        });
+                    } else {
+                        $msg.addClass('contact-form__message--error')
+                            .text(xhr.responseJSON?.message || 'Something went wrong. Please try again.')
+                            .show();
+                    }
+                },
+                complete: function() {
+                    $btn.prop('disabled', false).css('opacity', 1);
+                }
+            });
+        });
+    });
+</script>
+@endpush

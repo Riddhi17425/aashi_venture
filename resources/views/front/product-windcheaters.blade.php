@@ -135,45 +135,8 @@
     </section>
     <!-- END - PRODUCT DETAIL -->
 
-    <!-- START - NEWSLETTER SECTION -->
-    <section class="newsletter" aria-labelledby="newsletter-heading">
-        <div class="container-aashi newsletter__inner">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="d-flex align-items-center newsletter__lead">
-                        <img class="newsletter__icon"
-                            src="{{ asset('frontend/assets/icons/newsletter.svg') }}"
-                            alt="Newsletter">
-                        <div class="newsletter__copy">
-                            <h2 class="aashi-title aashi-title--newsletter" id="newsletter-heading">
-                                Be the first to know
-                            </h2>
-                            <p class="aashi-text aashi-text--newsletter">
-                                Exclusive offers, new arrivals and latest updates straight to your inbox.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <form class="newsletter__form w-100" action="#" method="POST">
-                        @csrf
-                        <input class="newsletter__input"
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            required
-                            aria-label="Email address">
-                        <button class="newsletter__submit" type="submit">
-                            Subscribe
-                            <img src="{{ asset('frontend/assets/icons/arrow-right-blue.svg') }}"
-                                alt="Arrow">
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- END - NEWSLETTER SECTION -->
+    <!-- START - NEWSLETTER -->
+    @include('front.partials.newsletter')
+    <!-- END - NEWSLETTER -->
 </main>
 @endsection

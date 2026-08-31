@@ -67,24 +67,44 @@
         <small class="text-muted">Inactive images are hidden from the frontend gallery.</small>
     </div>
 
-    <div class="col-md-6 mb-3">
-        <label class="form-label">Image {!! $isEdit ? '' : '<span class="text-danger">*</span>' !!}</label>
-        <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
-               accept=".jpg,.jpeg,.png,.webp" {{ $isEdit ? '' : 'required' }}>
-        <small class="text-muted">JPG/PNG/WEBP, max 5MB.</small>
-        @error('image')<div class="invalid-feedback">{{ $message }}</div>@enderror
-        @if($isEdit && $workspace->image)
-            <div class="mt-2">
-                <img src="{{ $workspace->image_url }}" style="width:140px;height:100px;object-fit:cover;border-radius:4px;" alt="Current image">
+    @if($isEdit)
+        <div class="col-md-12 mb-3">
+            <label class="form-label">Images in this category</label>
+            <div class="row" id="galleryGrid">
+                @foreach($categoryImages as $img)
+                    <div class="col-md-3 mb-3" data-image-id="{{ $img->id }}">
+                        <div class="border rounded p-2 position-relative">
+                            <button type="button" class="btn btn-sm btn-danger position-absolute top-0 end-0 js-delete-image"
+                                    style="margin:4px; padding:2px 8px; z-index:2;" title="Remove image">&times;</button>
+                            <img src="{{ $img->image_url }}" class="w-100" style="height:120px;object-fit:cover;border-radius:4px;" alt="">
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        @endif
-    </div>
+            <small class="text-muted">Click the &times; on any image to remove it immediately.</small>
+        </div>
+    @endif
+
     <div class="col-md-6 mb-3">
+        <!-- <label class="form-label">Image(s) {!! $isEdit ? '' : '<span class="text-danger">*</span>' !!}</label> -->
+        <label class="form-label">{{ $isEdit ? 'Upload Additional Images' : 'Image(s)' }} {!! $isEdit ? '' : '<span class="text-danger">*</span>' !!}</label>
+        <input type="file" name="images[]" multiple
+            class="form-control @error('images') is-invalid @enderror @error('images.*') is-invalid @enderror"
+            accept=".jpg,.jpeg,.png,.webp" {{ $isEdit ? '' : 'required' }}>
+        <small class="text-muted">
+            JPG/PNG/WEBP, max 5MB each.
+            {{ $isEdit ? 'These will be added as new images in this category alongside the ones above.' : 'One entry will be created per image, using the same category/status/sort order below.' }}
+        </small>
+        @error('images')<div class="invalid-feedback">{{ $message }}</div>@enderror
+        @error('images.*')<div class="invalid-feedback">{{ $message }}</div>@enderror
+    </div>
+
+    <!-- <div class="col-md-6 mb-3">
         <label class="form-label">Alt Text</label>
         <input type="text" name="image_alt" value="{{ old('image_alt', $workspace->image_alt ?? '') }}"
                class="form-control @error('image_alt') is-invalid @enderror" placeholder="Describe the image for SEO/accessibility">
         @error('image_alt')<div class="invalid-feedback">{{ $message }}</div>@enderror
-    </div>
+    </div> -->
 
     <div class="col-md-6 mb-3">
         <label class="form-label">Sort Order</label>
@@ -254,11 +274,14 @@
             ignore: [],
             rules: {
                 workspace_category_id: { required: true, notEquals: '__add_new__' },
-                image: { {{ $isEdit ? '' : 'required: true,' }} extension: 'jpg|jpeg|png|webp' },
+                'images[]': { {{ $isEdit ? '' : 'required: true,' }} extension: 'jpg|jpeg|png|webp' },
             },
             messages: {
                 workspace_category_id: { required: 'Please select a category.' },
-                image: { extension: 'Only JPG, PNG or WEBP files are allowed.' },
+                'images[]': {
+                    required: 'Please select at least one image.',
+                    extension: 'Only JPG, PNG or WEBP files are allowed.'
+                },
             },
             errorPlacement: function(error, element) {
                 error.insertAfter(element);
@@ -269,6 +292,25 @@
             unhighlight: function(element) {
                 $(element).removeClass('is-invalid');
             }
+        });
+
+        $(document).on('click', '.js-delete-image', function() {
+            if (!confirm('Remove this image?')) return;
+
+            const $col = $(this).closest('[data-image-id]');
+            const id = $col.data('image-id');
+
+            $.ajax({
+                url: '{{ url("admin/workspaces") }}/' + id,
+                method: 'DELETE',
+                data: { _token: '{{ csrf_token() }}' },
+                success: function(res) {
+                    $col.remove();
+                },
+                error: function() {
+                    alert('Failed to delete image.');
+                }
+            });
         });
     });
 </script>

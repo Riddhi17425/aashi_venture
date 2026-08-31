@@ -88,310 +88,45 @@
             </header>
 
             <div class="factory-tabs" role="tablist" aria-label="Factory workspace areas">
-
-                <button class="factory-tab aashi-btn aashi-btn--outline-muted" type="button"
-                    role="tab"
-                    id="factory-tab-stores"
-                    aria-selected="false"
-                    aria-controls="factory-panel-stores"
-                    data-factory-tab="stores">
-                    Stores
-                </button>
-
-                <button class="factory-tab aashi-btn aashi-btn--primary is-active" type="button"
-                    role="tab"
-                    id="factory-tab-machinery"
-                    aria-selected="true"
-                    aria-controls="factory-panel-machinery"
-                    data-factory-tab="machinery">
-                    Machinery
-                </button>
-
-                <button class="factory-tab aashi-btn aashi-btn--outline-muted" type="button"
-                    role="tab"
-                    id="factory-tab-stitching"
-                    aria-selected="false"
-                    aria-controls="factory-panel-stitching"
-                    data-factory-tab="stitching">
-                    Stitching Section
-                </button>
-
-                <button class="factory-tab aashi-btn aashi-btn--outline-muted" type="button"
-                    role="tab"
-                    id="factory-tab-welding"
-                    aria-selected="false"
-                    aria-controls="factory-panel-welding"
-                    data-factory-tab="welding">
-                    Welding / Sealing Section
-                </button>
-
-                <button class="factory-tab aashi-btn aashi-btn--outline-muted" type="button"
-                    role="tab"
-                    id="factory-tab-packing"
-                    aria-selected="false"
-                    aria-controls="factory-panel-packing"
-                    data-factory-tab="packing">
-                    Checking Packing
-                </button>
-
-                <button class="factory-tab aashi-btn aashi-btn--outline-muted" type="button"
-                    role="tab"
-                    id="factory-tab-vip"
-                    aria-selected="false"
-                    aria-controls="factory-panel-vip"
-                    data-factory-tab="vip">
-                    VIP
-                </button>
-
-                <button class="factory-tab aashi-btn aashi-btn--outline-muted" type="button"
-                    role="tab"
-                    id="factory-tab-staff"
-                    aria-selected="false"
-                    aria-controls="factory-panel-staff"
-                    data-factory-tab="staff">
-                    Staff
-                </button>
-
+                @foreach($workspaceCategories as $index => $cat)
+                    <button class="factory-tab aashi-btn {{ $index === 0 ? 'aashi-btn--primary is-active' : 'aashi-btn--outline-muted' }}" type="button"
+                        role="tab"
+                        id="factory-tab-{{ $cat->id }}"
+                        aria-selected="{{ $index === 0 ? 'true' : 'false' }}"
+                        aria-controls="factory-panel-{{ $cat->id }}"
+                        data-factory-tab="{{ $cat->id }}">
+                        {{ $cat->name }}
+                    </button>
+                @endforeach
             </div>
 
             <div class="factory-panels">
+                @foreach($workspaceCategories as $index => $cat)
+                    <div class="factory-panel {{ $index === 0 ? 'is-active' : '' }}"
+                        id="factory-panel-{{ $cat->id }}"
+                        role="tabpanel"
+                        aria-labelledby="factory-tab-{{ $cat->id }}"
+                        data-factory-panel="{{ $cat->id }}"
+                        {{ $index === 0 ? '' : 'hidden' }}>
 
-                <!-- Machinery -->
-                <div class="factory-panel is-active"
-                    id="factory-panel-machinery"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-machinery"
-                    data-factory-panel="machinery">
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-1.webp') }}" alt="Factory machinery production line">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-2.webp') }}" alt="Industrial sewing machines in the factory">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-3.webp') }}" alt="Heat sealing equipment">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-4.webp') }}" alt="Quality checking area">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-5.webp') }}" alt="Printing machines">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-1.webp') }}" alt="Additional factory machinery">
-                        </figure>
-
+                        <div class="factory-gallery">
+                            @forelse($cat->workspaces as $img)
+                                <figure class="factory-gallery__item {{ $loop->even ? 'factory-gallery__item--shadow' : '' }}">
+                                    <img src="{{ $img->image_url }}" {{-- alt="{{ $img->image_alt }}" --}}>
+                                </figure>
+                            @empty
+                                <p class="text-muted">No images added for this section yet.</p>
+                            @endforelse
+                        </div>
                     </div>
-
-                </div>
-
-                <!-- Stores -->
-                <div class="factory-panel"
-                    id="factory-panel-stores"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-stores"
-                    data-factory-panel="stores"
-                    hidden>
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-4.webp') }}" alt="Factory stores area">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-5.webp') }}" alt="Material storage">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-2.webp') }}" alt="Inventory workspace">
-                        </figure>
-
-                    </div>
-
-                </div>
-
-                <!-- Stitching -->
-                <div class="factory-panel"
-                    id="factory-panel-stitching"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-stitching"
-                    data-factory-panel="stitching"
-                    hidden>
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-2.webp') }}" alt="Stitching section">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-3.webp') }}" alt="Sewing operators at work">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-1.webp') }}" alt="Stitching machines row">
-                        </figure>
-
-                    </div>
-
-                </div>
-
-                <!-- Welding -->
-                <div class="factory-panel"
-                    id="factory-panel-welding"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-welding"
-                    data-factory-panel="welding"
-                    hidden>
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-3.webp') }}" alt="Welding and sealing section">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-1.webp') }}" alt="Seam sealing machines">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-5.webp') }}" alt="Heat seal workstations">
-                        </figure>
-
-                    </div>
-
-                </div>
-
-                <!-- Packing -->
-                <div class="factory-panel"
-                    id="factory-panel-packing"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-packing"
-                    data-factory-panel="packing"
-                    hidden>
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-4.webp') }}" alt="Checking and packing area">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-2.webp') }}" alt="Quality inspection">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-3.webp') }}" alt="Finished goods packing">
-                        </figure>
-
-                    </div>
-
-                </div>
-
-                <!-- VIP -->
-                <div class="factory-panel"
-                    id="factory-panel-vip"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-vip"
-                    data-factory-panel="vip"
-                    hidden>
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-5.webp') }}" alt="VIP showroom area">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-1.webp') }}" alt="Product display space">
-                        </figure>
-
-                    </div>
-
-                </div>
-
-                <!-- Staff -->
-                <div class="factory-panel"
-                    id="factory-panel-staff"
-                    role="tabpanel"
-                    aria-labelledby="factory-tab-staff"
-                    data-factory-panel="staff"
-                    hidden>
-
-                    <div class="factory-gallery">
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-2.webp') }}" alt="Factory staff at work">
-                        </figure>
-
-                        <figure class="factory-gallery__item">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-4.webp') }}" alt="Team on the production floor">
-                        </figure>
-
-                        <figure class="factory-gallery__item factory-gallery__item--shadow">
-                            <img src="{{ asset('frontend/assets/images/factory-gallery-3.webp') }}" alt="Skilled operators">
-                        </figure>
-
-                    </div>
-
-                </div>
-
+                @endforeach
             </div>
-
         </div>
     </section>
     <!-- END - WORKSPACE GALLERY -->
 
     <!-- START - NEWSLETTER -->
-    <section class="newsletter" aria-labelledby="newsletter-heading">
-        <div class="container-aashi newsletter__inner">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="d-flex align-items-center newsletter__lead">
-                        <img
-                            class="newsletter__icon"
-                            src="{{ asset('frontend/assets/icons/newsletter.svg') }}"
-                            alt="">
-                        <div class="newsletter__copy">
-                            <h2 class="aashi-title aashi-title--newsletter" id="newsletter-heading">
-                                Be the first to know
-                            </h2>
-                            <p class="aashi-text aashi-text--newsletter">
-                                Exclusive offers, new arrivals and latest updates straight to your inbox.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <form class="newsletter__form w-100" action="#" method="post">
-                        <input
-                            class="newsletter__input"
-                            type="email"
-                            name="email"
-                            placeholder="Enter your email address"
-                            required
-                            aria-label="Email address">
-                        <button class="newsletter__submit" type="submit">
-                            Subscribe
-                            <img
-                                src="{{ asset('frontend/assets/icons/arrow-right-blue.svg') }}"
-                                alt="">
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+    @include('front.partials.newsletter')
     <!-- END - NEWSLETTER -->
 </main>
 @endsection

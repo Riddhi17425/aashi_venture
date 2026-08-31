@@ -34,6 +34,9 @@
     <link rel="stylesheet"
           href="{{ asset('frontend/assets/css/responsive.css') }}">
 
+      <link rel="stylesheet"
+          href="{{ asset('frontend/assets/css/contact.css') }}">
+
     @stack('styles')
 
 </head>
@@ -53,6 +56,8 @@
     {{-- Footer --}}
     @include('layouts.footer')
 
+    {{-- jquery --}}
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
     {{-- Bootstrap --}}
     <script src="{{ asset('frontend/assets/js/vendor/bootstrap.bundle.min.js') }}"></script>

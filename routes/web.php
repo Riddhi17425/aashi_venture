@@ -32,15 +32,21 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
-Route::get('/factory', function () {
-    return view('front.factory');
-})->name('factory');
+// Route::get('/factory', function () {
+//     return view('front.factory');
+// })->name('factory');
+
+Route::get('/factory', [HomeController::class, 'factory'])->name('factory');
 
 // Route::get('/contact', function () {
 //     return view('front.contact');
 // })->name('contact');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+Route::post('/contact', [HomeController::class, 'submitContactForm'])->name('contact.submit');
+
+Route::post('/newsletter/subscribe', [HomeController::class, 'subscribeNewsletter'])->name('newsletter.subscribe');
 
 Route::get('/terms-conditions', function () {
     return view('front.terms');
@@ -119,7 +125,8 @@ Route::middleware(['auth', 'role:admin,super_admin'])->prefix('admin')->group(fu
     Route::put('/workspaces/{id}', [WorkspaceController::class, 'update'])->name('workspaces.update');
     Route::delete('/workspaces/{id}', [WorkspaceController::class, 'destroy'])->name('workspaces.delete');
     Route::patch('/workspaces/{id}/restore', [WorkspaceController::class, 'restore'])->name('workspaces.restore');
-    Route::patch('/workspaces/{id}/toggle-status', [WorkspaceController::class, 'toggleStatus'])->name('workspaces.toggle_status');
+    // Route::patch('/workspaces/{id}/toggle-status', [WorkspaceController::class, 'toggleStatus'])->name('workspaces.toggle_status');
+    // Route::post('/workspaces/category/{categoryId}/upload', [WorkspaceController::class, 'uploadImages'])->name('workspaces.upload');
 
     Route::get('/branches', [BranchController::class, 'index'])->name('branches');
     Route::get('/branches/create', [BranchController::class, 'create'])->name('branches.create');
