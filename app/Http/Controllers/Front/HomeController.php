@@ -11,6 +11,7 @@ use App\Models\Category;
 use App\Models\WorkspaceCategory;
 use App\Models\Newsletter;
 use App\Models\Leader;
+use App\Models\OurStory;
 use Illuminate\Http\Request;
 use App\Models\ContactFormInquiry;
 use Illuminate\Support\Facades\Validator;
@@ -39,15 +40,23 @@ class HomeController extends Controller
 
     public function about()
     {
-        $partners = TrustedPartner::where('is_active', true)
-            ->orderBy('sort_order')
+        $ourStories = OurStory::where('is_active', true)
+            ->orderBy('year', 'asc')
             ->get();
 
         $leaders = Leader::where('is_active', true)
             ->orderBy('sort_order')
             ->get();
 
-        return view('front.about', compact('partners', 'leaders'));
+        $partners = TrustedPartner::where('is_active', true)
+            ->orderBy('sort_order')
+            ->get();
+
+        return view('front.about', compact(
+            'ourStories',
+            'leaders',
+            'partners',
+        ));
     }
 
     public function contact()
@@ -58,6 +67,8 @@ class HomeController extends Controller
 
         return view('front.contact', compact('branches'));
     }
+
+
 
     public function submitContactForm(Request $request)
     {
@@ -175,4 +186,6 @@ class HomeController extends Controller
         return view('front.product-rainwear', compact('category'));
         // each route points to its own existing blade file, just now passing $category
     }
+
+    
 }

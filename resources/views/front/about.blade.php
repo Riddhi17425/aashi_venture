@@ -152,216 +152,82 @@
     <!-- END - OUR JOURNEY -->
 
     <!-- START - TIMELINE -->
+    @if($ourStories->count())
     <section class="aashi-band about-timeline section-block" aria-labelledby="about-timeline-heading">
         <div class="container-aashi about-timeline__inner">
 
             <header class="section-header section-header--center section-header--spaced about-timeline__header">
                 <p class="aashi-label">Our Story</p>
+
                 <h2 class="aashi-title aashi-title--section" id="about-timeline-heading">
-                    28+ Years of Building &amp; Growing Together
+                    28+ Years of Building & Growing Together
                 </h2>
             </header>
 
             <div class="about-timeline__body">
-                <div class="about-timeline__track" role="tablist" aria-label="Company milestones">
+                <div class="about-timeline__track"
+                    role="tablist"
+                    aria-label="Company milestones">
+
                     <div class="about-timeline__line" aria-hidden="true"></div>
-                    <button class="about-timeline__year is-active"
-                        id="about-timeline-tab-0"
-                        type="button"
-                        role="tab"
-                        aria-selected="true"
-                        aria-controls="about-timeline-panel-0"
-                        data-timeline-index="0">
-                        <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">1998</span>
-                    </button>
 
-                    <button class="about-timeline__year"
-                        id="about-timeline-tab-1"
-                        type="button"
-                        role="tab"
-                        aria-selected="false"
-                        aria-controls="about-timeline-panel-1"
-                        data-timeline-index="1">
-                        <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">2010</span>
-                    </button>
+                    @foreach($ourStories as $index => $ourStory)
+                        <button
+                            class="about-timeline__year {{ $index === 0 ? 'is-active' : '' }}"
+                            id="about-timeline-tab-{{ $index }}"
+                            type="button"
+                            role="tab"
+                            aria-selected="{{ $index === 0 ? 'true' : 'false' }}"
+                            aria-controls="about-timeline-panel-{{ $index }}"
+                            data-timeline-index="{{ $index }}">
 
-                    <button class="about-timeline__year"
-                        id="about-timeline-tab-2"
-                        type="button"
-                        role="tab"
-                        aria-selected="false"
-                        aria-controls="about-timeline-panel-2"
-                        data-timeline-index="2">
-                        <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">2012</span>
-                    </button>
+                            <span class="about-timeline__dot" aria-hidden="true"></span>
 
-                    <button class="about-timeline__year"
-                        id="about-timeline-tab-3"
-                        type="button"
-                        role="tab"
-                        aria-selected="false"
-                        aria-controls="about-timeline-panel-3"
-                        data-timeline-index="3">
-                        <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">2016</span>
-                    </button>
-
-                    <button class="about-timeline__year"
-                        id="about-timeline-tab-4"
-                        type="button"
-                        role="tab"
-                        aria-selected="false"
-                        aria-controls="about-timeline-panel-4"
-                        data-timeline-index="4">
-                        <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">2022</span>
-                    </button>
-
-                    <button class="about-timeline__year"
-                        id="about-timeline-tab-5"
-                        type="button"
-                        role="tab"
-                        aria-selected="false"
-                        aria-controls="about-timeline-panel-5"
-                        data-timeline-index="5">
-                        <span class="about-timeline__dot" aria-hidden="true"></span>
-                        <span class="about-timeline__year-label">2025</span>
-                    </button>
+                            <span class="about-timeline__year-label">
+                                {{ $ourStory->year }}
+                            </span>
+                        </button>
+                    @endforeach
                 </div>
 
                 <div class="about-timeline__detail">
                     <div class="about-timeline__panels">
-                        <article class="about-timeline__panel is-active"
-                            id="about-timeline-panel-0"
-                            role="tabpanel"
-                            aria-labelledby="about-timeline-tab-0"
-                            data-timeline-index="0"
-                            data-timeline-year="1998"
-                            aria-hidden="false">
+                        @foreach($ourStories as $index => $ourStory)
+                            <article
+                                class="about-timeline__panel {{ $index === 0 ? 'is-active' : '' }}"
+                                id="about-timeline-panel-{{ $index }}"
+                                role="tabpanel"
+                                aria-labelledby="about-timeline-tab-{{ $index }}"
+                                data-timeline-index="{{ $index }}"
+                                data-timeline-year="{{ $ourStory->year }}"
+                                aria-hidden="{{ $index === 0 ? 'false' : 'true' }}">
 
-                            <p class="aashi-label">ORIGIN — FOUNDATION YEAR</p>
-                            <div class="about-timeline__panel-body">
-                                <h3 class="aashi-title aashi-title--section">
-                                    Aashi Plastic Industries
-                                </h3>
-                                <p class="aashi-text aashi-text--light mb-0">
-                                    The Aashi journey began with Aashi Plastic Industries, laying the foundation for a manufacturing group built on quality, consistency and long-term partnerships.
-                                </p>
-                            </div>
-                        </article>
+                                <p class="aashi-label">{{ $ourStory->shortnote }}</p>
 
-                        <article class="about-timeline__panel"
-                            id="about-timeline-panel-1"
-                            role="tabpanel"
-                            aria-labelledby="about-timeline-tab-1"
-                            data-timeline-index="1"
-                            data-timeline-year="2010"
-                            aria-hidden="true">
-
-                            <p class="aashi-label">CORPORATE MILESTONE</p>
-                            <div class="about-timeline__panel-body">
-                                <h3 class="aashi-title aashi-title--section">
-                                    Aashi Plastic Pvt. Ltd.
-                                </h3>
-                                <p class="aashi-text aashi-text--light mb-0">
-                                    Aashi Plastic Pvt. Ltd. marked the next stage of growth, strengthening the group’s presence in PVC and packaging-focused manufacturing.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="about-timeline__panel"
-                            id="about-timeline-panel-2"
-                            role="tabpanel"
-                            aria-labelledby="about-timeline-tab-2"
-                            data-timeline-index="2"
-                            data-timeline-year="2012"
-                            aria-hidden="true">
-
-                            <p class="aashi-label">EXPANSION</p>
-                            <div class="about-timeline__panel-body">
-                                <h3 class="aashi-title aashi-title--section">
-                                    Om Polyplast
-                                </h3>
-                                <p class="aashi-text aashi-text--light mb-0">
-                                    With Om Polyplast, the group expanded its polymer manufacturing capabilities and added greater depth to its growing product ecosystem.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="about-timeline__panel"
-                            id="about-timeline-panel-3"
-                            role="tabpanel"
-                            aria-labelledby="about-timeline-tab-2"
-                            data-timeline-index="3"
-                            data-timeline-year="2016"
-                            aria-hidden="true">
-
-                            <p class="aashi-label">ECOSYSTEM GROWTH</p>
-                            <div class="about-timeline__panel-body">
-                                <h3 class="aashi-title aashi-title--section">
-                                    Aarna Polyplast
-                                </h3>
-                                <p class="aashi-text aashi-text--light mb-0">
-                                    Aarna Polyplast became another step in building a broader manufacturing network, focused on capability, scale and dependable production.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="about-timeline__panel"
-                            id="about-timeline-panel-4"
-                            role="tabpanel"
-                            aria-labelledby="about-timeline-tab-3"
-                            data-timeline-index="4"
-                            data-timeline-year="2022"
-                            aria-hidden="true">
-
-                            <p class="aashi-label">A NEW CHAPTER</p>
-                            <div class="about-timeline__panel-body">
-                                <h3 class="aashi-title aashi-title--section">
-                                    New Aashi Rainwear
-                                </h3>
-                                <p class="aashi-text aashi-text--light mb-0">
-                                    New Aashi Rainwear brought a dedicated focus to protective apparel, expanding the group’s presence across rainwear, windcheaters and winterwear.
-                                </p>
-                            </div>
-                        </article>
-
-                        <article class="about-timeline__panel"
-                            id="about-timeline-panel-5"
-                            role="tabpanel"
-                            aria-labelledby="about-timeline-tab-4"
-                            data-timeline-index="5"
-                            data-timeline-year="2025"
-                            aria-hidden="true">
-
-                            <p class="aashi-label">LOOKING FORWARD</p>
-                            <div class="about-timeline__panel-body">
-                                <h3 class="aashi-title aashi-title--section">
-                                    Aashi Venture Pvt. Ltd.
-                                </h3>
-
-                                <p class="aashi-text aashi-text--light mb-0">
-                                    Aashi Venture Pvt. Ltd. opened a new chapter in Sagwara, Rajasthan, extending the group’s manufacturing footprint and carrying the Aashi legacy forward.
-                                </p>
-                            </div>
-                        </article>
+                                <div class="about-timeline__panel-body">
+                                    <h3 class="aashi-title aashi-title--section">{{ $ourStory->title }}</h3>
+                                    @if($ourStory->description)
+                                        <p class="aashi-text aashi-text--light mb-0">
+                                            {!! nl2br(e($ourStory->description)) !!}
+                                        </p>
+                                    @endif
+                                </div>
+                            </article>
+                        @endforeach
                     </div>
 
                     <p class="about-timeline__year-display"
                         aria-hidden="true"
                         data-timeline-year>
-                        1998
+                        {{ $ourStories->first()->year }}
                     </p>
 
                     <div class="about-timeline__nav">
-                        <button class="about-timeline__nav-btn about-timeline__nav-btn--prev"
+                        <button
+                            class="about-timeline__nav-btn about-timeline__nav-btn--prev"
                             type="button"
                             data-timeline-prev
                             aria-label="Previous milestone">
-
                             <svg class="about-timeline__nav-icon"
                                 width="24"
                                 height="24"
@@ -369,18 +235,17 @@
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true">
-
                                 <path
                                     d="M16.1717 10.6578L10.8076 5.14083L12.2218 3.68629L20 11.6863L12.2218 19.6863L10.8076 18.2318L16.1717 12.7148L4 12.7148L4 10.6578H16.1717Z"
                                     fill="currentColor" />
                             </svg>
                         </button>
 
-                        <button class="about-timeline__nav-btn about-timeline__nav-btn--next"
+                        <button
+                            class="about-timeline__nav-btn about-timeline__nav-btn--next"
                             type="button"
                             data-timeline-next
                             aria-label="Next milestone">
-
                             <svg class="about-timeline__nav-icon"
                                 width="24"
                                 height="24"
@@ -388,7 +253,6 @@
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
                                 aria-hidden="true">
-
                                 <path
                                     d="M16.1717 10.6578L10.8076 5.14083L12.2218 3.68629L20 11.6863L12.2218 19.6863L10.8076 18.2318L16.1717 12.7148L4 12.7148L4 10.6578H16.1717Z"
                                     fill="currentColor" />
@@ -399,6 +263,7 @@
             </div>
         </div>
     </section>
+    @endif
     <!-- END - TIMELINE -->
 
     <!-- START - MISSION & VISION -->

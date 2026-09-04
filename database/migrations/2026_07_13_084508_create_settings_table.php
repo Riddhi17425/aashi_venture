@@ -6,19 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    public function up(): void
+    public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('key')->unique();
-            $table->string('label');
-            $table->enum('type', ['text', 'url', 'image'])->default('text');
-            $table->text('value')->nullable();
-            $table->string('image')->nullable();
-            $table->string('image_alt')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->text('phone_numbers')->nullable();
+            $table->text('emails')->nullable();
+            $table->text('address')->nullable();
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 

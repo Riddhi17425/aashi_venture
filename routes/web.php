@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\WorkspaceController;
 use App\Http\Controllers\Admin\LeaderController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\Admin\OurStoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,14 +124,8 @@ Route::middleware(['auth', 'role:admin,super_admin'])->prefix('admin')->group(fu
     Route::patch('/branches/{id}/restore', [BranchController::class, 'restore'])->name('branches.restore');
     Route::patch('/branches/{id}/toggle-status', [BranchController::class, 'toggleStatus'])->name('branches.toggle_status');
 
-    Route::get('/settings', [SettingController::class, 'index'])->name('settings');
-    Route::get('/settings/create', [SettingController::class, 'create'])->name('settings.create');
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
     Route::post('/settings', [SettingController::class, 'store'])->name('settings.store');
-    Route::get('/settings/{id}/edit', [SettingController::class, 'edit'])->name('settings.edit');
-    Route::put('/settings/{id}', [SettingController::class, 'update'])->name('settings.update');
-    Route::delete('/settings/{id}', [SettingController::class, 'destroy'])->name('settings.delete');
-    Route::patch('/settings/{id}/restore', [SettingController::class, 'restore'])->name('settings.restore');
-    Route::patch('/settings/{id}/toggle-status', [SettingController::class, 'toggleStatus'])->name('settings.toggle_status');
 
     Route::get('/blogs', [BlogController::class, 'index'])->name('blogs');
     Route::get('/blogs/create', [BlogController::class, 'create'])->name('blogs.create');
@@ -164,4 +159,15 @@ Route::middleware(['auth', 'role:admin,super_admin'])->prefix('admin')->group(fu
     Route::patch('/leaders/{id}/restore', [LeaderController::class, 'restore'])->name('leaders.restore');
     Route::patch('/leaders/{id}/toggle-status', [LeaderController::class, 'toggleStatus'])->name('leaders.toggle_status');
     // END - LEADERS ROUTE
+
+    // START - OUR STORY ROUTE
+    Route::get('/our-stories', [OurStoryController::class, 'index'])->name('our_stories');
+    Route::get('/our-stories/create', [OurStoryController::class, 'create'])->name('our_stories.create');
+    Route::post('/our-stories', [OurStoryController::class, 'store'])->name('our_stories.store');
+    Route::get('/our-stories/{id}/edit', [OurStoryController::class, 'edit'])->name('our_stories.edit');
+    Route::put('/our-stories/{id}', [OurStoryController::class, 'update'])->name('our_stories.update');
+    Route::delete('/our-stories/{id}', [OurStoryController::class, 'destroy'])->name('our_stories.delete');
+    Route::patch('/our-stories/{id}/restore', [OurStoryController::class, 'restore'])->name('our_stories.restore');
+    Route::patch('/our-stories/{id}/toggle-status', [OurStoryController::class, 'toggleStatus'])->name('our_stories.toggle_status');
+    // END - OUR STORY ROUTE
 });

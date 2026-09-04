@@ -26,17 +26,14 @@
     <section class="section-block contact-main" aria-labelledby="contact-sales-heading">
         <div class="container-aashi">
             <div class="row g-4 g-lg-5 contact-main__row">
-
                 <div class="col-lg-6 d-flex flex-column">
                     <div class="contact-main__left d-flex flex-column flex-grow-1">
-
                         <h2 class="aashi-title aashi-title--card contact-block-title"
                             id="contact-sales-heading">
                             Sales &amp; Business Enquiries
                         </h2>
 
                         <article class="contact-person-card">
-
                             <div class="contact-person-card__header">
                                 <p class="aashi-title aashi-title--card contact-person-card__name">
                                     Dinesh Joshi
@@ -49,18 +46,16 @@
                             <div class="contact-person-card__divider" aria-hidden="true"></div>
 
                             <div class="contact-person-card__details">
-
                                 <div class="footer-col__contact">
                                     <img src="{{ asset('frontend/assets/icons/phone-primary.svg') }}" alt="">
                                     <a href="tel:+919909032106">+91 9909032106</a>
                                 </div>
 
                                 <div class="contact-person-card__email-row">
-
                                     <div class="footer-col__contact">
                                         <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
                                         <a href="mailto:info@aashirainwear.com">
-                                            Info@aashirainwear.com
+                                            info@aashirainwear.com
                                         </a>
                                     </div>
 
@@ -70,7 +65,6 @@
                                             pradip@aashiplastic.com
                                         </a>
                                     </div>
-
                                 </div>
 
                                 <div class="footer-col__contact">
@@ -80,9 +74,7 @@
                                         Dist Dungarpur, Rajasthan - 314025
                                     </span>
                                 </div>
-
                             </div>
-
                         </article>
 
                         <div class="contact-map flex-grow-1">
@@ -95,7 +87,6 @@
                                 allowfullscreen>
                             </iframe>
                         </div>
-
                     </div>
                 </div>
 
