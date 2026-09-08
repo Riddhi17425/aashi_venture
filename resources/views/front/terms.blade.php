@@ -4,6 +4,26 @@
 
 @section('title', 'Terms & Conditions')
 
+@push('styles')
+<style>
+    /* Disable all reveal and scroll animations on Terms & Conditions page only */
+    .page-terms main,
+    .page-terms main *,
+    .page-terms .factory-intro__header,
+    .page-terms .about__content,
+    .page-terms .fade-in,
+    .page-terms .slide-up,
+    .page-terms .slide-left,
+    .page-terms .slide-right,
+    .page-terms .zoom-in {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+</style>
+@endpush
+
 @section('content')
 
 <main>
@@ -31,7 +51,7 @@
                             <p><b>Address: </b>843/2, Nidhi Industrial Estate, Village Rakanpur (Santej), Closer to Science City, Taluka Kalol, Gujarat – 382721, India</p>
 
                             <p><b>Phone: </b><a href="tel:+919879562106">+91 98795 62106</a></p>
-                            <p><b>Email: </b><a href="mailto:sales@aashirainwear.com"> sales@aashirainwear.com</a></p>
+                            <p><b>Email: </b><a href="mailto:sales@aashirainwear.com" target="_blank"> sales@aashirainwear.com</a></p>
 
                             <p>The contact details above are based on the information currently displayed on the Aashi Rainwear website.</p>
                             
@@ -175,7 +195,7 @@
                               <p><b>Aashi Rainwear</b></p>
                                     <p>843/2, Nidhi Industrial Estate, Village Rakanpur (Santej), Closer to Science City, Taluka Kalol, Gujarat – 382721, India</p>
 
-                                    <p><b>Email: </b><a href="mailto:sales@aashirainwear.com"> sales@aashirainwear.com</a></p>
+                                    <p><b>Email: </b><a href="mailto:sales@aashirainwear.com" target="_blank"> sales@aashirainwear.com</a></p>
                                     <p><b>Phone: </b><a href="tel:+919879562106">+91 98795 62106</a></p>
 
                                     <!-- <p>Last Updated: [Insert Date]</p> -->
@@ -188,5 +208,10 @@
 
         </div>
     </section>
+
+    <!-- START - NEWSLETTER -->
+    @include('front.partials.newsletter')
+    <!-- END - NEWSLETTER -->
+
 </main>
 @endsection

@@ -46,10 +46,18 @@
     ];
 
     function applyAutoReveal() {
+        if (document.body && (document.body.classList.contains("page-privacy") || document.body.classList.contains("page-terms"))) {
+            return;
+        }
+
         AUTO_REVEAL.forEach(function (rule) {
             var nodes = document.querySelectorAll(rule.selector);
 
             nodes.forEach(function (node, index) {
+                if (node.closest(".page-privacy") || node.closest(".page-terms")) {
+                    return;
+                }
+
                 rule.classes.forEach(function (className) {
                     if (!node.classList.contains(className)) {
                         node.classList.add(className);
@@ -64,6 +72,10 @@
     }
 
     function initScrollAnimations() {
+        if (document.body && (document.body.classList.contains("page-privacy") || document.body.classList.contains("page-terms"))) {
+            return;
+        }
+
         applyAutoReveal();
 
         var animatedElements = document.querySelectorAll(REVEAL_SELECTOR);

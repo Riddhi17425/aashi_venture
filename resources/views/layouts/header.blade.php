@@ -20,7 +20,7 @@
                 </span>
             </a>
 
-            <a href="mailto:info@aashirainwear.com">
+            <a href="mailto:info@aashirainwear.com" target="_blank">
 
                 <img
                     class="top-bar__icon"

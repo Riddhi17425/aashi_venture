@@ -123,6 +123,7 @@
       transform var(--aashi-transition-hover),
       visibility var(--aashi-transition-hover);
     z-index: 1100;
+    overflow: hidden;
   }
 
   .nav-item--dropdown:hover .nav-dropdown,
@@ -3149,8 +3150,8 @@
   }
 
   .about-timeline__line {
-    left: 10%;
-    right: 10%;
+    left: calc(100% / var(--timeline-count, 6) / 2);
+    right: calc(100% / var(--timeline-count, 6) / 2);
   }
 
   .about-timeline__year-label {
@@ -3388,6 +3389,15 @@
 }
 
 @media (max-width: 767.98px) {
+
+  .page-about main > .section-block:not(.aashi-band):not(.about-intro)
+  {
+    margin-bottom: 24px;
+  }
+
+      .about-leadership__slide.is-active {
+        gap: 15px;
+    }
   :root {
     --hero-body-pad-top: 1.5rem;
     --hero-footer-gap: 1.25rem;
@@ -3395,13 +3405,14 @@
   }
 
   .page-home .hero {
-    height: auto;
-    min-height: 85vh;
-    max-height: none;
-    overflow: hidden;
-    padding-bottom: 2.5rem;
-    justify-content: center;
-    gap: 2rem;
+    position: relative !important;
+    height: auto !important;
+    min-height: 85vh !important;
+    min-height: calc(100svh - var(--site-chrome-total, 4.5rem)) !important;
+    min-height: 38rem !important;
+    max-height: none !important;
+    overflow: hidden !important;
+    padding-bottom: 0 !important;
   }
 
   .page-home .hero__bg,
@@ -3436,20 +3447,27 @@
   }
 
   .page-home .hero__body {
-    flex: 0 0 auto;
-    padding-top: var(--hero-body-pad-top);
-    padding-bottom: 0.25rem;
+    position: absolute !important;
+    inset: 0 !important;
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    padding-top: 2rem !important;
+    padding-bottom: 14rem !important;
   }
 
   .page-home .hero__footer-wrap {
-    position: relative;
-    inset: auto;
-    left: auto;
-    right: auto;
-    bottom: auto;
-    flex: 0 0 auto;
-    margin-top: var(--hero-footer-gap);
-    padding-top: 0;
+    position: absolute !important;
+    inset: auto 0 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: auto !important;
+    flex: none !important;
+    z-index: 4 !important;
+    margin: 0 !important;
+    padding: 0 0 1.5rem !important;
   }
 
   .page-home .hero__copy [data-hero-cta] {
@@ -3479,6 +3497,12 @@
 }
 
 @media (max-width: 767px) {
+
+  .about-leadership__quote-icon
+  {
+    display: none;
+  }
+  
   .section-block.products {
     --product-card-ratio: 780 / 550;
   }
@@ -3548,10 +3572,6 @@
   .section-block.products .product-card__link:active .product-card__image {
     transform: scale(1.05) translateY(-4px);
   }
-
-  .page-home .hero__body {
-    padding-bottom: 0 !important;
-}
 }
 
 @media (max-width: 767.98px) {
@@ -3576,11 +3596,16 @@
   .page-about main>.section-block:not(.aashi-band),
   .page-about main>.section-block.about-intro,
   .page-contact main>.contact-intro.section-block,
-  .page-contact .contact-main.section-block,
-  .page-contact .contact-branches.section-block {
+  .page-contact .contact-main.section-block
+   {
     padding-top: var(--aashi-mobile-section-gap);
     padding-bottom: 0;
   }
+
+   .page-contact .contact-branches.section-block {
+    padding-top: var(--aashi-mobile-section-gap);
+   }
+  
 
   .section-block.products,
   .section-block.collections {

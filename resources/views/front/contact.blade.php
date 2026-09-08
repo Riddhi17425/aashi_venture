@@ -54,14 +54,14 @@
                                 <div class="contact-person-card__email-row">
                                     <div class="footer-col__contact">
                                         <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                                        <a href="mailto:info@aashirainwear.com">
+                                        <a href="mailto:info@aashirainwear.com" target="_blank">
                                             info@aashirainwear.com
                                         </a>
                                     </div>
 
                                     <div class="footer-col__contact">
                                         <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                                        <a href="mailto:pradip@aashiplastic.com">
+                                        <a href="mailto:pradip@aashiplastic.com" target="_blank">
                                             pradip@aashiplastic.com
                                         </a>
                                     </div>
@@ -220,7 +220,7 @@
                             @if($branch->email)
                                 <div class="footer-col__contact mb-0">
                                     <img src="{{ asset('frontend/assets/icons/email-primary.svg') }}" alt="">
-                                    <a href="mailto:{{ $branch->email }}">{{ $branch->email }}</a>
+                                    <a href="mailto:{{ $branch->email }}" target="_blank">{{ $branch->email }}</a>
                                 </div>
                             @endif
                         </article>

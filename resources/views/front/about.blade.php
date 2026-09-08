@@ -166,6 +166,7 @@
 
             <div class="about-timeline__body">
                 <div class="about-timeline__track"
+                    style="--timeline-count: {{ $ourStories->count() }};"
                     role="tablist"
                     aria-label="Company milestones">
 

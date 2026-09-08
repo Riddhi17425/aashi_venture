@@ -4,6 +4,26 @@
 
 @section('title', 'Privacy Policy')
 
+@push('styles')
+<style>
+    /* Disable all reveal and scroll animations on Privacy Policy page only */
+    .page-privacy main,
+    .page-privacy main *,
+    .page-privacy .factory-intro__header,
+    .page-privacy .about__content,
+    .page-privacy .fade-in,
+    .page-privacy .slide-up,
+    .page-privacy .slide-left,
+    .page-privacy .slide-right,
+    .page-privacy .zoom-in {
+        animation: none !important;
+        transition: none !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+</style>
+@endpush
+
 @section('content')
 
 <main>
@@ -213,7 +233,7 @@
                                     <p><b>Aashi Rainwear</b></p>
                                     <p>843/2, Nidhi Industrial Estate, Village Rakanpur (Santej), Closer to Science City, Taluka Kalol, Gujarat – 382721, India</p>
 
-                                    <p><b>Email: </b><a href="mailto:sales@aashirainwear.com"> sales@aashirainwear.com</a></p>
+                                    <p><b>Email: </b><a href="mailto:sales@aashirainwear.com" target="_blank"> sales@aashirainwear.com</a></p>
                                     <p><b>Phone: </b><a href="tel:+919879562106">+91 98795 62106</a></p>
 
                                     <!-- <p>Last Updated: [Insert Date]</p> -->
@@ -226,5 +246,10 @@
 
         </div>
     </section>
+
+    <!-- START - NEWSLETTER -->
+    @include('front.partials.newsletter')
+    <!-- END - NEWSLETTER -->
+
 </main>
 @endsection
