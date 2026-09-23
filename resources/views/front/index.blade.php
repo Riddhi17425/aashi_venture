@@ -40,9 +40,10 @@
                                             </div>
 
                                             @if($banner->category)
-                                                <a href="{{ $banner->cta_url ?? '#' }}" class="aashi-btn aashi-btn--primary">
+                                                <a href="{{ url('/products/' . $banner->category->category_url) }}"
+                                                class="aashi-btn aashi-btn--primary">
                                                     <span>Explore Products</span>
-                                                    <img class="aashi-btn__icon" src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
+                                                    <img src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
                                                 </a>
                                             @endif
                                         </div>
@@ -202,9 +203,17 @@
 
             <div class="row products__grid">
                 @foreach($categories as $category)
+                    @php
+                        $productUrls = [
+                            'rainwear' => 'rainwear',
+                            'winterwear' => 'winter-wear',
+                            'windcheaters' => 'windcheaters',
+                            'bags-packaging-solutions' => 'bags',
+                        ];
+                    @endphp
                     <div class="col-6 col-lg-6" id="product-{{ $category->id }}">
                         <article class="product-card">
-                            <a class="product-card__link" href="#">
+                            <a class="product-card__link" href="{{ url('/products/' . ($productUrls[$category->category_url] ?? $category->category_url)) }}">
                                 <div class="product-card__frame">
                                     <img class="product-card__bg-pattern"
                                         src="{{ asset('frontend/assets/images/card-bg.webp') }}"
@@ -352,12 +361,12 @@
                             Aashi brings together everyday protection, comfort
                             and utility in one dependable range.
                         </p>
-                        <a href="#" class="aashi-btn aashi-btn--outline-muted collections__cta">
+                        <!-- <a href="#" class="aashi-btn aashi-btn--outline-muted collections__cta">
                             Explore Collections
                             <img class="aashi-btn__icon"
                                 src="{{ asset('frontend/assets/icons/arrow-right-gray.svg') }}"
                                 alt="Arrow">
-                        </a>
+                        </a> -->
                     </div>
                 </div>
                 <div class="collections__cards">
