@@ -461,7 +461,7 @@
             @php
                 $companies = [
                 [
-                        'logo' => 'frontend/assets/images/about-eco-aarna.png',
+                        'logo' => 'frontend/assets/images/Aashi_plastic.webp',
                         'logo_alt' => 'Aashi Plastic Pvt. Ltd.',
                         'title' => 'Aashi Plastic Pvt. Ltd.',
                         'active' => true,
@@ -473,7 +473,7 @@
                     ],
 
                     [
-                        'logo' => 'frontend/assets/images/about-eco-sm.png',
+                        'logo' => 'frontend/assets/images/Aashi_rainwear.webp',
                         'logo_alt' => 'New Aashi Rainwear',
                         'title' => 'New Aashi Rainwear',
                         'active' => false,

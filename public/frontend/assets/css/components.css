@@ -2195,7 +2195,7 @@ button.nav-link {
 }
 
 .about-ecosystem__logo-card img {
-  /* max-width: 100%; */
+  max-width: 60%;
   max-height: 7.5rem;
   object-fit: contain;
   pointer-events: none;

@@ -107,6 +107,7 @@
                             <span>Lightweight &amp; Comfortable</span>
                         </div>
                     </div>
+                    @if(count($banners) > 1)
                     <div class="d-flex align-items-center hero__slider-controls" aria-label="Hero slider progress">
                         <span class="hero__slider-btn hero__slider-btn--prev" aria-hidden="true">
                             <img src="{{ asset('frontend/assets/icons/slider-prev.svg') }}" alt="">
@@ -126,6 +127,7 @@
                             <img src="{{ asset('frontend/assets/icons/slider-next.svg') }}" alt="">
                         </span>
                     </div>
+                    @endif
                 </div>
             </div>
         </div>
