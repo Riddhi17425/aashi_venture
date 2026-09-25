@@ -911,7 +911,7 @@ button.nav-link {
   min-height: var(--product-card-footer-h);
   max-height: var(--product-card-footer-h);
   box-sizing: border-box;
-  /* padding: var(--product-card-footer-pad-top) var(--product-card-footer-pad-x) var(--product-card-footer-pad-bottom) var(--product-card-footer-pad-x); */
+  padding: var(--product-card-footer-pad-top) var(--product-card-footer-pad-x) var(--product-card-footer-pad-bottom) var(--product-card-footer-pad-x);
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: 1fr;
@@ -1004,6 +1004,40 @@ button.nav-link {
   width: 2.25rem;
   height: 2.25rem;
   object-fit: contain;
+}
+
+.excellence > .container-aashi > .section-header--spaced {
+  margin-bottom: clamp(2.5rem, 5vw, 2.5rem);
+}
+
+/* keep the vertical dividers inside each item so they never touch the heading */
+@media (min-width: 992px) {
+  .page-home .excellence__grid:not(.excellence__grid--3col) .excellence__item {
+    padding-block: 1.5rem;
+  }
+
+  .page-home .excellence__grid:not(.excellence__grid--3col) .excellence__item::after {
+    top: 1.5rem !important;
+    bottom: 1.5rem;
+    height: auto !important;
+    transform: none !important;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .excellence__grid {
+    gap: 2rem;
+  }
+
+  .excellence__item {
+    gap: 1rem;
+    max-width: 100%;
+    padding-inline: 0.5rem;
+  }
+
+  .excellence > .container-aashi > .section-header--spaced {
+    margin-bottom: 1.75rem;
+  }
 }
 
 .excellence__grid {
@@ -2080,7 +2114,17 @@ button.nav-link {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--aashi-gap-sm);
-  width: 90%;
+  width: 100%;
+  margin-inline: auto;
+  justify-content: center;
+}
+
+.about-ecosystem__tabs {
+  position: relative;
+}
+
+.about-ecosystem__logos {
+  position: relative;
 }
 
 .about-ecosystem__nav {
@@ -2130,7 +2174,7 @@ button.nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 8.25rem;
+  height: 11.25rem;
   /* padding: 1.25rem; */
   border: 1px solid var(--aashi-border);
   border-radius: 0.625rem;
@@ -2306,8 +2350,8 @@ button.nav-link {
   display: grid;
   /* flex-direction: column; */
   /* justify-content: space-between; */
-  gap: 2.5rem;
-  min-height: 100%;
+  gap: 1.5rem;
+  align-content: start;
 }
 
 .about-leadership__quote-row {

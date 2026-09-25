@@ -206,8 +206,13 @@
         }
 
         function scrollTabIntoView(index) {
-            if (tabList && tabs[index]) {
-                tabs[index].scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+            // scroll only the tab strip; scrollIntoView would also shift the page/section sideways
+            if (tabList && tabs[index] && tabList.scrollWidth > tabList.clientWidth) {
+                var tab = tabs[index];
+                tabList.scrollTo({
+                    left: tab.offsetLeft - (tabList.clientWidth - tab.offsetWidth) / 2,
+                    behavior: "smooth"
+                });
             }
         }
 

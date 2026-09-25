@@ -273,7 +273,11 @@
                         $.each(errors, function(field, messages) {
                             const $input = $form.find('[name="' + field + '"]');
                             $input.addClass('is-invalid');
-                            $input.after('<div class="invalid-feedback d-block">' + messages[0] + '</div>');
+                            const $fb = $('<div class="invalid-feedback d-block"></div>').text(messages[0]);
+                            $input.after($fb);
+                            // pull the message up against the input line (cancel the flex row-gap)
+                            const rowGap = parseFloat(getComputedStyle($input.parent()[0]).rowGap) || 0;
+                            $fb.css('margin-top', (-rowGap + 6) + 'px');
                         });
                     } else {
                         $msg.addClass('contact-form__message--error')

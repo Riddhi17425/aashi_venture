@@ -26,11 +26,11 @@
   --product-card-footer-ratio: 133 / 560;
   --product-card-badge-size: 4.125rem;
   --product-card-badge-left: 1.5rem;
-  --product-card-footer-h: 8.3125rem;
+  --product-card-footer-h: 9.5rem;
   --product-card-footer-pad-x: 1.875rem;
   --product-card-footer-pad-bottom: 1.25rem;
 
-  --product-card-footer-pad-top: calc(var(--product-card-badge-size) * 0.5 + var(--aashi-gap-xs));
+  --product-card-footer-pad-top: calc(var(--product-card-badge-size) * 0.5 + 0.75rem);
   --collection-card-w: 19.375rem;
   --collection-card-h: 21.25rem;
   --collection-card-radius: 0.625rem;

@@ -1575,7 +1575,7 @@
   :root {
     --product-card-badge-size: 2.25rem;
     --product-card-badge-left: 0.5rem;
-    --product-card-footer-h: 6.75rem;
+    --product-card-footer-h: 8rem;
     --product-card-footer-pad-x: 0.5rem;
     --product-card-footer-pad-bottom: 0.625rem;
   }
@@ -2695,7 +2695,14 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     gap: 0.75rem;
-    padding-inline: 0.125rem;
+    justify-content: flex-start;
+    /* side padding lets the first/last card sit in the centre of the strip */
+    padding: 0.5rem calc(50% - min(36vw, 5.25rem));
+    padding-bottom: 0.75rem;
+  }
+
+  .about-ecosystem__nav {
+    margin-top: 0.5rem;
   }
 
   .about-ecosystem__logos::-webkit-scrollbar {
