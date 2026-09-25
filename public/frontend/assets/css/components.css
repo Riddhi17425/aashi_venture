@@ -911,7 +911,7 @@ button.nav-link {
   min-height: var(--product-card-footer-h);
   max-height: var(--product-card-footer-h);
   box-sizing: border-box;
-  padding: var(--product-card-footer-pad-top) var(--product-card-footer-pad-x) var(--product-card-footer-pad-bottom) var(--product-card-footer-pad-x);
+  /* padding: var(--product-card-footer-pad-top) var(--product-card-footer-pad-x) var(--product-card-footer-pad-bottom) var(--product-card-footer-pad-x); */
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: 1fr;
@@ -2057,6 +2057,11 @@ button.nav-link {
   object-fit: cover;
 }
 
+.about-ecosystem
+{
+  overflow: hidden !important;
+}
+
 .about-ecosystem__body {
   display: flex;
   flex-direction: column;
@@ -2064,18 +2069,18 @@ button.nav-link {
   width: 100%;
 }
 
-.about-ecosystem__tabs {
+/* .about-ecosystem__tabs {
   display: flex;
   flex-direction: column;
   gap: var(--aashi-gap-sm);
   width: 100%;
-}
+} */
 
 .about-ecosystem__logos {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--aashi-gap-sm);
-  width: 100%;
+  width: 90%;
 }
 
 .about-ecosystem__nav {
@@ -2125,8 +2130,8 @@ button.nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 11.25rem;
-  padding: 1.25rem;
+  height: 8.25rem;
+  /* padding: 1.25rem; */
   border: 1px solid var(--aashi-border);
   border-radius: 0.625rem;
   background: #fff;
@@ -2146,7 +2151,7 @@ button.nav-link {
 }
 
 .about-ecosystem__logo-card img {
-  max-width: 100%;
+  /* max-width: 100%; */
   max-height: 7.5rem;
   object-fit: contain;
   pointer-events: none;
@@ -2267,25 +2272,32 @@ button.nav-link {
   pointer-events: auto;
 }
 
-.about-leadership__media {
+/* .about-leadership__media {
   position: relative;
   width: 100%;
   height: clamp(18.75rem, 42vw, 31.25rem);
+  height: var(--leadership-photo-height, 150.41%);
   border-radius: 0.625rem;
   overflow: hidden;
   background: var(--aashi-light-blue);
-}
+} */
 
-.about-leadership__photo {
+/* .about-leadership__photo {
   position: absolute;
   left: 0;
   width: 100%;
-  height: var(--leadership-photo-height, 154.41%);
+  height: var(--leadership-photo-height, 150.41%);
   top: var(--leadership-photo-top, -5.21%);
   max-width: none;
   object-fit: cover;
   object-position: var(--leadership-photo-position, center top);
   display: block;
+} */
+
+.about-leadership__photo{
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.625rem;
 }
 
 .about-leadership__quote {
@@ -2309,6 +2321,7 @@ button.nav-link {
   width: 2.678rem;
   height: auto;
   margin-top: 0.125rem;
+  transform: rotate(180deg);
 }
 
 .about-leadership__quote-copy {

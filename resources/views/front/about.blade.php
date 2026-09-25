@@ -606,7 +606,7 @@
                         data-leadership-index="{{ $index }}"
                         data-leadership-title="{{ $leader->leader_title }}"
                         aria-hidden="{{ $index === 0 ? 'false' : 'true' }}">
-                        <div class="about-leadership__media">
+                        <div class="about-leadership__media img-fluid">
                             <img class="about-leadership__photo"
                                 src="{{ $leader->leader_image_url }}"
                                 alt="{{ $leader->leader_name }}">

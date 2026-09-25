@@ -1625,7 +1625,8 @@
   }
 
   .product-card .aashi-title--card {
-    font-size: var(--fs-card-title);
+    /* font-size: var(--fs-card-title); */
+    font-size: 18px;
     line-height: 1.15;
   }
 
@@ -2317,7 +2318,7 @@
   }
 
   .about-ecosystem__logos {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .about-leadership__slide {

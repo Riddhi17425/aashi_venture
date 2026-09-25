@@ -99,6 +99,7 @@ html {
 body {
   font-family: var(--aashi-font-body);
   color: var(--aashi-text);
+  overflow-x: hidden !important;
 }
 
 a {
