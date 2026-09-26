@@ -109,23 +109,17 @@
                     </div>
                     @if(count($banners) > 1)
                     <div class="d-flex align-items-center hero__slider-controls" aria-label="Hero slider progress">
-                        <span class="hero__slider-btn hero__slider-btn--prev" aria-hidden="true">
+                        <button type="button" class="hero__slider-btn hero__slider-btn--prev" aria-label="Previous slide">
                             <img src="{{ asset('frontend/assets/icons/slider-prev.svg') }}" alt="">
-                        </span>
+                        </button>
                         <div class="hero__slider-progress d-flex align-items-center">
-                            <span class="hero__slider-current" aria-live="polite">
-                                @forelse($banners as $banner)
-                                    <span style="--hero-slide-index: {{ $loop->index }}; --hero-slide-count: {{ $banners->count() }};">{{ str_pad((string) ($loop->index + 1), 2, '0', STR_PAD_LEFT) }}</span>
-                                @empty
-                                    <span>01</span>
-                                @endforelse
-                            </span>
+                            <span class="hero__slider-current" aria-live="polite">01</span>
                             <span class="hero__slider-line" aria-hidden="true"></span>
                             <span class="hero__slider-total">{{ str_pad((string) max($banners->count(), 1), 2, '0', STR_PAD_LEFT) }}</span>
                         </div>
-                        <span class="hero__slider-btn hero__slider-btn--next" aria-hidden="true">
+                        <button type="button" class="hero__slider-btn hero__slider-btn--next" aria-label="Next slide">
                             <img src="{{ asset('frontend/assets/icons/slider-next.svg') }}" alt="">
-                        </span>
+                        </button>
                     </div>
                     @endif
                 </div>
@@ -280,7 +274,7 @@
                 </article>
                 <article class="excellence__item">
                     <div class="excellence__icon-wrap">
-                        <img src="{{ asset('frontend/assets/icons/scale.svg') }}" alt="">
+                        <img src="{{ asset('frontend/assets/icons/quality-check.svg') }}" alt="">
                     </div>
                     <div class="excellence__item-copy">
                         <h3 class="aashi-title aashi-title--card">Built for Scale</h3>
@@ -291,7 +285,8 @@
                 </article>
                 <article class="excellence__item">
                     <div class="excellence__icon-wrap">
-                        <img src="{{ asset('frontend/assets/icons/quality-check.svg') }}" alt="">
+                        <img src="{{ asset('frontend/assets/icons/scale.svg') }}" alt="">
+                        
                     </div>
                     <div class="excellence__item-copy">
                         <h3 class="aashi-title aashi-title--card">Quality Checked</h3>

@@ -470,13 +470,9 @@ button.nav-link {
 }
 
 .hero-swiper .swiper-slide {
-  position: absolute;
-  inset: 0;
+  position: relative;
   height: 100% !important;
   min-height: 100%;
-  opacity: 0;
-  animation: hero-slide-fade calc(var(--hero-slide-count) * 6s) ease-in-out infinite;
-  animation-delay: calc(var(--hero-slide-index) * 6s);
 }
 
 @keyframes hero-slide-fade {
@@ -746,17 +742,6 @@ button.nav-link {
   min-height: 1.42em;
 }
 
-.hero__slider-current > span {
-  grid-area: 1 / 1;
-  opacity: 0;
-  animation: hero-slide-fade calc(var(--hero-slide-count) * 6s) ease-in-out infinite;
-  animation-delay: calc(var(--hero-slide-index) * 6s);
-}
-
-.hero__slider-current > span:only-child {
-  opacity: 1;
-  animation: none;
-}
 
 .hero__slider-controls {
   gap: var(--aashi-gap-sm) !important; 

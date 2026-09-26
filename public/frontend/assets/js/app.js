@@ -434,7 +434,35 @@
         });
     }
 
+    function initHeroSwiper() {
+        var el = document.querySelector(".hero-swiper");
+        if (!el || typeof Swiper === "undefined") {
+            return;
+        }
+        var total = el.querySelectorAll(".swiper-slide").length;
+        var current = document.querySelector(".hero__slider-current");
+        var update = function (sw) {
+            if (current) {
+                current.textContent = String(sw.realIndex + 1).padStart(2, "0");
+            }
+        };
+        new Swiper(el, {
+            effect: "fade",
+            fadeEffect: { crossFade: true },
+            loop: total > 1,
+            speed: 800,
+            allowTouchMove: total > 1,
+            autoplay: total > 1 ? { delay: 6000, disableOnInteraction: false } : false,
+            navigation: {
+                prevEl: ".hero__slider-btn--prev",
+                nextEl: ".hero__slider-btn--next"
+            },
+            on: { init: update, slideChange: update }
+        });
+    }
+
     function boot() {
+        initHeroSwiper();
         initSmoothScroll();
         initPartnersSwiper();
         initAboutTimeline();
