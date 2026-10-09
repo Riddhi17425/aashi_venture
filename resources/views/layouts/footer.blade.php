@@ -19,7 +19,7 @@
                 </div>
 
                 {{-- Social Media --}}
-                <div class="site-footer__social">
+                <!-- <div class="site-footer__social">
                     <a href="#" aria-label="Facebook" >
                         <img src="{{ asset('frontend/assets/icons/facebook.svg') }}" alt="">
                     </a>
@@ -36,7 +36,7 @@
                         <img src="{{ asset('frontend/assets/icons/youtube.svg') }}" alt="">
                     </a>
                 </div>
-            </div>
+            </div> -->
 
             {{-- Footer Navigation --}}
             <div class="col-12 col-xl-8">
