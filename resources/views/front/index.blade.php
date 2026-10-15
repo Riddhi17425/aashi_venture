@@ -39,13 +39,11 @@
                                                 </p>
                                             </div>
 
-                                            @if($banner->category)
-                                                <a href="{{ url('/products/' . $banner->category->category_url) }}"
-                                                class="aashi-btn aashi-btn--primary">
-                                                    <span>Explore Products</span>
-                                                    <img src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
-                                                </a>
-                                            @endif
+                                            <a href="#products"
+                                            class="aashi-btn aashi-btn--primary">
+                                                <span>Explore Products</span>
+                                                @include('front.partials.arrow-circle', ['variant' => 'invert'])
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
@@ -66,9 +64,9 @@
                                                 <h1 class="aashi-title aashi-title--hero">Protection Designed for Every Season.</h1>
                                                 <p class="aashi-text aashi-text--hero">Built on decades of expertise, Aashi Venture creates dependable products for protection, packaging and everyday use.</p>
                                             </div>
-                                            <a href="#" class="aashi-btn aashi-btn--primary">
+                                            <a href="#products" class="aashi-btn aashi-btn--primary">
                                                 <span>Explore Products</span>
-                                                <img class="aashi-btn__icon" src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}" alt="">
+                                                @include('front.partials.arrow-circle', ['variant' => 'invert'])
                                             </a>
                                         </div>
                                     </div>
@@ -188,7 +186,7 @@
     <!-- END - ABOUT SECTION -->
 
     <!-- START - PRODUCTS SECTION -->
-    <section class="section-block products" aria-labelledby="products-heading">
+    <section class="section-block products" id="products" aria-labelledby="products-heading">
         <div class="container-aashi">
             <header class="section-header section-header--spaced">
                 <p class="aashi-label">Our Product Categories</p>
@@ -231,8 +229,8 @@
                                                 {!! nl2br(e($category->short_note)) !!}
                                             </p>
                                         </div>
-                                        <span class="product-card__arrow" aria-hidden="true">
-                                            <img src="{{ asset('frontend/assets/icons/card-arrow.svg') }}" alt="">
+                                        <span class="product-card__arrow">
+                                            @include('front.partials.arrow-circle')
                                         </span>
                                     </div>
                                 </div>
@@ -358,11 +356,9 @@
                             Aashi brings together everyday protection, comfort
                             and utility in one dependable range.
                         </p>
-                        <a href="#" class="aashi-btn aashi-btn--outline-muted collections__cta">
+                        <a href="#products" class="aashi-btn aashi-btn--outline-muted collections__cta">
                             Explore Collections
-                            <img class="aashi-btn__icon"
-                                src="{{ asset('frontend/assets/icons/arrow-right-gray.svg') }}"
-                                alt="Arrow">
+                            @include('front.partials.arrow-circle')
                         </a>
                     </div>
                 </div>

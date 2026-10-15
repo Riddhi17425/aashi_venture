@@ -170,10 +170,7 @@
 
                             <button class="aashi-btn aashi-btn--primary contact-form__submit mt-auto" type="submit">
                                 Send Message
-                                <img
-                                    class="aashi-btn__icon"
-                                    src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}"
-                                    alt="">
+                                @include('front.partials.arrow-circle', ['variant' => 'invert'])
                             </button>
                         </form>
                     </div>

@@ -39,10 +39,7 @@
             <div class="product-page__cta">
                  <a href="{{ $category->brochure_url }}" class="aashi-btn aashi-btn--primary" target="_blank" rel="noopener">
                     Download Brochure
-                    <img
-                        class="aashi-btn__icon"
-                        src="{{ asset('frontend/assets/icons/arrow-right-white.svg') }}"
-                        alt="">
+                    @include('front.partials.arrow-circle', ['variant' => 'invert'])
                 </a>
             </div>
         @endif

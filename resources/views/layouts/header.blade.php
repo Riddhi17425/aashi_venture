@@ -226,11 +226,7 @@
 
                     Get in Touch
 
-                    <img
-                        class="aashi-btn__icon"
-                        src="{{ asset('frontend/assets/icons/arrow-right-dark.svg') }}"
-                        alt=""
-                    >
+                    @include('front.partials.arrow-circle')
 
                 </a>
 
@@ -403,11 +399,7 @@
 
             Get in Touch
 
-            <img
-                class="aashi-btn__icon"
-                src="{{ asset('frontend/assets/icons/arrow-right-dark.svg') }}"
-                alt=""
-            >
+            @include('front.partials.arrow-circle')
 
         </a>
 

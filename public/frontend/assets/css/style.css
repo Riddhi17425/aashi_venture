@@ -354,10 +354,9 @@ a:hover {
   color: #fff;
 }
 
-.site-header .aashi-btn--outline .aashi-btn__icon {
-  width: 1.5rem;
-  height: 1.5rem;
-  transition: filter var(--aashi-transition-hover);
+.site-header .aashi-btn--outline .arrow-circle {
+  width: 1.875rem;
+  height: 1.875rem;
 }
 
 .aashi-btn--outline-muted {
@@ -396,6 +395,62 @@ a:hover {
 
 .aashi-btn--primary:hover .aashi-btn__icon {
   transform: translateX(5px);
+}
+
+/* Self-built round arrow badge — replaces flat arrow icon files everywhere */
+.arrow-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: clamp(2.25rem, 4vw, 2.75rem);
+  height: clamp(2.25rem, 4vw, 2.75rem);
+  border-radius: 50%;
+  background: var(--aashi-primary-dark);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(0, 75, 151, 0.28);
+  transition:
+    transform var(--aashi-transition-hover),
+    box-shadow var(--aashi-transition-hover),
+    background-color var(--aashi-transition-hover),
+    color var(--aashi-transition-hover);
+}
+
+.arrow-circle svg {
+  width: 45%;
+  height: 45%;
+}
+
+.arrow-circle--invert {
+  background: #fff;
+  color: var(--aashi-primary-dark);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+}
+
+.aashi-btn:hover .arrow-circle,
+.newsletter__submit:hover .arrow-circle,
+.product-card__link:hover .arrow-circle,
+.product-card__link:focus-visible .arrow-circle {
+  transform: translateX(4px);
+}
+
+.aashi-btn--primary .arrow-circle,
+.newsletter__submit .arrow-circle {
+  width: clamp(2rem, 3.5vw, 2.375rem);
+  height: clamp(2rem, 3.5vw, 2.375rem);
+}
+
+.product-card__arrow .arrow-circle {
+  width: clamp(2.75rem, 4vw, 3.5rem);
+  height: clamp(2.75rem, 4vw, 3.5rem);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 575.98px) {
+  .arrow-circle {
+    width: 2rem;
+    height: 2rem;
+  }
 }
 
 /* Custom Override for Hero Layout */
