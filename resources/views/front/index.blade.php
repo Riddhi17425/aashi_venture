@@ -274,7 +274,7 @@
                 </article>
                 <article class="excellence__item">
                     <div class="excellence__icon-wrap">
-                        <img src="{{ asset('frontend/assets/icons/quality-check.svg') }}" alt="">
+                        <img src="{{ asset('frontend/assets/icons/Scale.svg') }}" alt="">
                     </div>
                     <div class="excellence__item-copy">
                         <h3 class="aashi-title aashi-title--card">Built for Scale</h3>
@@ -285,7 +285,7 @@
                 </article>
                 <article class="excellence__item">
                     <div class="excellence__icon-wrap">
-                        <img src="{{ asset('frontend/assets/icons/scale.svg') }}" alt="">
+                        <img src="{{ asset('frontend/assets/icons/quality-check.svg') }}" alt="">
                         
                     </div>
                     <div class="excellence__item-copy">
@@ -358,12 +358,12 @@
                             Aashi brings together everyday protection, comfort
                             and utility in one dependable range.
                         </p>
-                        <!-- <a href="#" class="aashi-btn aashi-btn--outline-muted collections__cta">
+                        <a href="#" class="aashi-btn aashi-btn--outline-muted collections__cta">
                             Explore Collections
                             <img class="aashi-btn__icon"
                                 src="{{ asset('frontend/assets/icons/arrow-right-gray.svg') }}"
                                 alt="Arrow">
-                        </a> -->
+                        </a>
                     </div>
                 </div>
                 <div class="collections__cards">
