@@ -35,7 +35,7 @@
 
                     <button class="newsletter__submit" type="submit">
                         Subscribe
-                        <img src="{{ asset('frontend/assets/icons/arrow-right-blue.svg') }}" alt="">
+                        @include('front.partials.arrow-circle', ['variant' => 'invert'])
                     </button>
                 </form>
                 <div id="newsletterMessage" class="small mt-2" style="display:none;"></div>
