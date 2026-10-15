@@ -35,9 +35,9 @@
             @endforeach
         </div>
 
-        @if($category->brochure_pdf)
+        @if(isset($category->brochure_pdf) && $category->brochure_pdf !== '')
             <div class="product-page__cta">
-                <a href="{{ $category->brochure_url }}" class="aashi-btn aashi-btn--primary" target="_blank" rel="noopener">
+                 <a href="{{ $category->brochure_url }}" class="aashi-btn aashi-btn--primary" target="_blank" rel="noopener">
                     Download Brochure
                     <img
                         class="aashi-btn__icon"

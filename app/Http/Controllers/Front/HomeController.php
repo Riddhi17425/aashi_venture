@@ -180,11 +180,11 @@ class HomeController extends Controller
     public function productDetail($categoryUrl)
     {
         $category = Category::where('category_url', $categoryUrl)
-            ->where('is_active', true)
-            ->firstOrFail();
+        ->where('is_active', true)
+        ->with(['subCategories' => fn ($q) => $q->where('is_active', true)->orderBy('id')])
+        ->firstOrFail();
 
-        return view('front.product-rainwear', compact('category'));
-        // each route points to its own existing blade file, just now passing $category
+    return view('front.product', compact('category'));
     }
 
     

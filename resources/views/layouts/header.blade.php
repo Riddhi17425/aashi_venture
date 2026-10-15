@@ -138,7 +138,7 @@
                             >
 
 
-                            <ul
+                            {{-- <ul
                                 class="nav-dropdown"
                                 id="nav-products-dropdown"
                                 aria-label="Product categories"
@@ -168,6 +168,19 @@
                                     </a>
                                 </li>
 
+                            </ul> --}}
+
+                            <ul
+                                class="nav-dropdown"
+                                id="nav-products-dropdown"
+                                aria-label="Product categories">
+                                @foreach($navCategories as $navCat)
+                                    <li>
+                                        <a href="{{ route('products.show', $navCat->category_url) }}">
+                                            {{ $navCat->title }} Collection
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
 
                         </div>
@@ -332,55 +345,21 @@
                 </div>
 
 
+                
+
                 <ul
                     class="nav-submenu"
-                    id="nav-products-submenu"
-                >
-
-                    <li>
-
-                        <a
-                            class="nav-sublink"
-                            href="{{ route('products.rainwear') }}"
-                        >
-                            Rain Wear Collection
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            class="nav-sublink"
-                            href="{{ route('products.winter') }}"
-                        >
-                            Winter Wear Collection
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            class="nav-sublink"
-                            href="{{ route('products.windcheaters') }}"
-                        >
-                            Windcheaters Collection
-                        </a>
-
-                    </li>
-
-                    <li>
-
-                        <a
-                            class="nav-sublink"
-                            href="{{ route('products.bags') }}"
-                        >
-                            Bags Collection
-                        </a>
-
-                    </li>
-
+                    id="nav-products-submenu">
+                    @foreach($navCategories as $navCat)
+                        <li>
+                            <a
+                                class="nav-sublink"
+                                href="{{ route('products.show', $navCat->category_url) }}"
+                            >
+                                {{ $navCat->title }} Collection
+                            </a>
+                        </li>
+                    @endforeach
                 </ul>
 
             </li>

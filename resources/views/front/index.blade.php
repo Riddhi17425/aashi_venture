@@ -199,17 +199,17 @@
 
             <div class="row products__grid">
                 @foreach($categories as $category)
-                    @php
+                    <!-- @php
                         $productUrls = [
                             'rainwear' => 'rainwear',
                             'winterwear' => 'winter-wear',
                             'windcheaters' => 'windcheaters',
                             'bags-packaging-solutions' => 'bags',
                         ];
-                    @endphp
+                    @endphp -->
                     <div class="col-6 col-lg-6" id="product-{{ $category->id }}">
                         <article class="product-card">
-                            <a class="product-card__link" href="{{ url('/products/' . ($productUrls[$category->category_url] ?? $category->category_url)) }}">
+                               <a class="product-card__link" href="{{ route('products.show', $category->category_url) }}">                                
                                 <div class="product-card__frame">
                                     <img class="product-card__bg-pattern"
                                         src="{{ asset('frontend/assets/images/card-bg.webp') }}"

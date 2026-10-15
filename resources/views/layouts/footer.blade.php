@@ -3,40 +3,27 @@
         <div class="row site-footer__main align-items-start">
 
             {{-- Brand Section --}}
-            <div class="col-12 col-xl-4 site-footer__brand">
-                <a href="{{ route('home') }}" class="site-footer__logo d-inline-block">
-                    <img src="{{ asset('frontend/assets/images/logo-white.png') }}" alt="Aashi Venture Pvt. Ltd.">
-                </a>
+<div class="col-12 col-xl-4 site-footer__brand">
+    <a href="{{ route('home') }}" class="site-footer__logo d-inline-block">
+        <img src="{{ asset('frontend/assets/images/logo-white.png') }}" alt="Aashi Venture Pvt. Ltd.">
+    </a>
 
-                <div class="site-footer__brand-text">
-                    <p class="site-footer__tagline">
-                        बारिश का मज़ा, भीगे बिना ।
-                    </p>
+    <div class="site-footer__brand-text">
+        <p class="site-footer__tagline">बारिश का मज़ा, भीगे बिना ।</p>
+        <p class="site-footer__desc mb-0">
+            Rainwear made for everyday movement and dependable protection.
+        </p>
+    </div>
 
-                    <p class="site-footer__desc mb-0">
-                        Rainwear made for everyday movement and dependable protection.
-                    </p>
-                </div>
-
-                {{-- Social Media --}}
-                <!-- <div class="site-footer__social">
-                    <a href="#" aria-label="Facebook" >
-                        <img src="{{ asset('frontend/assets/icons/facebook.svg') }}" alt="">
-                    </a>
-
-                    <a href="#" aria-label="LinkedIn">
-                        <img src="{{ asset('frontend/assets/icons/linkedin.svg') }}" alt="">
-                    </a>
-
-                    <a href="#" aria-label="Instagram">
-                        <img src="{{ asset('frontend/assets/icons/instagram.svg') }}" alt="">
-                    </a>
-
-                    <a href="#" aria-label="YouTube">
-                        <img src="{{ asset('frontend/assets/icons/youtube.svg') }}" alt="">
-                    </a>
-                </div>
-            </div> -->
+    {{-- Social Media (disabled for now)
+    <div class="site-footer__social">
+        <a href="#" aria-label="Facebook"><img src="{{ asset('frontend/assets/icons/facebook.svg') }}" alt=""></a>
+        <a href="#" aria-label="LinkedIn"><img src="{{ asset('frontend/assets/icons/linkedin.svg') }}" alt=""></a>
+        <a href="#" aria-label="Instagram"><img src="{{ asset('frontend/assets/icons/instagram.svg') }}" alt=""></a>
+        <a href="#" aria-label="YouTube"><img src="{{ asset('frontend/assets/icons/youtube.svg') }}" alt=""></a>
+    </div>
+    --}}
+</div>   {{-- <-- brand column yahan band hona chahiye --}}
 
             {{-- Footer Navigation --}}
             <div class="col-12 col-xl-8">
@@ -61,11 +48,15 @@
                             Products
                         </h3>
 
+                        
                         <ul class="footer-col__list">
-                            <li><a href="{{ route('products.rainwear') }}">Rain Wear Collection</a></li>
-                            <li><a href="{{ route('products.winter') }}">Winter Wear Collection</a></li>
-                            <li><a href="{{ route('products.windcheaters') }}">Windcheaters Collection</a></li>
-                            <li><a href="{{ route('products.bags') }}">Bags Collection</a></li>
+                            @foreach($navCategories as $navCat)
+                                <li>
+                                    <a href="{{ route('products.show', $navCat->category_url) }}">
+                                        {{ $navCat->title }} Collection
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 

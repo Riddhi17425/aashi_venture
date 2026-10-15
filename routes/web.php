@@ -59,12 +59,15 @@ Route::get('/privacy-policy', function () {
 })->name('privacy');
 
 // START - PRODUCT ROUTES
-Route::prefix('products')->name('products.')->group(function () {
-    Route::get('/rainwear', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'rainwear')->name('rainwear');
-    Route::get('/winter-wear', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'winterwear')->name('winter');
-    Route::get('/windcheaters', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'windcheaters')->name('windcheaters');
-    Route::get('/bags', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'bags-packaging-solutions')->name('bags');
-});
+
+Route::get('/products/{categoryUrl}', [HomeController::class, 'productDetail'])->name('products.show');
+
+// Route::prefix('products')->name('products.')->group(function () {
+//     Route::get('/rainwear', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'rainwear')->name('rainwear');
+//     Route::get('/winter-wear', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'winterwear')->name('winter');
+//     Route::get('/windcheaters', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'windcheaters')->name('windcheaters');
+//     Route::get('/bags', [HomeController::class, 'productDetail'])->defaults('categoryUrl', 'bags-packaging-solutions')->name('bags');
+// });
 // END - PRODUCT ROUTES
 
 Route::middleware('guest')->group(function () {
