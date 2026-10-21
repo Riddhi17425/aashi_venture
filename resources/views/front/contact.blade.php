@@ -39,7 +39,7 @@
                                     Anil Trivedi
                                 </p>
                                 <p class="aashi-label contact-person-card__role">
-                                    Director of Operations
+                                    Sales Head
                                 </p>
                             </div>
 
