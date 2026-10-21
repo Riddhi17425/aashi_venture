@@ -36,7 +36,7 @@
                         <article class="contact-person-card">
                             <div class="contact-person-card__header">
                                 <p class="aashi-title aashi-title--card contact-person-card__name">
-                                    Dinesh Joshi
+                                    Anil Trivedi
                                 </p>
                                 <p class="aashi-label contact-person-card__role">
                                     Director of Operations
